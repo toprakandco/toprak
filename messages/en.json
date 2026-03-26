@@ -1,0 +1,612 @@
+{
+  "LocaleLayout": {
+    "title": "Toprak & Co."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "sss": "FAQ",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Creativity begins at the roots.",
+    "quicklinks": "Quick links",
+    "contact": "Contact"
+  },
+  "meta": {
+    "title": "Toprak & Co. | Kreatif Ajans",
+    "description": "Toprak & Co. is a multilingual creative agency focused on brand strategy, storytelling, and digital experience."
+  },
+  "home": {
+    "hero": {
+      "label": "Creative Agency · Kreatif Ajans",
+      "lines": [
+        {
+          "words": [
+            "Where",
+            "creativity"
+          ],
+          "italic": false,
+          "emphasis": false
+        },
+        {
+          "words": [
+            "takes",
+            "root"
+          ],
+          "italic": true,
+          "emphasis": true
+        },
+        {
+          "words": [
+            "Right",
+            "here."
+          ],
+          "italic": false,
+          "emphasis": false
+        }
+      ],
+      "subtext": "Design, voice, content and digital solutions — under one roof.",
+      "ctaServices": "Our services",
+      "ctaPortfolio": "Our portfolio",
+      "scrollHint": "SCROLL"
+    },
+    "marquee": {
+      "row1": [
+        "GRAPHIC DESIGN",
+        "TRANSLATION",
+        "VOICE OVER",
+        "CONTENT CREATION",
+        "PHOTO & VIDEO",
+        "WEB & SOFTWARE"
+      ],
+      "row2": [
+        "GRAPHIC DESIGN",
+        "TRANSLATION",
+        "VOICE OVER",
+        "CONTENT CREATION",
+        "PHOTO & VIDEO",
+        "WEB & SOFTWARE"
+      ],
+      "separator": "✦"
+    },
+    "servicesPreview": {
+      "overline": "WHAT WE DO",
+      "heading": "Six disciplines. One team.",
+      "detailCta": "See details →"
+    },
+    "servicesCards": {
+      "grafik-tasarim": {
+        "title": "Graphic Design",
+        "description": "Social, posters, book covers and beyond"
+      },
+      "ceviri": {
+        "title": "Translation",
+        "description": "Professional TR↔EN↔FR↔DE translation"
+      },
+      "seslendirme": {
+        "title": "Voice Over",
+        "description": "Documentary, ads, audiobooks and corporate"
+      },
+      "icerik-uretimi": {
+        "title": "Content Creation",
+        "description": "Social management and original storytelling"
+      },
+      "fotograf-video": {
+        "title": "Photo & Video",
+        "description": "Professional shoot and edit"
+      },
+      "web-yazilim": {
+        "title": "Web & Software",
+        "description": "Modern, fast websites with Next.js"
+      }
+    },
+    "serviceMorph": {
+      "overline": "WHAT DO WE DO?",
+      "prefix": "We",
+      "suffix": "create.",
+      "items": [
+        {
+          "label": "Design",
+          "description": "Social media, posters, book covers, and brand identity",
+          "slug": "grafik-tasarim"
+        },
+        {
+          "label": "Translation",
+          "description": "Professional TR ↔ EN ↔ FR ↔ DE translation",
+          "slug": "ceviri"
+        },
+        {
+          "label": "Voice",
+          "description": "Documentary, ad, publishing, and corporate narration",
+          "slug": "seslendirme"
+        },
+        {
+          "label": "Content",
+          "description": "Social media management and original content production",
+          "slug": "icerik-uretimi"
+        },
+        {
+          "label": "Video",
+          "description": "Professional shooting, editing, and color grading",
+          "slug": "fotograf-video"
+        },
+        {
+          "label": "Web",
+          "description": "Modern, fast, elegant websites with Next.js",
+          "slug": "web-yazilim"
+        }
+      ]
+    },
+    "manifesto": {
+      "lines": [
+        "Two people.",
+        "One passion.",
+        "Limitless creativity."
+      ],
+      "body": "Toprak & Co. walks with you from idea to launch. We respect nature and human stories in every project, crafting outcomes that feel as good as they perform.\n\nAs a small, focused studio, we bring design, voice, translation and digital product craft to the same table.",
+      "cta": "Meet Us →"
+    },
+    "stats": {
+      "title": "By The Numbers",
+      "labels": {
+        "web": "Published websites",
+        "books": "Published translation books",
+        "social": "Social media accounts managed",
+        "projects": "Completed projects"
+      }
+    },
+    "process": {
+      "overline": "PROCESS",
+      "heading": "How We Work",
+      "steps": [
+        {
+          "title": "Contact",
+          "desc": "We align on your goals, audience, and constraints."
+        },
+        {
+          "title": "Proposal",
+          "desc": "We share a clear scope, timeline, and budget."
+        },
+        {
+          "title": "Production",
+          "desc": "We execute design, content, and development with care."
+        },
+        {
+          "title": "Delivery",
+          "desc": "We launch with revisions and handover support."
+        }
+      ]
+    },
+    "portfolioPreview": {
+      "overline": "PORTFOLIO",
+      "title": "Selected work",
+      "seeAll": "All projects →",
+      "viewProject": "View",
+      "categoryFallback": "Project"
+    },
+    "clients": {
+      "title": "Who We've Worked With",
+      "items": [
+        "Orman Agency",
+        "Kök Media",
+        "Terra Brand",
+        "Nebbia Film",
+        "Atlas Publishing",
+        "Çınar Digital"
+      ]
+    },
+    "ctaBanner": {
+      "title": "Let's bring your project to life.",
+      "subtitle": "Tell us what you need in a short call — we'll propose a tailored roadmap.",
+      "button": "Get in Touch"
+    },
+    "ctaFinal": {
+      "titleLine1": "Let's bring your",
+      "titleLine2": "project to life.",
+      "button": "Get in Touch"
+    },
+    "blogSection": {
+      "overline": "BLOG",
+      "title": "Latest posts",
+      "readMore": "Read more →",
+      "tagFallback": "Studio notes",
+      "placeholder1": {
+        "title": "Why calm creative process wins",
+        "excerpt": "Teams that don’t rush often ship more coherent, memorable work.",
+        "date": "Jan 12, 2025"
+      },
+      "placeholder2": {
+        "title": "Voice tone: your brand’s quiet signature",
+        "excerpt": "From copy to VO, you can keep one personality across every touchpoint.",
+        "date": "Jan 3, 2025"
+      },
+      "placeholder3": {
+        "title": "Multilingual sites with Next.js",
+        "excerpt": "Practical notes on performance, SEO and maintainability.",
+        "date": "Dec 18, 2024"
+      }
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us | Toprak & Co.",
+      "description": "Meet the team behind Toprak & Co. — two founders bringing care and craft to design, translation, voice, and web."
+    },
+    "pageTitle": "About Us",
+    "pageSubtitle": "Two people, one passion, limitless creativity.",
+    "story": {
+      "pullQuote": "Creativity begins at the roots.",
+      "body": "Toprak & Co. is the shared dream of two creative people who united their expertise across different fields. From design to translation, voice over to web development, we approach every project with care and a personal touch."
+    },
+    "team": {
+      "title": "Our Team",
+      "member1": {
+        "name": "[Name — to be filled]",
+        "role": "Co-founder — Design, Translation, Voice Over, Content",
+        "bio": "Short bio text goes here. Two or three sentences as a placeholder.",
+        "skills": [
+          "Graphic Design",
+          "Translation",
+          "Voice Over",
+          "Social Media",
+          "Photo & Video",
+          "Web & Software"
+        ]
+      },
+      "member2": {
+        "name": "[Name — to be filled]",
+        "role": "Co-founder — [Shared roles here]",
+        "bio": "Short bio text goes here.",
+        "skills": [
+          "Placeholder",
+          "Skill",
+          "Tags"
+        ]
+      }
+    },
+    "values": {
+      "title": "Our Values",
+      "items": {
+        "a": {
+          "title": "Rooted Quality",
+          "desc": "We approach every project with care, every client with respect."
+        },
+        "b": {
+          "title": "Creative Partnership",
+          "desc": "We see our clients as partners and grow together."
+        },
+        "c": {
+          "title": "Continuous Growth",
+          "desc": "Every project takes us one step further forward."
+        }
+      }
+    },
+    "stats": {
+      "title": "By The Numbers",
+      "labels": {
+        "web": "Published websites",
+        "books": "Published translation books",
+        "social": "Social media accounts managed",
+        "projects": "Completed projects"
+      }
+    },
+    "industries": {
+      "title": "Industries We Serve",
+      "list": [
+        "Tourism",
+        "Publishing & Bookstore",
+        "Cosmetics",
+        "E-commerce",
+        "Education",
+        "NGO & Civil Society",
+        "Technology",
+        "Health",
+        "Gastronomy",
+        "Fashion & Textile"
+      ]
+    },
+    "ctaBanner": {
+      "title": "Let's create something together.",
+      "subtitle": "",
+      "button": "Get in touch"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Our Services | Toprak & Co.",
+      "description": "From design to voice, content to code — Toprak & Co. offers graphic design, translation, voice over, content, photo & video, and web development."
+    },
+    "pageTitle": "Our Services",
+    "pageSubtitle": "From design to voice, content to code — we're here for every need.",
+    "ctaDetails": "See details →",
+    "emptyHint": "The live list syncs with Supabase; if no data is available, the summaries below are shown.",
+    "detail": {
+      "breadcrumbHome": "Home",
+      "ctaQuote": "Request a quote →",
+      "processTitle": "How We Work?",
+      "processSteps": {
+        "1": {
+          "title": "Contact",
+          "desc": "Tell us about your project"
+        },
+        "2": {
+          "title": "Proposal",
+          "desc": "Tailored timeline and pricing"
+        },
+        "3": {
+          "title": "Production",
+          "desc": "A meticulous creative process"
+        },
+        "4": {
+          "title": "Delivery",
+          "desc": "Including revision rounds"
+        }
+      },
+      "portfolioTitle": "Our Work in This Area",
+      "portfolioSeeAll": "See all →",
+      "portfolioEmpty": "No published work in this area yet; coming soon.",
+      "breadcrumbServices": "Services"
+    },
+    "slugs": {
+      "grafik-tasarim": {
+        "title": "Graphic Design",
+        "description": "Social posts, banners, book covers, magazine layouts and corporate identity work. We produce tailored, eye-catching visual content for every platform.",
+        "tags": [
+          "Social media",
+          "Poster",
+          "Book cover",
+          "Brand identity",
+          "Magazine"
+        ]
+      },
+      "ceviri": {
+        "title": "Translation",
+        "description": "Professional translation between Turkish, English, French and German. With three published book translations and dozens of academic articles, we deliver precise, fluent copy.",
+        "tags": [
+          "TR↔EN",
+          "TR↔FR",
+          "TR↔DE",
+          "Books",
+          "Articles",
+          "Academic"
+        ]
+      },
+      "seslendirme": {
+        "title": "Voice Over",
+        "description": "Professional voice over for documentary, advertising, e-learning, audiobooks and corporate projects. Studio-grade recording and direction for polished audio production.",
+        "tags": [
+          "Documentary",
+          "Advertising",
+          "Audiobook",
+          "E-learning",
+          "Corporate"
+        ]
+      },
+      "icerik-uretimi": {
+        "title": "Content & Social Media",
+        "description": "We find your brand voice. Strategy, planning, creative production and publishing — proven social media management across tourism, book retail and beauty.",
+        "tags": [
+          "Instagram",
+          "Content strategy",
+          "Social management",
+          "Reels"
+        ]
+      },
+      "fotograf-video": {
+        "title": "Photo & Video",
+        "description": "From product photography to corporate video, short film to social content. Professional shooting, editing and colour grading.",
+        "tags": [
+          "Product photo",
+          "Corporate video",
+          "Reels",
+          "Editing",
+          "Colour grading"
+        ]
+      },
+      "web-yazilim": {
+        "title": "Web & Software",
+        "description": "Fast, elegant, scalable sites with Next.js, Supabase and modern stacks. End-to-end build and maintenance with five live references.",
+        "tags": [
+          "Next.js",
+          "Website",
+          "E-commerce",
+          "Maintenance & updates"
+        ]
+      }
+    },
+    "overline": "OUR SERVICES",
+    "headingLine1": "From design to voice,",
+    "headingLine2": "content to code.",
+    "subtitle": "We deliver end-to-end creative services that balance aesthetics, strategy, and function for modern brands.",
+    "bottomCta": {
+      "title": "Get a quote for your project.",
+      "subtitle": "info@toprakco.tr · Free intro call",
+      "button": "Contact Us"
+    }
+  },
+  "portfolio": {
+    "meta": {
+      "title": "Portfolio | Toprak & Co.",
+      "description": "Toprak & Co. portfolio: selected work across graphic design, translation, voice over, content, photo, video and web."
+    },
+    "pageTitle": "Portfolio",
+    "pageSubtitle": "The work we do, the stories we tell.",
+    "filters": {
+      "all": "All",
+      "aria": "Portfolio categories",
+      "uncategorized": "General",
+      "categories": {
+        "grafik-tasarim": "Graphic Design",
+        "ceviri": "Translation",
+        "seslendirme": "Voice Over",
+        "icerik-uretimi": "Content",
+        "fotograf-video": "Photo & Video",
+        "web-yazilim": "Web & Software"
+      }
+    },
+    "card": {
+      "cta": "View →"
+    },
+    "filterEmpty": "No projects in this category yet.",
+    "emptyState": {
+      "title": "Great work coming here soon."
+    },
+    "detail": {
+      "breadcrumbHome": "Home",
+      "breadcrumbPortfolio": "Portfolio",
+      "categoryLabel": "Category",
+      "serviceLabel": "Service",
+      "tagsLabel": "Tags",
+      "relatedTitle": "Related Work",
+      "descriptionHeading": "Project"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog | Toprak & Co.",
+      "description": "Notes on creativity, design and the digital world from Toprak & Co."
+    },
+    "pageTitle": "Blog",
+    "pageSubtitle": "Notes on creativity, design and the digital world.",
+    "hero": {
+      "readMore": "Continue reading →"
+    },
+    "card": {
+      "readShort": "Read →"
+    },
+    "emptyState": "No posts yet, coming soon.",
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "aria": "Pagination",
+      "page": "{current} / {total}"
+    },
+    "detail": {
+      "breadcrumbHome": "Home",
+      "breadcrumbBlog": "Blog",
+      "readMinutes": "{count} min read",
+      "relatedTitle": "Related Posts",
+      "shareLabel": "Share this post:",
+      "copyLink": "Copy link",
+      "copied": "Copied",
+      "authorBlurb": "Written by the Toprak & Co. team.",
+      "authorCta": "Work with us →"
+    }
+  },
+  "sss": {
+    "meta": {
+      "title": "FAQ | Toprak & Co.",
+      "description": "Frequently asked questions about Toprak & Co. services, timelines, and delivery."
+    },
+    "pageTitle": "Frequently Asked Questions",
+    "intro": "Quick answers to common questions. If you need something specific, reach out via the contact form.",
+    "items": [
+      {
+        "q": "What services do you offer?",
+        "a": "We cover graphic design, translation, voice over, content, photo & video, and web development — often combined when a project needs more than one craft."
+      },
+      {
+        "q": "How long does a project take?",
+        "a": "It depends on scope. A small social pack may take days; a multilingual site or a book-related project can take weeks. We share a clear timeline in the proposal."
+      },
+      {
+        "q": "How does pricing work?",
+        "a": "We quote per project based on scope, languages, revision rounds, and deliverables — transparent and agreed before production starts."
+      },
+      {
+        "q": "Do you include revision rounds?",
+        "a": "Yes. Revision allowances are defined per service in the agreement. Extra rounds can be added if needed."
+      },
+      {
+        "q": "Do you work remotely?",
+        "a": "Yes. We collaborate with clients locally and internationally with async workflows and scheduled calls when useful."
+      },
+      {
+        "q": "Which file formats do you accept for translation or VO?",
+        "a": "Common formats include Word/PDF, InDesign packages, subtitles (SRT/VTT), and broadcast-ready audio (WAV/AIFF). We confirm deliverables at kickoff."
+      },
+      {
+        "q": "Do you offer website maintenance?",
+        "a": "Yes — updates, small improvements, content entry, and performance checks are available as monthly retainers or task bundles."
+      },
+      {
+        "q": "Who owns the rights to the deliverables?",
+        "a": "After payment, usage rights transfer as defined in the contract. Stock assets and third-party licenses are listed separately."
+      },
+      {
+        "q": "Do you take rush jobs?",
+        "a": "Sometimes, if the schedule allows. Rush work may include an express fee — share your deadline and deliverables clearly."
+      },
+      {
+        "q": "What should I send to get started?",
+        "a": "A short brief or email describing goals, audience, languages, and deadlines is enough. We follow up with a few clarifying questions and next steps."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's have a coffee about your project.",
+    "meta": {
+      "title": "Get in Touch | Toprak & Co.",
+      "description": "Contact Toprak & Co. for your next project. Let's quickly discuss process, pricing and the best collaboration model."
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "subjectPlaceholder": "Select a subject",
+      "message": "Message",
+      "submit": "Send",
+      "sending": "Sending...",
+      "success": "Your message has been sent! We'll get back to you shortly.",
+      "error": "Something went wrong, please try again.",
+      "subjects": {
+        "grafik-tasarim": "Graphic Design",
+        "ceviri": "Translation",
+        "seslendirme": "Voice Over",
+        "icerik-uretimi": "Content & Social Media",
+        "fotograf-video": "Photo & Video",
+        "web-yazilim": "Web & Software",
+        "other": "Other"
+      }
+    },
+    "info": {
+      "emailLabel": "Email",
+      "instagramLabel": "Instagram",
+      "youtubeLabel": "YouTube"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "process": {
+          "q": "How does the project process work?",
+          "a": "We begin with a discovery call, define goals, then share a clear roadmap. After approval, we produce and keep you updated at every milestone."
+        },
+        "pricing": {
+          "q": "How does pricing work?",
+          "a": "Pricing depends on scope, timeline and deliverables. We offer both package-based and project-based options based on your needs."
+        },
+        "remote": {
+          "q": "Do you work remotely?",
+          "a": "Yes. We collaborate fully remotely with teams in Turkey and abroad through planned check-ins and clear delivery timelines."
+        },
+        "team": {
+          "q": "How big is your team?",
+          "a": "We're a two-person core studio, expanded with trusted specialists depending on each project's needs."
+        }
+      }
+    }
+  },
+  "common": {
+    "backToList": "Back to list"
+  }
+}

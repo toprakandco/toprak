@@ -1,0 +1,608 @@
+{
+  "LocaleLayout": {
+    "title": "Toprak & Co."
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "portfolio": "Portföy",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "sss": "SSS",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "language": "Dil"
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır.",
+    "tagline": "Yaratıcılık köklerde başlar.",
+    "quicklinks": "Hızlı bağlantılar",
+    "contact": "İletişim"
+  },
+  "meta": {
+    "title": "Toprak & Co. | Kreatif Ajans",
+    "description": "Toprak & Co., marka stratejisi, yaratıcı içerik ve dijital deneyim odaklı çok dilli kreatif ajans."
+  },
+  "home": {
+    "hero": {
+      "label": "Kreatif Ajans · Creative Agency",
+      "lines": [
+        {
+          "words": [
+            "Yaratıcılığın"
+          ],
+          "italic": false,
+          "emphasis": false
+        },
+        {
+          "words": [
+            "kökleri"
+          ],
+          "italic": true,
+          "emphasis": true
+        },
+        {
+          "words": [
+            "burada."
+          ],
+          "italic": false,
+          "emphasis": false
+        }
+      ],
+      "subtext": "Tasarım, ses, içerik ve dijital çözümler — tek çatı altında.",
+      "ctaServices": "Hizmetlerimiz",
+      "ctaPortfolio": "Portfolyomuz",
+      "scrollHint": "KAYDIRIN"
+    },
+    "marquee": {
+      "row1": [
+        "GRAFIK TASARIM",
+        "ÇEVİRİ",
+        "SESLENDİRME",
+        "İÇERİK ÜRETİMİ",
+        "FOTOĞRAF & VİDEO",
+        "WEB & YAZILIM"
+      ],
+      "row2": [
+        "GRAFIK TASARIM",
+        "ÇEVİRİ",
+        "SESLENDİRME",
+        "İÇERİK ÜRETİMİ",
+        "FOTOĞRAF & VİDEO",
+        "WEB & YAZILIM"
+      ],
+      "separator": "✦"
+    },
+    "servicesPreview": {
+      "overline": "NE YAPIYORUZ",
+      "heading": "Altı alanda, bir ekip.",
+      "detailCta": "Detayları Gör →"
+    },
+    "servicesCards": {
+      "grafik-tasarim": {
+        "title": "Grafik Tasarım",
+        "description": "Sosyal medya, afiş, kitap kapağı ve daha fazlası"
+      },
+      "ceviri": {
+        "title": "Çeviri",
+        "description": "TR↔EN↔FR↔DE profesyonel çeviri"
+      },
+      "seslendirme": {
+        "title": "Seslendirme",
+        "description": "Belgesel, reklam, kitap ve kurumsal projeler"
+      },
+      "icerik-uretimi": {
+        "title": "İçerik Üretimi",
+        "description": "Sosyal medya yönetimi ve özgün içerik"
+      },
+      "fotograf-video": {
+        "title": "Fotoğraf & Video",
+        "description": "Profesyonel çekim ve kurgu"
+      },
+      "web-yazilim": {
+        "title": "Web & Yazılım",
+        "description": "Next.js ile modern, hızlı web siteleri"
+      }
+    },
+    "serviceMorph": {
+      "overline": "NE YAPIYORUZ?",
+      "prefix": "Biz",
+      "suffix": "yapıyoruz.",
+      "items": [
+        {
+          "label": "Tasarım",
+          "description": "Sosyal medya, afiş, kitap kapağı ve kurumsal kimlik",
+          "slug": "grafik-tasarim"
+        },
+        {
+          "label": "Çeviri",
+          "description": "TR ↔ EN ↔ FR ↔ DE profesyonel çeviri",
+          "slug": "ceviri"
+        },
+        {
+          "label": "Seslendirme",
+          "description": "Belgesel, reklam, kitap ve kurumsal projeler",
+          "slug": "seslendirme"
+        },
+        {
+          "label": "İçerik üretimi",
+          "description": "Sosyal medya yönetimi ve özgün içerik üretimi",
+          "slug": "icerik-uretimi"
+        },
+        {
+          "label": "Video",
+          "description": "Profesyonel çekim, kurgu ve renk düzeltme",
+          "slug": "fotograf-video"
+        },
+        {
+          "label": "Web Sitesi",
+          "description": "Modern, şık ve hızlı web siteleri",
+          "slug": "web-yazilim"
+        }
+      ]
+    },
+    "manifesto": {
+      "lines": [
+        "Bir tutku.",
+        "Sınırsız yaratıcılık."
+      ],
+      "body": "Toprak & Co., fikirden yayına uzanan yolculukta yanınızda. Her projede doğaya ve insan hikâyesine saygı duyarak, ölçülebilir ve hissedilir sonuçlar üretiriz.\n\nKüçük ama odaklı bir stüdyo olarak; tasarım, ses, çeviri ve dijital ürünleri aynı masa etrafında birleştiriyoruz.",
+      "cta": "Bizi Tanıyın →"
+    },
+    "stats": {
+      "title": "Rakamlarla Biz",
+      "labels": {
+        "web": "Yayımlanmış web sitesi",
+        "books": "Yayımlanmış çeviri kitabı",
+        "social": "Sosyal medya hesabı yönetimi",
+        "projects": "Tamamlanan proje"
+      }
+    },
+    "process": {
+      "overline": "SÜREÇ",
+      "heading": "Nasıl Çalışıyoruz?",
+      "steps": [
+        {
+          "title": "İletişim",
+          "desc": "Projenizi ve hedeflerinizi birlikte netleştiriyoruz."
+        },
+        {
+          "title": "Teklif",
+          "desc": "Kapsam, süre ve bütçe için şeffaf bir öneri sunuyoruz."
+        },
+        {
+          "title": "Üretim",
+          "desc": "Titiz bir süreçle tasarım, içerik ve geliştirmeyi yürütüyoruz."
+        },
+        {
+          "title": "Teslimat",
+          "desc": "Revizyon hakkıyla birlikte yayına alıyoruz."
+        }
+      ]
+    },
+    "portfolioPreview": {
+      "overline": "PORTFÖY",
+      "title": "Seçili işler",
+      "seeAll": "Tüm Çalışmalar →",
+      "viewProject": "İncele",
+      "categoryFallback": "Proje"
+    },
+    "clients": {
+      "title": "Birlikte Çalıştıklarımız",
+      "items": [
+        "Orman Ajans",
+        "Kök Medya",
+        "Terra Marka",
+        "Nebbia Film",
+        "Atlas Yayın",
+        "Çınar Dijital"
+      ]
+    },
+    "ctaBanner": {
+      "title": "Projenizi hayata geçirelim.",
+      "subtitle": "Kısa bir görüşmede ihtiyaçlarınızı dinleyelim; size özel bir yol haritası önerelim.",
+      "button": "İletişime Geçin"
+    },
+    "ctaFinal": {
+      "titleLine1": "Projenizi hayata",
+      "titleLine2": "geçirelim.",
+      "button": "İletişime Geçin"
+    },
+    "blogSection": {
+      "overline": "BLOG",
+      "title": "Son Yazılar",
+      "readMore": "Devam et →",
+      "tagFallback": "Ajans notları",
+      "placeholder1": {
+        "title": "Yaratıcı süreçte sakinlik neden kazandırır?",
+        "excerpt": "Acele etmeyen ekiplerin daha tutarlı ve güçlü iş çıkardığını fark ettik.",
+        "date": "12 Ocak 2025"
+      },
+      "placeholder2": {
+        "title": "Ses tonu: markanızın duyulmayan imzası",
+        "excerpt": "Metinden seslendirmeye, her temasta aynı kişiliği korumak mümkün.",
+        "date": "3 Ocak 2025"
+      },
+      "placeholder3": {
+        "title": "Next.js ile çok dilli siteler",
+        "excerpt": "Performans ve SEO’yu bir arada tutmanın pratik notları.",
+        "date": "18 Aralık 2024"
+      }
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Hakkımızda | Toprak & Co.",
+      "description": "Toprak & Co. ekibi, tasarımdan çeviriye ve web geliştirmeye kadar her projeye özenle yaklaşan iki kurucunun hikâyesi."
+    },
+    "pageTitle": "Hakkımızda",
+    "pageSubtitle": "İki kişi, bir tutku, sınırsız yaratıcılık.",
+    "story": {
+      "pullQuote": "Yaratıcılık köklerde başlar.",
+      "body": "Toprak & Co., farklı alanlardaki uzmanlıklarını birleştiren iki yaratıcı insanın ortak hayalidir. Tasarımdan çeviriye, seslendirmeden web geliştirmeye kadar uzanan geniş bir yelpazede, her projeye özenle ve kişisel bir dokunuşla yaklaşıyoruz."
+    },
+    "team": {
+      "title": "Ekibimiz",
+      "member1": {
+        "name": "[İsim — düzenlenecek]",
+        "role": "Kurucu — Tasarım, Çeviri, Seslendirme, İçerik",
+        "bio": "Kısa biyografi metni buraya gelecek; iki veya üç cümlelik örnek.",
+        "skills": [
+          "Grafik Tasarım",
+          "Çeviri",
+          "Seslendirme",
+          "Sosyal Medya",
+          "Fotoğraf & Video",
+          "Web & Yazılım"
+        ]
+      },
+      "member2": {
+        "name": "[İsim — düzenlenecek]",
+        "role": "Kurucu — [Ortak rolleri buraya]",
+        "bio": "Kısa biyografi metni buraya gelecek.",
+        "skills": [
+          "Örnek",
+          "Etiketler",
+          "Buraya"
+        ]
+      }
+    },
+    "values": {
+      "title": "Değerlerimiz",
+      "items": {
+        "a": {
+          "title": "Köklü Kalite",
+          "desc": "Her işe özenle, her müşteriye saygıyla yaklaşıyoruz."
+        },
+        "b": {
+          "title": "Yaratıcı Ortaklık",
+          "desc": "Müşterilerimizi ortak olarak görüyor, birlikte büyüyoruz."
+        },
+        "c": {
+          "title": "Sürekli Gelişim",
+          "desc": "Her proje bizi bir adım daha ileriye taşır."
+        }
+      }
+    },
+    "stats": {
+      "title": "Rakamlarla Biz",
+      "labels": {
+        "web": "Yayımlanmış web sitesi",
+        "books": "Yayımlanmış çeviri kitabı",
+        "social": "Sosyal medya hesabı yönetimi",
+        "projects": "Tamamlanan proje"
+      }
+    },
+    "industries": {
+      "title": "Çalıştığımız Sektörler",
+      "list": [
+        "Turizm",
+        "Yayıncılık & Kitabevi",
+        "Kozmetik",
+        "E-ticaret",
+        "Eğitim",
+        "NGO & Sivil Toplum",
+        "Teknoloji",
+        "Sağlık",
+        "Gastronomi",
+        "Moda & Tekstil"
+      ]
+    },
+    "ctaBanner": {
+      "title": "Birlikte bir şeyler yaratalım.",
+      "subtitle": "",
+      "button": "İletişime Geçin"
+    }
+  },
+  "services": {
+    "meta": {
+      "title": "Hizmetlerimiz | Toprak & Co.",
+      "description": "Tasarımdan sese, içerikten koda — Toprak & Co. hizmetleri: grafik tasarım, çeviri, seslendirme, içerik, fotoğraf & video, web ve yazılım."
+    },
+    "pageTitle": "Hizmetlerimiz",
+    "pageSubtitle": "Tasarımdan sese, içerikten koda — her ihtiyacınız için buradayız.",
+    "ctaDetails": "Detayları Gör →",
+    "emptyHint": "Canlı liste Supabase ile senkronize edilir; veri yoksa aşağıdaki özet metinler gösterilir.",
+    "detail": {
+      "breadcrumbHome": "Ana Sayfa",
+      "ctaQuote": "Teklif Alın →",
+      "processTitle": "Nasıl Çalışıyoruz?",
+      "processSteps": {
+        "1": {
+          "title": "İletişim",
+          "desc": "Projenizi anlatın"
+        },
+        "2": {
+          "title": "Teklif",
+          "desc": "Size özel fiyat ve süre"
+        },
+        "3": {
+          "title": "Üretim",
+          "desc": "Titiz çalışma süreci"
+        },
+        "4": {
+          "title": "Teslimat",
+          "desc": "Revizyon hakkıyla birlikte"
+        }
+      },
+      "portfolioTitle": "Bu Alandaki Çalışmalarımız",
+      "portfolioSeeAll": "Tümünü Gör →",
+      "portfolioEmpty": "Bu alanda henüz yayınlanmış çalışma yok; çok yakında eklenecek.",
+      "breadcrumbServices": "Hizmetler"
+    },
+    "slugs": {
+      "grafik-tasarim": {
+        "title": "Grafik Tasarım",
+        "description": "Sosyal medya gönderileri, pankartlar, kitap kapakları, dergi tasarımı ve kurumsal kimlik çalışmaları. Her platform için özel, dikkat çekici görsel içerikler üretiyoruz.",
+        "tags": [
+          "Sosyal Medya",
+          "Afiş",
+          "Kitap Kapağı",
+          "Kurumsal Kimlik",
+          "Dergi"
+        ]
+      },
+      "ceviri": {
+        "title": "Çeviri",
+        "description": "Türkçe, İngilizce, Fransızca ve Almanca arasında profesyonel çeviri. 3 yayımlanmış çeviri kitabı ve onlarca akademik makale deneyimiyle hassas, akıcı çeviriler sunuyoruz.",
+        "tags": [
+          "TR↔EN",
+          "TR↔FR",
+          "TR↔DE",
+          "Kitap",
+          "Makale",
+          "Akademik"
+        ]
+      },
+      "seslendirme": {
+        "title": "Seslendirme",
+        "description": "Belgesel, reklam, e-learning, kitap ve kurumsal projeler için profesyonel seslendirme. Stüdyo kalitesinde kayıt ve yönetmenlik deneyimiyle kusursuz ses prodüksiyonu.",
+        "tags": [
+          "Belgesel",
+          "Reklam",
+          "Kitap",
+          "E-learning",
+          "Kurumsal"
+        ]
+      },
+      "icerik-uretimi": {
+        "title": "İçerik Üretimi & Sosyal Medya",
+        "description": "Markanızın sesini buluyoruz. Strateji, planlama, görsel üretim ve yayınlama — turizm, kitabevi ve kozmetik sektörlerinde kanıtlanmış sosyal medya yönetimi deneyimi.",
+        "tags": [
+          "Instagram",
+          "İçerik Stratejisi",
+          "Sosyal Medya Yönetimi",
+          "Reels"
+        ]
+      },
+      "fotograf-video": {
+        "title": "Fotoğraf & Video",
+        "description": "Ürün fotoğrafçılığından kurumsal video prodüksiyona, kısa filmden sosyal medya içeriklerine. Profesyonel çekim, kurgu ve renk düzeltme hizmetleri sunuyoruz.",
+        "tags": [
+          "Ürün Fotoğrafı",
+          "Kurumsal Video",
+          "Reels",
+          "Kurgu",
+          "Renk Düzeltme"
+        ]
+      },
+      "web-yazilim": {
+        "title": "Web & Yazılım",
+        "description": "Next.js, Supabase ve modern teknolojilerle hızlı, şık ve ölçeklenebilir web siteleri. 5 canlı site referansıyla baştan sona geliştirme ve bakım hizmetleri.",
+        "tags": [
+          "Next.js",
+          "Web Sitesi",
+          "E-ticaret",
+          "Bakım & Güncelleme"
+        ]
+      }
+    },
+    "overline": "HİZMETLERİMİZ",
+    "headingLine1": "Tasarımdan sese,",
+    "headingLine2": "içerikten koda.",
+    "subtitle": "Markanızı doğru tonda anlatan, estetik ve işlevi birleştiren uçtan uca yaratıcı hizmetler sunuyoruz.",
+    "bottomCta": {
+      "title": "Projeniz için teklif alın.",
+      "subtitle": "info@toprakco.tr · Ücretsiz ön görüşme",
+      "button": "İletişime Geçin"
+    }
+  },
+  "portfolio": {
+    "meta": {
+      "title": "Portfolyo | Toprak & Co.",
+      "description": "Toprak & Co. portföyü: grafik tasarım, çeviri, seslendirme, içerik, fotoğraf, video ve web projelerinden seçkiler."
+    },
+    "pageTitle": "Portfolyo",
+    "pageSubtitle": "Yaptığımız işler, anlattığımız hikayeler.",
+    "filters": {
+      "all": "Tümü",
+      "aria": "Portföy kategorileri",
+      "uncategorized": "Genel",
+      "categories": {
+        "grafik-tasarim": "Grafik Tasarım",
+        "ceviri": "Çeviri",
+        "seslendirme": "Seslendirme",
+        "icerik-uretimi": "İçerik Üretimi",
+        "fotograf-video": "Fotoğraf & Video",
+        "web-yazilim": "Web & Yazılım"
+      }
+    },
+    "card": {
+      "cta": "İncele →"
+    },
+    "filterEmpty": "Bu kategoride henüz proje yok.",
+    "emptyState": {
+      "title": "Yakında burada harika işler göreceksiniz."
+    },
+    "detail": {
+      "breadcrumbHome": "Ana Sayfa",
+      "breadcrumbPortfolio": "Portfolyo",
+      "categoryLabel": "Kategori",
+      "serviceLabel": "Hizmet",
+      "tagsLabel": "Etiketler",
+      "relatedTitle": "Benzer Çalışmalar",
+      "descriptionHeading": "Proje"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog | Toprak & Co.",
+      "description": "Yaratıcılık, tasarım ve dijital dünya üzerine Toprak & Co. ajans notları."
+    },
+    "pageTitle": "Blog",
+    "pageSubtitle": "Yaratıcılık, tasarım ve dijital dünya üzerine notlar.",
+    "hero": {
+      "readMore": "Okumaya Devam Et →"
+    },
+    "card": {
+      "readShort": "Oku →"
+    },
+    "emptyState": "Henüz yazı yok, yakında burada olacak.",
+    "pagination": {
+      "previous": "Önceki",
+      "next": "Sonraki",
+      "aria": "Sayfa navigasyonu",
+      "page": "{current} / {total}"
+    },
+    "detail": {
+      "breadcrumbHome": "Ana Sayfa",
+      "breadcrumbBlog": "Blog",
+      "readMinutes": "{count} dakika okuma",
+      "relatedTitle": "Benzer Yazılar",
+      "shareLabel": "Bu yazıyı paylaş:",
+      "copyLink": "Linki kopyala",
+      "copied": "Kopyalandı",
+      "authorBlurb": "Toprak & Co. ekibi tarafından yazıldı.",
+      "authorCta": "Bizimle çalışın →"
+    }
+  },
+  "sss": {
+    "meta": {
+      "title": "SSS | Toprak & Co.",
+      "description": "Toprak & Co. hizmetleri, süreç ve teslimat hakkında sıkça sorulan sorular."
+    },
+    "pageTitle": "Sıkça Sorulan Sorular",
+    "intro": "Aşağıda en çok sorulan konuların yanıtlarını bulabilirsiniz. Başka bir sorunuz varsa iletişim formundan yazmanız yeterli.",
+    "items": [
+      {
+        "q": "Hangi hizmetleri sunuyorsunuz?",
+        "a": "Grafik tasarım, çeviri, seslendirme, içerik üretimi, fotoğraf & video ve web & yazılım alanlarında uçtan uca destek veriyoruz. İhtiyaca göre bu disiplinleri birlikte paketleyebiliriz."
+      },
+      {
+        "q": "Proje süresi ne kadar?",
+        "a": "Kapsama göre değişir. Basit bir sosyal medya seti birkaç gün sürebilir; çok dilli bir web sitesi veya kitap projesi haftaları bulabilir. Teklif aşamasında net bir takvim paylaşıyoruz."
+      },
+      {
+        "q": "Fiyatlandırma nasıl çalışıyor?",
+        "a": "Proje bazlı teklif veriyoruz. Kapsam, dil sayısı, revizyon hakkı ve teslim formatına göre şeffaf bir fiyat çıkarıyoruz."
+      },
+      {
+        "q": "Revizyon hakkı var mı?",
+        "a": "Evet. Hizmet türüne göre sözleşmede belirtilen sayıda revizyon sunuyoruz; ekstra tur gerekiyorsa bunu önceden konuşuyoruz."
+      },
+      {
+        "q": "Uzaktan çalışıyor musunuz?",
+        "a": "Evet. Türkiye ve yurt dışındaki müşterilerle tamamen uzaktan sürdürülebilir bir süreç yürütüyoruz; gerekirse çevrim içi toplantılar planlıyoruz."
+      },
+      {
+        "q": "Çeviri ve seslendirme için dosya formatları?",
+        "a": "Word, PDF, InDesign paketleri, SRT/VTT altyazı ve stüdyo için WAV/AIFF gibi yayına hazır formatları kabul ediyoruz. Çıktı formatını proje başında netleştiriyoruz."
+      },
+      {
+        "q": "Web sitesi bakımı yapıyor musunuz?",
+        "a": "Evet. Yayın sonrası güncelleme, içerik girişi, küçük geliştirmeler ve performans kontrolleri için aylık veya iş paketi seçenekleri sunabiliyoruz."
+      },
+      {
+        "q": "Telif ve kullanım hakları kime ait?",
+        "a": "Ödeme tamamlandığında, sözleşmede yazdığımız kapsamda kullanım hakları müşteriye devredilir. Stok ve üçüncü taraf lisanslar ayrıca belirtilir."
+      },
+      {
+        "q": "Acil bir iş kabul ediyor musunuz?",
+        "a": "Takvim uygunsa kısa süreli işler için ekspres ücretlendirme ile destek verebiliyoruz. En doğru yanıt için tarih ve çıktıyı iletişimde net yazmanızı öneririz."
+      },
+      {
+        "q": "İlk adımda ne beklemeliyim?",
+        "a": "Kısa bir brif veya e-posta ile projenizi anlatmanız yeterli. Size dönüşte birkaç netleştirici soru sorup, uygunsa toplantı ve teklif aşamasına geçiyoruz."
+      }
+    ]
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "subtitle": "Projeniz için bir kahve içelim.",
+    "meta": {
+      "title": "İletişim | Toprak & Co.",
+      "description": "Toprak & Co. ile iletişime geçin. Proje süreci, fiyatlandırma ve çalışma modeli hakkında hızlıca konuşalım."
+    },
+    "form": {
+      "name": "Ad Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "subject": "Konu",
+      "subjectPlaceholder": "Konu seçin",
+      "message": "Mesaj",
+      "submit": "Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesajınız iletildi! En kısa sürede dönüş yapacağız.",
+      "error": "Bir hata oluştu, lütfen tekrar deneyin.",
+      "subjects": {
+        "grafik-tasarim": "Grafik Tasarım",
+        "ceviri": "Çeviri",
+        "seslendirme": "Seslendirme",
+        "icerik-uretimi": "İçerik Üretimi & Sosyal Medya",
+        "fotograf-video": "Fotoğraf & Video",
+        "web-yazilim": "Web & Yazılım",
+        "other": "Diğer"
+      }
+    },
+    "info": {
+      "emailLabel": "E-posta",
+      "instagramLabel": "Instagram",
+      "youtubeLabel": "YouTube"
+    },
+    "faq": {
+      "title": "Sık Sorulan Sorular",
+      "items": {
+        "process": {
+          "q": "Proje süreci nasıl işliyor?",
+          "a": "Ön görüşme ile ihtiyaçları netleştiriyor, kısa bir yol haritası sunuyor ve onay sonrası üretime geçiyoruz. Her aşamada düzenli bilgilendirme yapıyoruz."
+        },
+        "pricing": {
+          "q": "Fiyatlandırma nasıl?",
+          "a": "Kapsam, teslim süresi ve üretim türüne göre teklif hazırlıyoruz. İhtiyaca göre paket veya proje bazlı fiyatlandırma uyguluyoruz."
+        },
+        "remote": {
+          "q": "Uzaktan çalışıyor musunuz?",
+          "a": "Evet. Türkiye ve yurt dışındaki ekiplerle tamamen uzaktan, planlı toplantılar ve net teslim takvimiyle çalışıyoruz."
+        },
+        "team": {
+          "q": "Kaç kişilik bir ekipsiniz?",
+          "a": "Çekirdekte iki kişiyiz; projeye göre uzman iş ortaklarıyla esnek şekilde genişleyen bir üretim ağı kuruyoruz."
+        }
+      }
+    }
+  },
+  "common": {
+    "backToList": "Listeye dön"
+  }
+}
