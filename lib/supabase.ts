@@ -20,13 +20,20 @@ export interface Database {
   };
 }
 
-export function createSupabaseClient() {
+function getSupabaseEnv() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const anonKey =
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY;
+  return { url, anonKey };
+}
+
+export function createSupabaseClient() {
+  const { url, anonKey } = getSupabaseEnv();
 
   if (!url || !anonKey) {
     throw new Error(
-      'Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY',
+      'Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY',
     );
   }
 
@@ -82,8 +89,7 @@ export async function getPortfolioItems(
 
 /** Slugs for static generation; falls back when env or query fails. */
 export async function getActiveServiceSlugs(): Promise<string[]> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return [];
   }
@@ -102,8 +108,7 @@ export async function getActiveServiceSlugs(): Promise<string[]> {
 }
 
 export async function getServiceBySlugSafe(slug: string): Promise<Service | null> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return null;
   }
@@ -123,8 +128,7 @@ export async function getServiceBySlugSafe(slug: string): Promise<Service | null
 }
 
 export async function getServicesSafe(): Promise<Service[]> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return [];
   }
@@ -146,8 +150,7 @@ export async function getPortfolioItemsSafe(
   category?: string,
   limit?: number,
 ): Promise<PortfolioItem[]> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return [];
   }
@@ -190,8 +193,7 @@ export async function getPortfolioItemBySlug(
 export async function getPortfolioItemBySlugSafe(
   slug: string,
 ): Promise<PortfolioItem | null> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return null;
   }
@@ -211,8 +213,7 @@ export async function getPortfolioItemBySlugSafe(
 }
 
 export async function getActivePortfolioSlugs(): Promise<string[]> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return [];
   }
@@ -239,8 +240,7 @@ export async function getRelatedPortfolioItemsSafe(
     return [];
   }
 
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return [];
   }
@@ -279,8 +279,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 export async function getLatestBlogPostsForHome(
   limit = 3,
 ): Promise<BlogPost[]> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return [];
   }
@@ -319,8 +318,7 @@ export async function getBlogPostBySlug(
 }
 
 export async function getBlogPostsSafe(): Promise<BlogPost[]> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return [];
   }
@@ -344,8 +342,7 @@ export async function getBlogPostsSafe(): Promise<BlogPost[]> {
 export async function getBlogPostBySlugSafe(
   slug: string,
 ): Promise<BlogPost | null> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return null;
   }
@@ -367,8 +364,7 @@ export async function getBlogPostBySlugSafe(
 }
 
 export async function getActiveBlogSlugs(): Promise<string[]> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const { url, anonKey } = getSupabaseEnv();
   if (!url || !anonKey) {
     return [];
   }
