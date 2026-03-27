@@ -48,19 +48,23 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-beige/80 bg-cream/88 backdrop-blur-md transition-shadow ${
+      className={`fixed inset-x-0 top-0 z-50 h-[var(--navbar-height)] border-b border-beige/80 bg-cream/88 backdrop-blur-md transition-shadow ${
         scrolled ? 'shadow-[0_6px_18px_rgba(61,31,16,0.08)]' : ''
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-3.5">
-        <Link href="/" className="flex shrink-0 items-center" aria-label="Toprak & Co.">
+      <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
+        <Link
+          href="/"
+          className="flex h-[26px] shrink-0 items-center md:h-[30px]"
+          aria-label="Toprak & Co."
+        >
           <Image
             src="/photos/LOGO.png"
             alt=""
-            width={200}
-            height={48}
+            width={160}
+            height={38}
             priority
-            className="h-8 w-auto max-w-[min(180px,55vw)] object-contain object-left md:h-9"
+            className="h-full w-auto max-w-[min(132px,46vw)] object-contain object-left"
           />
         </Link>
 
@@ -114,7 +118,7 @@ export function Navbar() {
       {open ? (
         <div
           id="mobile-overlay-nav"
-          className="fixed inset-0 top-[64px] bg-cream px-6 py-8 md:hidden"
+          className="fixed inset-0 top-[var(--navbar-height)] bg-cream px-6 py-8 md:hidden"
         >
           <div className="flex h-full flex-col gap-6">
             {navKeys.map(({ href, key }) => (

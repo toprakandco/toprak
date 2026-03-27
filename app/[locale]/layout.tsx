@@ -61,7 +61,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       >
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main className="mx-auto min-h-[calc(100vh-64px)] w-full max-w-6xl flex-1 px-4 pb-10 pt-[64px] md:min-h-[calc(100vh-72px)] md:px-6 md:pt-[72px]">
+          <main className="mx-auto min-h-[calc(100vh-var(--navbar-height))] w-full max-w-6xl flex-1 px-4 pb-10 pt-[var(--navbar-height)] md:px-6">
             {children}
           </main>
           <Footer />

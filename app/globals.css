@@ -10,6 +10,7 @@
   --leaf-dark: #5c7a52;
   --gold: #c4824a;
   --brown-deep: #3d1f10;
+  --navbar-height: 80px;
 }
 
 @theme inline {
