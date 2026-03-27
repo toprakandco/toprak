@@ -25,15 +25,28 @@ export type HeroLine = {
 
 type CardCopy = { title: string; description: string };
 
+type HomeOverrides = {
+  heroLines?: HeroLine[] | null;
+  heroSubtext?: string | null;
+  clientsSectionTitle?: string | null;
+};
+
 type Props = {
   portfolioItems: PortfolioItem[];
   blogPosts: BlogPost[];
+  homeOverrides?: HomeOverrides | null;
 };
 
-export function HomePageClient({ portfolioItems, blogPosts }: Props) {
+export function HomePageClient({ portfolioItems, blogPosts, homeOverrides }: Props) {
   const t = useTranslations('home');
 
-  const heroLines = t.raw('hero.lines') as HeroLine[];
+  const defaultHeroLines = t.raw('hero.lines') as HeroLine[];
+  const heroLines =
+    homeOverrides?.heroLines && homeOverrides.heroLines.length > 0
+      ? homeOverrides.heroLines
+      : defaultHeroLines;
+  const heroSubtext =
+    homeOverrides?.heroSubtext?.trim() || t('hero.subtext');
   const marqueeRow1 = t.raw('marquee.row1') as string[];
   const morphItems = t.raw('serviceMorph.items') as {
     label: string;
@@ -61,7 +74,7 @@ export function HomePageClient({ portfolioItems, blogPosts }: Props) {
       <HomeHero
         label={t('hero.label')}
         lines={heroLines}
-        subtext={t('hero.subtext')}
+        subtext={heroSubtext}
         ctaPrimary={t('hero.ctaServices')}
         ctaSecondary={t('hero.ctaPortfolio')}
         scrollHint={t('hero.scrollHint')}
@@ -107,7 +120,7 @@ export function HomePageClient({ portfolioItems, blogPosts }: Props) {
       />
 
       <HomeClientsMarquee
-        title={t('clients.title')}
+        title={homeOverrides?.clientsSectionTitle?.trim() || t('clients.title')}
         items={clients}
         separator={t('marquee.separator')}
       />

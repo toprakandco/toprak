@@ -4,19 +4,30 @@ import { routing } from './i18n/routing';
 
 const intl = createMiddleware(routing);
 
+function isAdminLoginPath(pathname: string) {
+  return pathname === '/admin/login' || pathname.startsWith('/admin/login/');
+}
+
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Yönetim paneli: next-intl çalıştırılmaz; yalnızca oturum kontrolü.
   if (pathname.startsWith('/admin')) {
-    const isLoginPage = pathname === '/admin/login';
-    const session = request.cookies.get('admin_session')?.value;
+    const sessionOk =
+      request.cookies.get('admin_session')?.value === 'true';
 
-    if (!session && !isLoginPage) {
-      return NextResponse.redirect(new URL('/admin/login', request.url));
+    if (!sessionOk && !isAdminLoginPath(pathname)) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/admin/login';
+      url.search = '';
+      return NextResponse.redirect(url);
     }
 
-    if (session && isLoginPage) {
-      return NextResponse.redirect(new URL('/admin', request.url));
+    if (sessionOk && isAdminLoginPath(pathname)) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/admin';
+      url.search = '';
+      return NextResponse.redirect(url);
     }
 
     return NextResponse.next();
@@ -26,5 +37,9 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|_vercel|.*\\..*|admin).*)', '/admin/:path*'],
+  matcher: [
+    '/((?!api|_next|_vercel|.*\\..*|admin).*)',
+    '/admin',
+    '/admin/:path*',
+  ],
 };

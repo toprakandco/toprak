@@ -18,6 +18,7 @@ export interface Contact {
   phone: string | null;
   subject: string | null;
   message: string;
+  budget: string | null;
   is_read: boolean;
 }
 
@@ -82,6 +83,7 @@ export interface Client {
 export interface SiteSetting {
   key: string;
   value: string;
+  updated_at?: string | null;
 }
 
 export interface AdminUser {
@@ -92,10 +94,18 @@ export interface AdminUser {
   is_active: boolean;
 }
 
+export interface NewsletterSubscriber {
+  id: string;
+  created_at: string;
+  email: string;
+  is_active: boolean;
+}
+
 export interface ContactFormData {
   name: string;
   email: string;
   phone?: string;
   subject?: string;
   message: string;
+  budget?: string;
 }

@@ -1,7 +1,7 @@
 import { createSupabaseClient } from '@/lib/supabase';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { PortfolioForm } from '../PortfolioForm';
+import { PortfolioEditor } from '../PortfolioEditor';
 
 function toList(v: FormDataEntryValue | null) {
   return String(v ?? '')
@@ -19,8 +19,8 @@ export default function NewPortfolioPage() {
       title_tr: String(formData.get('title_tr') ?? ''),
       title_en: String(formData.get('title_en') ?? ''),
       slug: String(formData.get('slug') ?? ''),
-      description_tr: String(formData.get('description_tr') ?? ''),
-      description_en: String(formData.get('description_en') ?? ''),
+      description_tr: String(formData.get('description_tr') ?? '') || null,
+      description_en: String(formData.get('description_en') ?? '') || null,
       category: String(formData.get('category') ?? '') || null,
       cover_image: String(formData.get('cover_image') ?? '') || null,
       images: toList(formData.get('images')),
@@ -36,8 +36,8 @@ export default function NewPortfolioPage() {
 
   return (
     <div className="space-y-4">
-      <h1 className="font-serif text-3xl text-brown-deep">Yeni Portfolyo Öğesi</h1>
-      <PortfolioForm action={createItem} submitLabel="Kaydet" />
+      <p className="font-sans text-sm text-[#6B4C35]">Yeni portfolyo öğesi oluşturun.</p>
+      <PortfolioEditor initial={null} saveAction={createItem} submitLabel="Kaydet" />
     </div>
   );
 }

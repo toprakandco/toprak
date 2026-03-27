@@ -10,41 +10,51 @@ export function AboutCtaSection() {
   const patternId = useId().replace(/:/g, '');
 
   return (
-    <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden bg-terracotta py-20 text-cream md:py-24">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.12]"
-        aria-hidden
-      >
-        <svg className="h-full w-full text-cream" preserveAspectRatio="xMidYMid slice">
+    <section
+      className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden py-24"
+      style={{
+        background: 'linear-gradient(135deg, #8B3A1E 0%, #6B2C14 100%)',
+      }}
+    >
+      <div className="pointer-events-none absolute inset-0 text-[#F5F0E6]" aria-hidden>
+        <svg className="h-full w-full" preserveAspectRatio="xMidYMid slice">
           <defs>
             <pattern
-              id={`${patternId}-about-cta`}
-              width={72}
-              height={72}
+              id={`${patternId}-soil`}
+              width={80}
+              height={80}
               patternUnits="userSpaceOnUse"
             >
-              <path
-                d="M36 8c-6 10-14 18-22 26 4 8 12 14 22 18 8-4 16-10 20-18-8-8-16-16-20-26z"
-                fill="currentColor"
-                opacity={0.4}
-              />
+              <circle cx={12} cy={18} r={1.8} fill="currentColor" opacity={0.35} />
+              <circle cx={38} cy={8} r={1.2} fill="currentColor" opacity={0.45} />
+              <circle cx={62} cy={32} r={2.2} fill="currentColor" opacity={0.3} />
+              <circle cx={24} cy={44} r={1.4} fill="currentColor" opacity={0.4} />
+              <circle cx={54} cy={58} r={1.6} fill="currentColor" opacity={0.38} />
+              <circle cx={8} cy={62} r={1} fill="currentColor" opacity={0.5} />
+              <circle cx={72} cy={14} r={1.5} fill="currentColor" opacity={0.33} />
+              <ellipse cx={44} cy={28} rx={2.5} ry={1.8} fill="currentColor" opacity={0.22} />
+              <circle cx={30} cy={70} r={1.3} fill="currentColor" opacity={0.42} />
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill={`url(#${patternId}-about-cta)`} />
+          <rect width="100%" height="100%" fill={`url(#${patternId}-soil)`} opacity={0.06} />
         </svg>
       </div>
+
       <div className="relative mx-auto max-w-3xl px-4 text-center md:px-6">
-        <h2 className="font-serif text-3xl leading-tight md:text-4xl lg:text-5xl">
+        <h2
+          className="font-serif leading-[1.15] text-[#F5F0E6]"
+          style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}
+        >
           {t('title')}
         </h2>
         {subtitle ? (
-          <p className="mx-auto mt-5 max-w-xl text-sm text-cream/85 md:text-base">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#F5F0E6]/88 md:text-lg">
             {subtitle}
           </p>
         ) : null}
         <Link
           href="/contact"
-          className="mt-10 inline-flex min-h-11 items-center justify-center rounded-full bg-cream px-10 py-3 text-sm font-semibold text-terracotta shadow-sm transition hover:bg-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
+          className="mt-10 inline-flex min-h-11 items-center justify-center rounded-full bg-[#F5F0E6] px-10 py-3 text-sm font-semibold text-[#6B2C14] shadow-sm transition hover:bg-[#EDE4D3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5F0E6]"
         >
           {t('button')}
         </Link>

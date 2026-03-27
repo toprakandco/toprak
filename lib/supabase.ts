@@ -3,6 +3,7 @@ import type {
   BlogPost,
   Client,
   Contact,
+  NewsletterSubscriber,
   PortfolioItem,
   Service,
   AdminUser,
@@ -32,6 +33,9 @@ export interface Database {
       };
       admin_users: {
         Row: AdminUser;
+      };
+      newsletter_subscribers: {
+        Row: NewsletterSubscriber;
       };
     };
   };

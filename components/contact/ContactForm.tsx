@@ -2,9 +2,19 @@
 
 import { supabase } from '@/lib/supabase';
 import { SERVICE_SLUGS } from '@/lib/service-slugs';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
+
+const MESSAGE_MAX = 500;
+const BTN_LOAD_PX = 56;
 
 type FormState = {
   name: string;
@@ -12,6 +22,7 @@ type FormState = {
   phone: string;
   subject: string;
   message: string;
+  budget: string;
 };
 
 const initialState: FormState = {
@@ -20,16 +31,319 @@ const initialState: FormState = {
   phone: '',
   subject: '',
   message: '',
+  budget: '',
 };
+
+type FieldErrorKey = 'name' | 'email' | 'message';
+
+const BUDGET_OPTIONS = [
+  { value: 'lt-5k', labelKey: 'lt5k' },
+  { value: '5-15k', labelKey: '5to15k' },
+  { value: '15-30k', labelKey: '15to30k' },
+  { value: '30k-plus', labelKey: '30kPlus' },
+  { value: 'prefer-not', labelKey: 'preferNot' },
+] as const;
+
+function emailValid(s: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());
+}
+
+function phoneOk(s: string) {
+  const t = s.trim();
+  if (!t) return true;
+  return /^[\d\s+().-]{7,}$/.test(t);
+}
+
+function FieldCheck({ show }: { show: boolean }) {
+  if (!show) return null;
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="mb-3 h-[18px] w-[18px] shrink-0 text-[#7A9E6E]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M20 6L9 17l-5-5" />
+    </svg>
+  );
+}
+
+function SuccessLeaf({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 120 140"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path
+        d="M60 8C38 28 22 52 18 78c-4 26 8 48 32 58 12-18 18-38 20-58 2-22-2-44-10-70z"
+        fill="#7A9E6E"
+        fillOpacity="0.2"
+      />
+      <path
+        d="M60 12c-16 22-26 46-24 72 2 20 14 36 28 44M56 24c10 8 18 20 22 36"
+        stroke="#7A9E6E"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.55"
+      />
+      <path
+        d="M60 118v22"
+        stroke="#7A9E6E"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.45"
+      />
+    </svg>
+  );
+}
+
+function FloatInput({
+  id,
+  label,
+  value,
+  onChange,
+  onBlurField,
+  error,
+  showCheck,
+  type = 'text',
+  required,
+  autoComplete,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  onBlurField: () => void;
+  error?: string;
+  showCheck: boolean;
+  type?: string;
+  required?: boolean;
+  autoComplete?: string;
+}) {
+  const [focused, setFocused] = useState(false);
+  const floated = focused || value.length > 0;
+
+  return (
+    <div>
+      <div className="flex items-end gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-[#8B3A1E]">
+        <div className="relative min-w-0 flex-1">
+          <label
+            htmlFor={id}
+            className={`pointer-events-none absolute left-0 z-[1] origin-left font-sans transition-all duration-200 ease-out ${
+              floated
+                ? 'top-0 -translate-y-[calc(100%-2px)] text-[11px] font-medium not-italic text-[#8B3A1E]'
+                : 'top-[14px] translate-y-0 text-[15px] italic text-[#C4B5A8]'
+            }`}
+          >
+            {label}
+            {required ? '*' : ''}
+          </label>
+          <input
+            id={id}
+            type={type}
+            name={id}
+            autoComplete={autoComplete}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            onFocus={() => setFocused(true)}
+            onBlur={() => {
+              setFocused(false);
+              onBlurField();
+            }}
+            className="w-full border-0 bg-transparent py-[14px] font-sans text-[15px] text-[#3D1F10] outline-none transition-[border-color] duration-200 placeholder:font-sans placeholder:text-[15px] placeholder:italic placeholder:text-[#C4B5A8]"
+            placeholder={floated ? '' : ' '}
+          />
+        </div>
+        <FieldCheck show={showCheck} />
+      </div>
+      {error ? (
+        <p className="mt-1 font-sans text-[12px] text-[#8B3A1E]">{error}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function FloatSelect({
+  id,
+  label,
+  value,
+  onChange,
+  onBlurField,
+  children,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  onBlurField: () => void;
+  children: ReactNode;
+}) {
+  const [focused, setFocused] = useState(false);
+  const floated = focused || value.length > 0;
+
+  return (
+    <div>
+      <div className="relative flex items-end gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-[#8B3A1E]">
+        <div className="relative min-w-0 flex-1">
+          <label
+            htmlFor={id}
+            className={`pointer-events-none absolute left-0 z-[1] origin-left font-sans transition-all duration-200 ease-out ${
+              floated
+                ? 'top-0 -translate-y-[calc(100%-2px)] text-[11px] font-medium not-italic text-[#8B3A1E]'
+                : 'top-[14px] translate-y-0 text-[15px] italic text-[#C4B5A8]'
+            }`}
+          >
+            {label}
+          </label>
+          <select
+            id={id}
+            name={id}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            onFocus={() => setFocused(true)}
+            onBlur={() => {
+              setFocused(false);
+              onBlurField();
+            }}
+            className="w-full cursor-pointer appearance-none border-0 bg-transparent py-[14px] pr-8 font-sans text-[15px] text-[#3D1F10] outline-none transition-[border-color] duration-200"
+          >
+            {children}
+          </select>
+          <svg
+            className="pointer-events-none absolute right-0 bottom-[18px] h-4 w-4 text-[#C4B5A8]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            aria-hidden
+          >
+            <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        <FieldCheck show={floated && Boolean(value)} />
+      </div>
+    </div>
+  );
+}
+
+function FloatTextarea({
+  id,
+  label,
+  value,
+  onChange,
+  onBlurField,
+  error,
+  showCheck,
+  required,
+  charLabel,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  onBlurField: () => void;
+  error?: string;
+  showCheck: boolean;
+  required?: boolean;
+  charLabel: string;
+}) {
+  const [focused, setFocused] = useState(false);
+  const floated = focused || value.length > 0;
+
+  return (
+    <div>
+      <div className="relative flex gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-[#8B3A1E]">
+        <div className="relative min-h-[140px] min-w-0 flex-1 pb-7">
+          <label
+            htmlFor={id}
+            className={`pointer-events-none absolute left-0 z-[1] origin-left font-sans transition-all duration-200 ease-out ${
+              floated
+                ? 'top-0 text-[11px] font-medium not-italic text-[#8B3A1E]'
+                : 'top-[14px] text-[15px] italic text-[#C4B5A8]'
+            }`}
+          >
+            {label}
+            {required ? '*' : ''}
+          </label>
+          <textarea
+            id={id}
+            name={id}
+            value={value}
+            maxLength={MESSAGE_MAX}
+            onChange={(e) => onChange(e.target.value)}
+            onFocus={() => setFocused(true)}
+            onBlur={() => {
+              setFocused(false);
+              onBlurField();
+            }}
+            className="mt-8 min-h-[108px] w-full resize-y border-0 bg-transparent font-sans text-[15px] leading-relaxed text-[#3D1F10] outline-none transition-[border-color] duration-200 placeholder:italic placeholder:text-[#C4B5A8]"
+            placeholder={floated ? '' : ' '}
+          />
+          <span className="pointer-events-none absolute bottom-0 right-0 font-sans text-[12px] text-[#C4B5A8]">
+            {charLabel}
+          </span>
+        </div>
+        <div className="flex flex-col justify-start pt-8">
+          <FieldCheck show={showCheck} />
+        </div>
+      </div>
+      {error ? (
+        <p className="mt-1 font-sans text-[12px] text-[#8B3A1E]">{error}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function ButtonCheckDrawing() {
+  const reduce = useReducedMotion();
+  return (
+    <motion.svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6 text-[#F5F0E6]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <motion.path
+        d="M6 12l4 4 8-8"
+        initial={reduce ? { pathLength: 1 } : { pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: reduce ? 0 : 0.45, ease: 'easeOut' }}
+      />
+    </motion.svg>
+  );
+}
 
 export function ContactForm() {
   const t = useTranslations('contact');
   const searchParams = useSearchParams();
-  const [form, setForm] = useState<FormState>(initialState);
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const reduceMotion = useReducedMotion();
 
+  const [form, setForm] = useState<FormState>(initialState);
+  const [touched, setTouched] = useState<Partial<Record<FieldErrorKey, boolean>>>(
+    {},
+  );
+  const [errors, setErrors] = useState<Partial<Record<FieldErrorKey, string>>>(
+    {},
+  );
+  const [phoneTouched, setPhoneTouched] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [buttonSuccess, setButtonSuccess] = useState(false);
+  const [shake, setShake] = useState(false);
+  const [view, setView] = useState<'form' | 'thanks'>('form');
   const subjects = useMemo(
     () => [...SERVICE_SLUGS, 'other'] as const,
     [],
@@ -42,36 +356,102 @@ export function ContactForm() {
     setForm((prev) => ({ ...prev, subject: raw }));
   }, [searchParams, subjects]);
 
-  const faqItems = useMemo(
-    () => ['process', 'pricing', 'remote', 'team'] as const,
-    [],
+  const validateName = useCallback(
+    (v: string) => (!v.trim() ? t('form.validation.name') : undefined),
+    [t],
+  );
+  const validateEmail = useCallback(
+    (v: string) => (!emailValid(v) ? t('form.validation.email') : undefined),
+    [t],
+  );
+  const validateMessage = useCallback(
+    (v: string) => {
+      const x = v.trim();
+      if (!x) return t('form.validation.message');
+      if (x.length > MESSAGE_MAX) return t('form.validation.message');
+      return undefined;
+    },
+    [t],
   );
 
-  const handleChange =
-    (key: keyof FormState) =>
-    (
-      event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
-    ) => {
-      setForm((prev) => ({ ...prev, [key]: event.target.value }));
-    };
+  const blurName = useCallback(() => {
+    setTouched((s) => ({ ...s, name: true }));
+    setErrors((e) => ({ ...e, name: validateName(form.name) }));
+  }, [form.name, validateName]);
 
-  const validate = () => {
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      return false;
+  const blurEmail = useCallback(() => {
+    setTouched((s) => ({ ...s, email: true }));
+    setErrors((e) => ({ ...e, email: validateEmail(form.email) }));
+  }, [form.email, validateEmail]);
+
+  const blurMessage = useCallback(() => {
+    setTouched((s) => ({ ...s, message: true }));
+    setErrors((e) => ({ ...e, message: validateMessage(form.message) }));
+  }, [form.message, validateMessage]);
+
+  const blurPhone = useCallback(() => {
+    setPhoneTouched(true);
+  }, []);
+
+  const blurSubject = useCallback(() => {}, []);
+
+  useEffect(() => {
+    if (touched.name) {
+      setErrors((e) => ({ ...e, name: validateName(form.name) }));
     }
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
-  };
+  }, [form.name, touched.name, validateName]);
+
+  useEffect(() => {
+    if (touched.email) {
+      setErrors((e) => ({ ...e, email: validateEmail(form.email) }));
+    }
+  }, [form.email, touched.email, validateEmail]);
+
+  useEffect(() => {
+    if (touched.message) {
+      setErrors((e) => ({ ...e, message: validateMessage(form.message) }));
+    }
+  }, [form.message, touched.message, validateMessage]);
+
+  const showNameCheck =
+    Boolean(touched.name) && !errors.name && form.name.trim().length > 0;
+  const showEmailCheck =
+    Boolean(touched.email) && !errors.email && emailValid(form.email);
+  const showMessageCheck =
+    Boolean(touched.message) &&
+    !errors.message &&
+    form.message.trim().length > 0 &&
+    form.message.length <= MESSAGE_MAX;
+  const showPhoneCheck = phoneTouched && phoneOk(form.phone);
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setStatus('idle');
+    setSubmitError(false);
+    setTouched({ name: true, email: true, message: true });
+    setPhoneTouched(true);
 
-    if (!validate()) {
-      setStatus('error');
+    const nextErrors: Partial<Record<FieldErrorKey, string>> = {
+      name: validateName(form.name),
+      email: validateEmail(form.email),
+      message: validateMessage(form.message),
+    };
+    setErrors(nextErrors);
+
+    if (nextErrors.name || nextErrors.email || nextErrors.message) {
+      setShake(true);
+      window.setTimeout(() => setShake(false), 500);
+      return;
+    }
+
+    if (!phoneOk(form.phone)) {
+      setShake(true);
+      window.setTimeout(() => setShake(false), 500);
       return;
     }
 
     setLoading(true);
+    const budgetVal = form.budget.trim() || null;
+
     const { error } = await (
       supabase as import('@supabase/supabase-js').SupabaseClient
     )
@@ -82,239 +462,251 @@ export function ContactForm() {
         phone: form.phone.trim() || null,
         subject: form.subject || null,
         message: form.message.trim(),
+        budget: budgetVal,
         is_read: false,
       });
+
     setLoading(false);
 
     if (error) {
-      setStatus('error');
+      setSubmitError(true);
+      setShake(true);
+      window.setTimeout(() => setShake(false), 500);
       return;
     }
 
-    setStatus('success');
-    setForm(initialState);
+    setButtonSuccess(true);
+    window.setTimeout(() => {
+      setButtonSuccess(false);
+      setForm(initialState);
+      setTouched({});
+      setErrors({});
+      setPhoneTouched(false);
+      setView('thanks');
+    }, reduceMotion ? 400 : 900);
   };
 
+  const charLabel = t('form.charCount', { current: form.message.length });
+
   return (
-    <div className="space-y-14">
-      <div className="grid gap-8 lg:grid-cols-2">
-        <form
-          id="contact-form"
-          onSubmit={onSubmit}
-          className="rounded-3xl border border-beige bg-white p-6 shadow-sm md:p-8"
-        >
-          <div className="grid gap-5">
-            <label className="grid gap-2">
-              <span className="text-sm font-medium text-brown-deep">
-                {t('form.name')}
-              </span>
-              <input
-                required
-                value={form.name}
-                onChange={handleChange('name')}
-                className="h-11 rounded-lg border border-beige bg-cream/50 px-3 text-sm outline-none ring-terracotta/30 transition focus:ring-2"
-              />
-            </label>
-
-            <label className="grid gap-2">
-              <span className="text-sm font-medium text-brown-deep">
-                {t('form.email')}
-              </span>
-              <input
-                type="email"
-                required
-                value={form.email}
-                onChange={handleChange('email')}
-                className="h-11 rounded-lg border border-beige bg-cream/50 px-3 text-sm outline-none ring-terracotta/30 transition focus:ring-2"
-              />
-            </label>
-
-            <label className="grid gap-2">
-              <span className="text-sm font-medium text-brown-deep">
-                {t('form.phone')}
-              </span>
-              <input
-                value={form.phone}
-                onChange={handleChange('phone')}
-                className="h-11 rounded-lg border border-beige bg-cream/50 px-3 text-sm outline-none ring-terracotta/30 transition focus:ring-2"
-              />
-            </label>
-
-            <label className="grid gap-2">
-              <span className="text-sm font-medium text-brown-deep">
-                {t('form.subject')}
-              </span>
-              <select
-                value={form.subject}
-                onChange={handleChange('subject')}
-                className="h-11 rounded-lg border border-beige bg-cream/50 px-3 text-sm outline-none ring-terracotta/30 transition focus:ring-2"
+    <>
+      <section
+        className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-white py-20"
+        aria-labelledby={
+          view === 'thanks' ? 'contact-success-heading' : 'contact-form-heading'
+        }
+      >
+        <div className="mx-auto w-full max-w-[720px] px-[max(24px,5vw)]">
+          <AnimatePresence mode="wait">
+            {view === 'thanks' ? (
+              <motion.div
+                key="thanks"
+                role="status"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-[24px] text-center shadow-[0_8px_48px_rgba(0,0,0,0.06)]"
+                style={{ padding: '48px' }}
               >
-                <option value="">{t('form.subjectPlaceholder')}</option>
-                {subjects.map((key) => (
-                  <option key={key} value={key}>
-                    {t(`form.subjects.${key}`)}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <label className="grid gap-2">
-              <span className="text-sm font-medium text-brown-deep">
-                {t('form.message')}
-              </span>
-              <textarea
-                required
-                rows={4}
-                value={form.message}
-                onChange={handleChange('message')}
-                className="rounded-lg border border-beige bg-cream/50 px-3 py-2.5 text-sm outline-none ring-terracotta/30 transition focus:ring-2"
-              />
-            </label>
-          </div>
-
-          <div className="mt-6 flex flex-col gap-3">
-            <button
-              type="submit"
-              disabled={loading}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-terracotta px-6 text-sm font-semibold text-cream transition hover:bg-terracotta-dark disabled:opacity-80"
-            >
-              {loading ? (
-                <>
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-cream/50 border-t-cream" />
-                  {t('form.sending')}
-                </>
-              ) : (
-                t('form.submit')
-              )}
-            </button>
-
-            {status === 'success' ? (
-              <p className="inline-flex items-center gap-2 text-sm text-green-700">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  aria-hidden
+                <SuccessLeaf className="mx-auto mb-6 h-32 w-auto" />
+                <p
+                  id="contact-success-heading"
+                  className="font-serif text-2xl text-[#3D1F10]"
+                  style={{ fontSize: '24px' }}
                 >
-                  <path d="M12 2c-2.5 3.2-5 5-7 7 1 4 4.5 8 7 13 2.5-5 6-9 7-13-2-2-4.5-3.8-7-7z" />
-                </svg>
-                {t('form.success')}
-              </p>
-            ) : null}
-
-            {status === 'error' ? (
-              <p className="text-sm text-terracotta">{t('form.error')}</p>
-            ) : null}
-          </div>
-        </form>
-
-        <aside className="space-y-4">
-          <div className="rounded-2xl border border-beige bg-white p-5">
-            <p className="text-xs uppercase tracking-[0.2em] text-brown-deep/60">
-              {t('info.emailLabel')}
-            </p>
-            <a
-              href="mailto:info@toprakco.tr"
-              className="mt-1 block text-base text-terracotta hover:underline"
-            >
-              info@toprakco.tr
-            </a>
-          </div>
-          <div className="rounded-2xl border border-beige bg-white p-5">
-            <p className="text-xs uppercase tracking-[0.2em] text-brown-deep/60">
-              {t('info.instagramLabel')}
-            </p>
-            <p className="mt-1 text-base text-brown-deep">@toprakandco</p>
-          </div>
-          <div className="rounded-2xl border border-beige bg-white p-5">
-            <p className="text-xs uppercase tracking-[0.2em] text-brown-deep/60">
-              {t('info.youtubeLabel')}
-            </p>
-            <p className="mt-1 text-base text-brown-deep">Toprak &amp; Co.</p>
-          </div>
-
-          <div className="rounded-3xl border border-beige bg-beige/45 p-8">
-            <svg
-              viewBox="0 0 220 260"
-              className="h-[320px] w-full text-leaf/70"
-              aria-hidden
-            >
-              <path
-                d="M110 245V105M110 160c-26-10-44-28-55-55M110 140c21-12 34-32 41-58M110 196c-16-7-28-18-34-34M110 184c14-6 24-16 30-30"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M53 104c-8 16-5 32 8 44 11-4 19-12 23-22-6-11-16-18-31-22z"
-                fill="currentColor"
-                opacity="0.32"
-              />
-              <path
-                d="M151 82c-13 12-18 28-14 46 12 1 23-2 33-10 0-13-6-25-19-36z"
-                fill="currentColor"
-                opacity="0.24"
-              />
-              <path
-                d="M91 161c-8 10-10 22-4 34 9 0 16-3 23-8 0-10-4-18-12-26z"
-                fill="currentColor"
-                opacity="0.26"
-              />
-              <path
-                d="M121 149c9 8 14 18 13 31-8 3-15 2-23-2-2-10 1-20 10-29z"
-                fill="var(--terracotta)"
-                opacity="0.24"
-              />
-            </svg>
-          </div>
-        </aside>
-      </div>
-
-      <section className="rounded-3xl border border-beige bg-beige/60 p-5 md:p-8">
-        <h2 className="font-serif text-2xl text-brown-deep">{t('faq.title')}</h2>
-        <div className="mt-4 divide-y divide-terracotta/15">
-          {faqItems.map((key, i) => {
-            const open = openFaq === i;
-            return (
-              <div key={key}>
-                <button
-                  type="button"
-                  onClick={() => setOpenFaq(open ? null : i)}
-                  className="flex w-full items-center justify-between py-4 text-left"
-                >
-                  <span className="text-sm font-medium text-brown-deep">
-                    {t(`faq.items.${key}.q`)}
-                  </span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    className={`h-5 w-5 text-terracotta transition-transform duration-300 ${
-                      open ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    aria-hidden
+                  {t('form.successTitle')}
+                </p>
+                <p className="mx-auto mt-3 max-w-md font-sans text-[15px] leading-relaxed text-[#6B4C35]">
+                  {t('form.successSubtitle')}
+                </p>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="form"
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.35 }}
+                className="rounded-[24px] shadow-[0_8px_48px_rgba(0,0,0,0.06)]"
+                style={{ padding: '48px' }}
+              >
+                <header className="mb-10 text-center">
+                  <h2
+                    id="contact-form-heading"
+                    className="font-serif text-[28px] text-[#3D1F10]"
                   >
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </button>
-                <div
-                  className={`grid transition-all duration-300 ${
-                    open ? 'grid-rows-[1fr] pb-4' : 'grid-rows-[0fr]'
-                  }`}
-                >
-                  <p className="overflow-hidden text-sm leading-relaxed text-brown-deep/75">
-                    {t(`faq.items.${key}.a`)}
+                    {t('form.sectionTitle')}
+                  </h2>
+                  <p className="mx-auto mt-2 max-w-md font-sans text-[15px] text-[#6B4C35]/85">
+                    {t('form.sectionSubtitle')}
                   </p>
-                </div>
-              </div>
-            );
-          })}
+                </header>
+
+                <form id="contact-form" onSubmit={onSubmit} noValidate>
+                  <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2">
+                    <FloatInput
+                      id="contact-name"
+                      label={t('form.name')}
+                      value={form.name}
+                      onChange={(v) => setForm((s) => ({ ...s, name: v }))}
+                      onBlurField={blurName}
+                      error={touched.name ? errors.name : undefined}
+                      showCheck={showNameCheck}
+                      required
+                      autoComplete="name"
+                    />
+                    <FloatInput
+                      id="contact-email"
+                      label={t('form.email')}
+                      type="email"
+                      value={form.email}
+                      onChange={(v) => setForm((s) => ({ ...s, email: v }))}
+                      onBlurField={blurEmail}
+                      error={touched.email ? errors.email : undefined}
+                      showCheck={showEmailCheck}
+                      required
+                      autoComplete="email"
+                    />
+                    <FloatInput
+                      id="contact-phone"
+                      label={t('form.phone')}
+                      type="tel"
+                      value={form.phone}
+                      onChange={(v) => setForm((s) => ({ ...s, phone: v }))}
+                      onBlurField={blurPhone}
+                      error={
+                        phoneTouched && !phoneOk(form.phone)
+                          ? t('form.validation.phone')
+                          : undefined
+                      }
+                      showCheck={showPhoneCheck}
+                      autoComplete="tel"
+                    />
+                    <FloatSelect
+                      id="contact-subject"
+                      label={t('form.subject')}
+                      value={form.subject}
+                      onChange={(v) => setForm((s) => ({ ...s, subject: v }))}
+                      onBlurField={blurSubject}
+                    >
+                      <option value="">{t('form.subjectPlaceholder')}</option>
+                      {subjects.map((key) => (
+                        <option key={key} value={key}>
+                          {t(`form.subjects.${key}`)}
+                        </option>
+                      ))}
+                    </FloatSelect>
+                  </div>
+
+                  <div className="mt-8">
+                    <FloatTextarea
+                      id="contact-message"
+                      label={t('form.message')}
+                      value={form.message}
+                      onChange={(v) => setForm((s) => ({ ...s, message: v }))}
+                      onBlurField={blurMessage}
+                      error={touched.message ? errors.message : undefined}
+                      showCheck={showMessageCheck}
+                      required
+                      charLabel={charLabel}
+                    />
+                  </div>
+
+                  <div className="mt-10">
+                    <p className="mb-3 font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-[#3D1F10]/55">
+                      {t('form.budgetLabel')}
+                      <span className="ml-2 font-normal normal-case tracking-normal text-[#C4B5A8]">
+                        ({t('form.budgetOptional')})
+                      </span>
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {BUDGET_OPTIONS.map(({ value: val, labelKey }) => (
+                        <label
+                          key={val}
+                          className={`cursor-pointer rounded-full px-4 py-2.5 font-sans text-[14px] transition-colors duration-200 ${
+                            form.budget === val
+                              ? 'bg-[#8B3A1E] text-[#F5F0E6]'
+                              : 'bg-[#EDE4D3]/80 text-[#3D1F10] hover:bg-[#EDE4D3]'
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="budget"
+                            value={val}
+                            checked={form.budget === val}
+                            onChange={() =>
+                              setForm((s) => ({ ...s, budget: val }))
+                            }
+                            className="sr-only"
+                          />
+                          {t(`form.budget.${labelKey}`)}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-10">
+                    <motion.button
+                      type="submit"
+                      disabled={loading || buttonSuccess}
+                      animate={{
+                        width: loading ? BTN_LOAD_PX : '100%',
+                        maxWidth: '100%',
+                        marginLeft: loading ? 'auto' : 0,
+                        marginRight: loading ? 'auto' : 0,
+                        backgroundColor: buttonSuccess ? '#7A9E6E' : '#8B3A1E',
+                      }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 420,
+                        damping: 34,
+                      }}
+                      className={`flex h-14 max-w-full items-center justify-center overflow-hidden rounded-[50px] font-serif text-[17px] text-[#F5F0E6] shadow-none outline-none transition-colors disabled:opacity-90 ${
+                        shake ? 'animate-contact-form-shake' : ''
+                      }`}
+                    >
+                      <AnimatePresence mode="wait" initial={false}>
+                        {loading ? (
+                          <motion.span
+                            key="load"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            className="h-5 w-5 shrink-0 animate-spin rounded-full border-2 border-[#F5F0E6]/25 border-t-[#F5F0E6]"
+                          />
+                        ) : buttonSuccess ? (
+                          <motion.span
+                            key="ok"
+                            initial={{ opacity: 0, scale: 0.6 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="flex items-center justify-center"
+                          >
+                            <ButtonCheckDrawing />
+                          </motion.span>
+                        ) : (
+                          <motion.span
+                            key="txt"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="whitespace-nowrap px-6"
+                          >
+                            {t('form.submit')}
+                          </motion.span>
+                        )}
+                      </AnimatePresence>
+                    </motion.button>
+
+                    {submitError ? (
+                      <p className="mt-3 text-center font-sans text-[14px] text-[#8B3A1E]">
+                        {t('form.error')}
+                      </p>
+                    ) : null}
+                  </div>
+                </form>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
-    </div>
+    </>
   );
 }

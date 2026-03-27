@@ -241,17 +241,38 @@
       "description": "Meet the team behind Toprak & Co. — two founders bringing care and craft to design, translation, voice, and web."
     },
     "pageTitle": "About Us",
-    "pageSubtitle": "Two people, one passion, limitless creativity.",
+    "pageSubtitle": "One passion, limitless creativity.",
+    "hero": {
+      "overline": "TOPRAK & CO. — CREATIVE AGENCY",
+      "year": "2025",
+      "line1": "",
+      "line2": "One passion.",
+      "line3": "Limitless.",
+      "intro": "Toprak & Co. is the shared story of two creatives who unite their expertise across disciplines under one roof — from design to sound, content to code.",
+      "scrollHint": "SCROLL"
+    },
+    "manifesto": {
+      "heading": "Manifesto",
+      "line1": "Creativity is not decoration,",
+      "line2": "it is communication itself.",
+      "attribution": "— Toprak & Co."
+    },
     "story": {
       "pullQuote": "Creativity begins at the roots.",
       "body": "Toprak & Co. is the shared dream of two creative people who united their expertise across different fields. From design to translation, voice over to web development, we approach every project with care and a personal touch."
     },
     "team": {
       "title": "Our Team",
+      "overline": "OUR TEAM",
+      "heading": "The people behind it.",
+      "contactEmailAria": "Email {name}",
+      "contactInstagramAria": "{name} on Instagram",
       "member1": {
         "name": "[Name — to be filled]",
         "role": "Co-founder — Design, Translation, Voice Over, Content",
         "bio": "Short bio text goes here. Two or three sentences as a placeholder.",
+        "email": "info@toprakco.tr",
+        "instagramUrl": "https://www.instagram.com/toprakandco/",
         "skills": [
           "Graphic Design",
           "Translation",
@@ -265,6 +286,8 @@
         "name": "[Name — to be filled]",
         "role": "Co-founder — [Shared roles here]",
         "bio": "Short bio text goes here.",
+        "email": "info@toprakco.tr",
+        "instagramUrl": "https://www.instagram.com/toprakandco/",
         "skills": [
           "Placeholder",
           "Skill",
@@ -292,14 +315,15 @@
     "stats": {
       "title": "By The Numbers",
       "labels": {
-        "web": "Published websites",
-        "books": "Published translation books",
-        "social": "Social media accounts managed",
-        "projects": "Completed projects"
+        "projects": "Completed Projects",
+        "services": "Service Areas",
+        "books": "Published Books",
+        "creativity": "Creativity"
       }
     },
     "industries": {
       "title": "Industries We Serve",
+      "sectionHeading": "Fields where we've built experience.",
       "list": [
         "Tourism",
         "Publishing & Bookstore",
@@ -314,8 +338,8 @@
       ]
     },
     "ctaBanner": {
-      "title": "Let's create something together.",
-      "subtitle": "",
+      "title": "Let's do something together.",
+      "subtitle": "A short brief is enough — we'll map the path forward with you.",
       "button": "Get in touch"
     }
   },
@@ -498,6 +522,7 @@
     },
     "pageTitle": "Blog",
     "pageSubtitle": "Notes on creativity, design and the digital world.",
+    "readMinutesApprox": "~{count} min read",
     "hero": {
       "readMore": "Continue reading →"
     },
@@ -505,6 +530,26 @@
       "readShort": "Read →"
     },
     "emptyState": "No posts yet, coming soon.",
+    "listing": {
+      "overline": "BLOG",
+      "marquee": "Design · Translation · Voice · Content · Technology · Creativity · Culture · Language · Sound · Visual · ",
+      "filterAll": "All",
+      "featuredBadge": "Featured story",
+      "noResults": "No posts with this tag.",
+      "head1a": "Notes,",
+      "head1b": "ideas,",
+      "head2a": "inspirations."
+    },
+    "newsletter": {
+      "title": "Stay updated with our notes.",
+      "subtitle": "Leave your email for new articles and studio news — no spam.",
+      "emailLabel": "Email",
+      "placeholder": "you@example.com",
+      "submit": "Subscribe",
+      "sending": "Sending…",
+      "success": "Thank you — you're on the list.",
+      "error": "Something went wrong. Please try again."
+    },
     "pagination": {
       "previous": "Previous",
       "next": "Next",
@@ -515,12 +560,17 @@
       "breadcrumbHome": "Home",
       "breadcrumbBlog": "Blog",
       "readMinutes": "{count} min read",
-      "relatedTitle": "Related Posts",
-      "shareLabel": "Share this post:",
+      "relatedTitle": "You might also like",
+      "shareLabel": "Share",
       "copyLink": "Copy link",
       "copied": "Copied",
+      "linkCopiedToast": "Link copied!",
+      "tocTitle": "On this page",
       "authorBlurb": "Written by the Toprak & Co. team.",
-      "authorCta": "Work with us →"
+      "authorCta": "Work with us →",
+      "authorName": "The Toprak & Co. team",
+      "authorBio": "We partner with brands across design, translation, voice, and digital production. Every project is built on clear communication and careful craft.",
+      "authorCtaCollaborate": "Let's work together →"
     }
   },
   "sss": {
@@ -528,6 +578,7 @@
       "title": "FAQ | Toprak & Co.",
       "description": "Frequently asked questions about Toprak & Co. services, timelines, and delivery."
     },
+    "redirecting": "Taking you to the contact page…",
     "pageTitle": "Frequently Asked Questions",
     "intro": "Quick answers to common questions. If you need something specific, reach out via the contact form.",
     "items": [
@@ -576,26 +627,75 @@
   "contact": {
     "title": "Get in Touch",
     "subtitle": "Let's have a coffee about your project.",
+    "hero": {
+      "overline": "CONTACT",
+      "titleBefore": "Let's have a ",
+      "titleHighlight": "coffee",
+      "titleAfter": " about your project.",
+      "intro": "Big or small, every project matters to us.\nReach out — we'd love to talk.",
+      "cards": {
+        "email": {
+          "title": "Email",
+          "value": "info@toprakco.tr"
+        },
+        "location": {
+          "title": "Location",
+          "value": "Turkey — we work remotely"
+        },
+        "response": {
+          "title": "Response time",
+          "value": "Usually within 24 hours"
+        }
+      },
+      "social": {
+        "instagram": "https://www.instagram.com/toprakandco/",
+        "linkedin": "https://www.linkedin.com/company/toprak-co",
+        "youtube": "https://www.youtube.com/@toprakandco",
+        "instagramAria": "Toprak & Co. on Instagram",
+        "linkedinAria": "Toprak & Co. on LinkedIn",
+        "youtubeAria": "Toprak & Co. on YouTube"
+      }
+    },
     "meta": {
       "title": "Get in Touch | Toprak & Co.",
       "description": "Contact Toprak & Co. for your next project. Let's quickly discuss process, pricing and the best collaboration model."
     },
     "form": {
+      "sectionTitle": "Write to Us",
+      "sectionSubtitle": "Tell us about your project — we’ll get back to you shortly.",
       "name": "Full Name",
       "email": "Email",
       "phone": "Phone",
       "subject": "Subject",
       "subjectPlaceholder": "Select a subject",
       "message": "Message",
-      "submit": "Send",
+      "budgetLabel": "Budget range",
+      "budgetOptional": "Optional",
+      "submit": "Send Message →",
       "sending": "Sending...",
       "success": "Your message has been sent! We'll get back to you shortly.",
+      "successTitle": "Your message was sent!",
+      "successSubtitle": "We’ll get back to you as soon as we can.",
       "error": "Something went wrong, please try again.",
+      "charCount": "{current}/500",
+      "validation": {
+        "name": "Please enter your name.",
+        "email": "Please enter a valid email address.",
+        "message": "Please enter a message (max 500 characters).",
+        "phone": "Please enter a valid phone number."
+      },
+      "budget": {
+        "lt5k": "< ₺5,000",
+        "5to15k": "₺5K–15K",
+        "15to30k": "₺15K–30K",
+        "30kPlus": "₺30K+",
+        "preferNot": "Prefer not to say"
+      },
       "subjects": {
         "grafik-tasarim": "Graphic Design",
         "ceviri": "Translation",
         "seslendirme": "Voice Over",
-        "icerik-uretimi": "Content & Social Media",
+        "icerik-uretimi": "Content Production",
         "fotograf-video": "Photo & Video",
         "web-yazilim": "Web & Software",
         "other": "Other"
@@ -606,24 +706,56 @@
       "instagramLabel": "Instagram",
       "youtubeLabel": "YouTube"
     },
-    "faq": {
-      "title": "Frequently Asked Questions",
-      "items": {
-        "process": {
-          "q": "How does the project process work?",
-          "a": "We begin with a discovery call, define goals, then share a clear roadmap. After approval, we produce and keep you updated at every milestone."
+    "faqAccordion": {
+      "title": "FAQ",
+      "items": [
+        {
+          "q": "How does your project process work?",
+          "a": "We start with a free discovery call, then a proposal, then production, then delivery — including revision rounds."
         },
-        "pricing": {
-          "q": "How does pricing work?",
-          "a": "Pricing depends on scope, timeline and deliverables. We offer both package-based and project-based options based on your needs."
+        {
+          "q": "How is pricing determined?",
+          "a": "Every project is unique. We quote based on scope and timeline."
         },
-        "remote": {
+        {
           "q": "Do you work remotely?",
-          "a": "Yes. We collaborate fully remotely with teams in Turkey and abroad through planned check-ins and clear delivery timelines."
+          "a": "Yes — we work with clients across Turkey and internationally."
         },
-        "team": {
-          "q": "How big is your team?",
-          "a": "We're a two-person core studio, expanded with trusted specialists depending on each project's needs."
+        {
+          "q": "Do you include revisions?",
+          "a": "Yes — at least two revision rounds are included on every project."
+        },
+        {
+          "q": "How fast can you deliver translations?",
+          "a": "Roughly 1,000 words per day on average. Rush options are available for urgent work."
+        },
+        {
+          "q": "Do I need a studio for voice recording?",
+          "a": "No — we record broadcast-quality audio from a treated home studio."
+        },
+        {
+          "q": "For social media management, do you create the content?",
+          "a": "Yes — we produce photo, video, graphics, and copy in-house."
+        }
+      ]
+    },
+    "where": {
+      "title": "Where are we?",
+      "line1": "Istanbul, Turkey",
+      "line2": "But in every sense, we’re remote —",
+      "line3": "we can work with you from anywhere in the world.",
+      "features": {
+        "remote": {
+          "icon": "🌍",
+          "text": "Remote-first collaboration"
+        },
+        "video": {
+          "icon": "📞",
+          "text": "Video calls"
+        },
+        "inPerson": {
+          "icon": "✈️",
+          "text": "In-person when it matters"
         }
       }
     }

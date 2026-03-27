@@ -1,6 +1,10 @@
-import { BlogCard } from '@/components/blog/BlogCard';
-import { BlogShareBar } from '@/components/blog/BlogShareBar';
+import { AnimatedArticleTitle } from '@/components/blog/AnimatedArticleTitle';
+import { ArticleBody } from '@/components/blog/ArticleBody';
+import { ArticleCoverParallax } from '@/components/blog/ArticleCoverParallax';
+import { BlogMasonryCard } from '@/components/blog/BlogMasonryCard';
 import { ReadingProgress } from '@/components/blog/ReadingProgress';
+import { ShareBar } from '@/components/blog/ShareBar';
+import { TableOfContents } from '@/components/blog/TableOfContents';
 import {
   estimateReadingMinutes,
   formatBlogDate,
@@ -15,7 +19,6 @@ import { Link } from '@/i18n/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { headers } from 'next/headers';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -74,162 +77,154 @@ export default async function BlogPostPage({ params }: Props) {
   const base = host ? `${proto}://${host}` : '';
   const shareUrl = base ? `${base}/${locale}/blog/${slug}` : '';
 
+  const readTimeLabel = (n: number) => tBlog('readMinutesApprox', { count: n });
+
   return (
     <>
       <ReadingProgress />
-      <article className="pb-28 text-brown-deep md:pb-0">
-        <section className="container pt-4 md:pt-6">
-          <nav
-            className="text-sm text-brown-deep/55"
-            aria-label="Breadcrumb"
-          >
-            <ol className="flex flex-wrap items-center gap-2">
-              <li>
-                <Link href="/" className="transition hover:text-terracotta">
-                  {t('breadcrumbHome')}
-                </Link>
-              </li>
-              <li aria-hidden className="text-brown-deep/35">
-                /
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="transition hover:text-terracotta"
-                >
-                  {t('breadcrumbBlog')}
-                </Link>
-              </li>
-              <li aria-hidden className="text-brown-deep/35">
-                /
-              </li>
-              <li className="max-w-[min(100%,12rem)] truncate font-medium text-brown-deep/80 md:max-w-none">
-                {title}
-              </li>
-            </ol>
-          </nav>
-
-          {post.tags?.length ? (
-            <ul className="mt-8 flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="rounded-full bg-leaf/12 px-3 py-1 text-xs font-medium text-leaf-dark ring-1 ring-leaf/25"
-                >
-                  {tag}
+      <article className="pb-28 text-[#3D1F10] lg:pb-12 lg:pl-[4.5rem]">
+        <header
+          className="border-b border-[#EDE4D3]/50 pb-10 pt-4 md:pt-6"
+          style={{ backgroundColor: '#F5F0E6' }}
+        >
+          <div className="container">
+            <nav
+              className="text-sm text-[#3D1F10]/55"
+              aria-label="Breadcrumb"
+            >
+              <ol className="flex flex-wrap items-center gap-2">
+                <li>
+                  <Link href="/" className="transition hover:text-[#8B3A1E]">
+                    {t('breadcrumbHome')}
+                  </Link>
                 </li>
-              ))}
-            </ul>
-          ) : null}
+                <li aria-hidden className="text-[#3D1F10]/35">
+                  /
+                </li>
+                <li>
+                  <Link href="/blog" className="transition hover:text-[#8B3A1E]">
+                    {t('breadcrumbBlog')}
+                  </Link>
+                </li>
+                <li aria-hidden className="text-[#3D1F10]/35">
+                  /
+                </li>
+                <li className="max-w-[min(100%,14rem)] truncate font-medium text-[#3D1F10]/80 md:max-w-none">
+                  {title}
+                </li>
+              </ol>
+            </nav>
 
-          <h1 className="mt-6 font-serif text-3xl leading-tight text-brown-deep md:text-5xl md:leading-[1.15]">
-            {title}
-          </h1>
-
-          <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-brown-deep/60">
-            {dateStr ? (
-              <time dateTime={post.published_at ?? undefined}>{dateStr}</time>
+            {post.tags?.length ? (
+              <ul className="mt-8 flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="rounded-full bg-[#7A9E6E]/15 px-3 py-1 text-xs font-medium text-[#3D1F10] ring-1 ring-[#7A9E6E]/25"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             ) : null}
-            <span aria-hidden className="text-brown-deep/30">
-              ·
-            </span>
-            <span>{t('readMinutes', { count: minutes })}</span>
+
+            <AnimatedArticleTitle title={title} />
+
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-[#3D1F10]/60">
+              {dateStr ? (
+                <time dateTime={post.published_at ?? undefined}>{dateStr}</time>
+              ) : null}
+              {dateStr ? (
+                <span aria-hidden className="text-[#3D1F10]/30">
+                  ·
+                </span>
+              ) : null}
+              <span>{readTimeLabel(minutes)}</span>
+            </div>
           </div>
-        </section>
+        </header>
 
         {post.cover_image ? (
-          <div className="relative left-1/2 mt-10 w-screen max-w-[100vw] -translate-x-1/2 px-4 md:mt-12 md:px-8">
-            <div className="container relative max-h-[480px] overflow-hidden rounded-lg">
-              <Image
-                src={post.cover_image}
-                alt={title}
-                width={1600}
-                height={900}
-                priority
-                className="max-h-[480px] w-full object-cover"
-                sizes="(max-width: 1200px) 100vw, 1152px"
-              />
-            </div>
-          </div>
+          <ArticleCoverParallax src={post.cover_image} alt={title} />
         ) : null}
 
-        <div className="container mt-10 grid gap-10 md:mt-12 md:grid-cols-[1fr_14rem] md:gap-12 lg:grid-cols-[1fr_16rem]">
-          <div className="min-w-0">
-            <div
-              className="blog-prose prose prose-lg max-w-none text-brown-deep"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+        <div className="container mt-10 md:mt-12">
+          <div className="mx-auto flex max-w-6xl flex-col gap-10 lg:flex-row lg:items-start lg:gap-14">
+            <div className="min-w-0 flex-1 lg:max-w-[720px]">
+              <ArticleBody content={content} />
 
-            <div className="mt-12 rounded-2xl border border-beige bg-beige/50 p-6 md:p-8">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-                <div
-                  className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-leaf/15 text-leaf"
-                  aria-hidden
-                >
-                  <svg viewBox="0 0 48 48" className="h-9 w-9" fill="none">
-                    <path
-                      d="M24 42V14M24 28c-10-6-16-14-18-24M24 22c8-5 14-13 16-22"
-                      stroke="currentColor"
-                      strokeWidth={1.3}
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M12 20c-4 8-2 16 6 20 6-4 10-10 10-18-6-4-12-4-16-2z"
-                      fill="currentColor"
-                      opacity={0.25}
-                    />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <p className="text-base leading-relaxed text-brown-deep">
-                    {t('authorBlurb')}
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="mt-3 inline-flex text-sm font-semibold text-terracotta underline-offset-4 transition hover:underline"
+              <section
+                className="mt-14 rounded-2xl border border-[#EDE4D3]/80 p-8 md:p-10"
+                style={{ backgroundColor: '#F5F0E6' }}
+                aria-labelledby="author-card-heading"
+              >
+                <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+                  <div
+                    className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-[#7A9E6E] bg-[#EAF3DE]"
+                    aria-hidden
                   >
-                    {t('authorCta')}
-                  </Link>
+                    <svg viewBox="0 0 48 48" className="h-9 w-9 text-[#7A9E6E]" fill="none">
+                      <path
+                        d="M24 42V14M24 28c-10-6-16-14-18-24M24 22c8-5 14-13 16-22"
+                        stroke="currentColor"
+                        strokeWidth={1.3}
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M12 20c-4 8-2 16 6 20 6-4 10-10 10-18-6-4-12-4-16-2z"
+                        fill="currentColor"
+                        opacity={0.25}
+                      />
+                    </svg>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h2
+                      id="author-card-heading"
+                      className="font-serif text-lg text-[#3D1F10] md:text-[18px]"
+                    >
+                      {t('authorName')}
+                    </h2>
+                    <p className="mt-3 text-sm leading-relaxed text-[#3D1F10]/75 md:text-[15px]">
+                      {t('authorBio')}
+                    </p>
+                    <Link
+                      href="/contact"
+                      className="mt-5 inline-flex text-sm font-semibold text-[#8B3A1E] underline-offset-4 transition hover:underline"
+                    >
+                      {t('authorCtaCollaborate')}
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </section>
+
+              {related.length > 0 ? (
+                <section className="mt-16 md:mt-20">
+                  <h2 className="font-serif text-2xl text-[#3D1F10] md:text-3xl">
+                    {t('relatedTitle')}
+                  </h2>
+                  <ul className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {related.map((p, i) => (
+                      <li key={p.id} className="flex">
+                        <BlogMasonryCard
+                          post={p}
+                          locale={locale}
+                          styleVariant={0}
+                          motionIndex={i}
+                          readShort={tBlog('card.readShort')}
+                          readTimeLabel={readTimeLabel}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ) : null}
             </div>
 
-            {related.length > 0 ? (
-              <section className="mt-16 md:mt-20">
-                <h2 className="font-serif text-2xl text-brown-deep md:text-3xl">
-                  {t('relatedTitle')}
-                </h2>
-                <ul className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                  {related.map((p) => (
-                    <li key={p.id} className="flex">
-                      <BlogCard
-                        post={p}
-                        locale={locale}
-                        featured={false}
-                        readMoreLabel={tBlog('hero.readMore')}
-                        readShortLabel={tBlog('card.readShort')}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ) : null}
+            <TableOfContents containerId="article-body" contentKey={slug} />
           </div>
-
-          {shareUrl ? (
-            <aside className="hidden min-w-0 md:block">
-              <div className="sticky top-28">
-                <BlogShareBar shareUrl={shareUrl} title={title} />
-              </div>
-            </aside>
-          ) : null}
         </div>
 
-        {shareUrl ? (
-          <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-beige bg-cream/95 p-4 shadow-[0_-4px_24px_rgba(61,31,16,0.08)] backdrop-blur-sm md:hidden">
-            <BlogShareBar shareUrl={shareUrl} title={title} />
-          </div>
-        ) : null}
+        {shareUrl ? <ShareBar shareUrl={shareUrl} title={title} /> : null}
       </article>
     </>
   );

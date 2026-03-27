@@ -237,17 +237,38 @@
       "description": "Toprak & Co. ekibi, tasarımdan çeviriye ve web geliştirmeye kadar her projeye özenle yaklaşan iki kurucunun hikâyesi."
     },
     "pageTitle": "Hakkımızda",
-    "pageSubtitle": "İki kişi, bir tutku, sınırsız yaratıcılık.",
+    "pageSubtitle": "Bir tutku, sınırsız yaratıcılık.",
+    "hero": {
+      "overline": "TOPRAK & CO. — KREATİF AJANS",
+      "year": "2025",
+      "line1": "",
+      "line2": "Bir tutku.",
+      "line3": "Sınırsız.",
+      "intro": "Toprak & Co., farklı alanlardaki uzmanlıklarını tek çatı altında buluşturan iki yaratıcının ortak hikâyesidir. Tasarımdan sese, içerikten koda.",
+      "scrollHint": "KAYDIRIN"
+    },
+    "manifesto": {
+      "heading": "Manifesto",
+      "line1": "Yaratıcılık bir süs değil,",
+      "line2": "iletişimin ta kendisidir.",
+      "attribution": "— Toprak & Co."
+    },
     "story": {
       "pullQuote": "Yaratıcılık köklerde başlar.",
       "body": "Toprak & Co., farklı alanlardaki uzmanlıklarını birleştiren iki yaratıcı insanın ortak hayalidir. Tasarımdan çeviriye, seslendirmeden web geliştirmeye kadar uzanan geniş bir yelpazede, her projeye özenle ve kişisel bir dokunuşla yaklaşıyoruz."
     },
     "team": {
       "title": "Ekibimiz",
+      "overline": "EKİBİMİZ",
+      "heading": "Arkamızdaki insanlar.",
+      "contactEmailAria": "{name} — E-posta",
+      "contactInstagramAria": "{name} — Instagram",
       "member1": {
         "name": "[İsim — düzenlenecek]",
         "role": "Kurucu — Tasarım, Çeviri, Seslendirme, İçerik",
         "bio": "Kısa biyografi metni buraya gelecek; iki veya üç cümlelik örnek.",
+        "email": "info@toprakco.tr",
+        "instagramUrl": "https://www.instagram.com/toprakandco/",
         "skills": [
           "Grafik Tasarım",
           "Çeviri",
@@ -261,6 +282,8 @@
         "name": "[İsim — düzenlenecek]",
         "role": "Kurucu — [Ortak rolleri buraya]",
         "bio": "Kısa biyografi metni buraya gelecek.",
+        "email": "info@toprakco.tr",
+        "instagramUrl": "https://www.instagram.com/toprakandco/",
         "skills": [
           "Örnek",
           "Etiketler",
@@ -288,14 +311,15 @@
     "stats": {
       "title": "Rakamlarla Biz",
       "labels": {
-        "web": "Yayımlanmış web sitesi",
-        "books": "Yayımlanmış çeviri kitabı",
-        "social": "Sosyal medya hesabı yönetimi",
-        "projects": "Tamamlanan proje"
+        "projects": "Tamamlanan Proje",
+        "services": "Hizmet Alanı",
+        "books": "Yayımlanan Kitap",
+        "creativity": "Yaratıcılık"
       }
     },
     "industries": {
       "title": "Çalıştığımız Sektörler",
+      "sectionHeading": "Deneyim kazandığımız alanlar.",
       "list": [
         "Turizm",
         "Yayıncılık & Kitabevi",
@@ -310,8 +334,8 @@
       ]
     },
     "ctaBanner": {
-      "title": "Birlikte bir şeyler yaratalım.",
-      "subtitle": "",
+      "title": "Birlikte bir şeyler yapalım.",
+      "subtitle": "Kısa bir brif yeter; birlikte yol haritasını çizelim.",
       "button": "İletişime Geçin"
     }
   },
@@ -494,6 +518,7 @@
     },
     "pageTitle": "Blog",
     "pageSubtitle": "Yaratıcılık, tasarım ve dijital dünya üzerine notlar.",
+    "readMinutesApprox": "~{count} dk okuma",
     "hero": {
       "readMore": "Okumaya Devam Et →"
     },
@@ -501,6 +526,26 @@
       "readShort": "Oku →"
     },
     "emptyState": "Henüz yazı yok, yakında burada olacak.",
+    "listing": {
+      "overline": "BLOG",
+      "marquee": "Tasarım · Çeviri · Seslendirme · İçerik · Teknoloji · Yaratıcılık · Kültür · Dil · Ses · Görsel · ",
+      "filterAll": "Tümü",
+      "featuredBadge": "Öne Çıkan Yazı",
+      "noResults": "Bu etiket için yazı bulunamadı.",
+      "head1a": "Notlar,",
+      "head1b": "fikirler,",
+      "head2a": "ilhamlar."
+    },
+    "newsletter": {
+      "title": "Notlarımızdan haberdar olun.",
+      "subtitle": "Yeni yazılar ve ajans haberleri için e-posta bırakın; spam yok.",
+      "emailLabel": "E-posta",
+      "placeholder": "ornek@eposta.com",
+      "submit": "Abone ol",
+      "sending": "Gönderiliyor…",
+      "success": "Teşekkürler! Listeye eklendiniz.",
+      "error": "Bir sorun oluştu. Lütfen tekrar deneyin."
+    },
     "pagination": {
       "previous": "Önceki",
       "next": "Sonraki",
@@ -511,12 +556,17 @@
       "breadcrumbHome": "Ana Sayfa",
       "breadcrumbBlog": "Blog",
       "readMinutes": "{count} dakika okuma",
-      "relatedTitle": "Benzer Yazılar",
-      "shareLabel": "Bu yazıyı paylaş:",
-      "copyLink": "Linki kopyala",
+      "relatedTitle": "Bunlar da ilginizi çekebilir",
+      "shareLabel": "Paylaş",
+      "copyLink": "Bağlantıyı kopyala",
       "copied": "Kopyalandı",
+      "linkCopiedToast": "Bağlantı kopyalandı!",
+      "tocTitle": "İçindekiler",
       "authorBlurb": "Toprak & Co. ekibi tarafından yazıldı.",
-      "authorCta": "Bizimle çalışın →"
+      "authorCta": "Bizimle çalışın →",
+      "authorName": "Toprak & Co. ekibi",
+      "authorBio": "Tasarım, çeviri, ses ve dijital üretimde markalara eşlik ediyoruz. Her projede net iletişim ve özenli işçilik hedefliyoruz.",
+      "authorCtaCollaborate": "Birlikte çalışalım →"
     }
   },
   "sss": {
@@ -524,6 +574,7 @@
       "title": "SSS | Toprak & Co.",
       "description": "Toprak & Co. hizmetleri, süreç ve teslimat hakkında sıkça sorulan sorular."
     },
+    "redirecting": "İletişim sayfasına yönlendiriliyorsunuz…",
     "pageTitle": "Sıkça Sorulan Sorular",
     "intro": "Aşağıda en çok sorulan konuların yanıtlarını bulabilirsiniz. Başka bir sorunuz varsa iletişim formundan yazmanız yeterli.",
     "items": [
@@ -572,26 +623,75 @@
   "contact": {
     "title": "İletişime Geçin",
     "subtitle": "Projeniz için bir kahve içelim.",
+    "hero": {
+      "overline": "İLETİŞİM",
+      "titleBefore": "Projeniz için bir ",
+      "titleHighlight": "kahve",
+      "titleAfter": " içelim.",
+      "intro": "Büyük ya da küçük, her proje bizim için önemli.\nBize ulaşın, birlikte konuşalım.",
+      "cards": {
+        "email": {
+          "title": "E-posta",
+          "value": "info@toprakco.tr"
+        },
+        "location": {
+          "title": "Konum",
+          "value": "Türkiye — Uzaktan çalışıyoruz"
+        },
+        "response": {
+          "title": "Yanıt Süresi",
+          "value": "Genellikle 24 saat içinde"
+        }
+      },
+      "social": {
+        "instagram": "https://www.instagram.com/toprakandco/",
+        "linkedin": "https://www.linkedin.com/company/toprak-co",
+        "youtube": "https://www.youtube.com/@toprakandco",
+        "instagramAria": "Toprak & Co. Instagram",
+        "linkedinAria": "Toprak & Co. LinkedIn",
+        "youtubeAria": "Toprak & Co. YouTube"
+      }
+    },
     "meta": {
       "title": "İletişim | Toprak & Co.",
       "description": "Toprak & Co. ile iletişime geçin. Proje süreci, fiyatlandırma ve çalışma modeli hakkında hızlıca konuşalım."
     },
     "form": {
+      "sectionTitle": "Bize Yazın",
+      "sectionSubtitle": "Aşağıdaki formdan bize ulaşın; en kısa sürede dönüş yaparız.",
       "name": "Ad Soyad",
       "email": "E-posta",
       "phone": "Telefon",
       "subject": "Konu",
       "subjectPlaceholder": "Konu seçin",
       "message": "Mesaj",
-      "submit": "Gönder",
+      "budgetLabel": "Bütçe aralığı",
+      "budgetOptional": "İsteğe bağlı",
+      "submit": "Mesajı Gönder →",
       "sending": "Gönderiliyor...",
       "success": "Mesajınız iletildi! En kısa sürede dönüş yapacağız.",
+      "successTitle": "Mesajınız iletildi!",
+      "successSubtitle": "En kısa sürede dönüş yapacağız.",
       "error": "Bir hata oluştu, lütfen tekrar deneyin.",
+      "charCount": "{current}/500",
+      "validation": {
+        "name": "Lütfen adınızı ve soyadınızı girin.",
+        "email": "Geçerli bir e-posta adresi girin.",
+        "message": "Lütfen mesajınızı yazın (en fazla 500 karakter).",
+        "phone": "Lütfen geçerli bir telefon numarası girin."
+      },
+      "budget": {
+        "lt5k": "< 5.000 ₺",
+        "5to15k": "5-15K ₺",
+        "15to30k": "15-30K ₺",
+        "30kPlus": "30K+ ₺",
+        "preferNot": "Belirtmek istemiyorum"
+      },
       "subjects": {
         "grafik-tasarim": "Grafik Tasarım",
         "ceviri": "Çeviri",
         "seslendirme": "Seslendirme",
-        "icerik-uretimi": "İçerik Üretimi & Sosyal Medya",
+        "icerik-uretimi": "İçerik Üretimi",
         "fotograf-video": "Fotoğraf & Video",
         "web-yazilim": "Web & Yazılım",
         "other": "Diğer"
@@ -602,24 +702,56 @@
       "instagramLabel": "Instagram",
       "youtubeLabel": "YouTube"
     },
-    "faq": {
+    "faqAccordion": {
       "title": "Sık Sorulan Sorular",
-      "items": {
-        "process": {
+      "items": [
+        {
           "q": "Proje süreci nasıl işliyor?",
-          "a": "Ön görüşme ile ihtiyaçları netleştiriyor, kısa bir yol haritası sunuyor ve onay sonrası üretime geçiyoruz. Her aşamada düzenli bilgilendirme yapıyoruz."
+          "a": "Önce ücretsiz ön görüşme, sonra teklif, sonra üretim, sonra teslimat + revizyon hakkı."
         },
-        "pricing": {
-          "q": "Fiyatlandırma nasıl?",
-          "a": "Kapsam, teslim süresi ve üretim türüne göre teklif hazırlıyoruz. İhtiyaca göre paket veya proje bazlı fiyatlandırma uyguluyoruz."
+        {
+          "q": "Fiyatlandırma nasıl belirleniyor?",
+          "a": "Her proje özeldir. Kapsam ve süreye göre özel fiyat sunuyoruz."
         },
-        "remote": {
+        {
           "q": "Uzaktan çalışıyor musunuz?",
-          "a": "Evet. Türkiye ve yurt dışındaki ekiplerle tamamen uzaktan, planlı toplantılar ve net teslim takvimiyle çalışıyoruz."
+          "a": "Evet, Türkiye'nin her yerinden ve yurt dışından müşterilerimizle çalışıyoruz."
         },
-        "team": {
-          "q": "Kaç kişilik bir ekipsiniz?",
-          "a": "Çekirdekte iki kişiyiz; projeye göre uzman iş ortaklarıyla esnek şekilde genişleyen bir üretim ağı kuruyoruz."
+        {
+          "q": "Revizyon hakkı var mı?",
+          "a": "Evet, tüm projelerimizde en az 2 revizyon hakkı dahildir."
+        },
+        {
+          "q": "Çeviri için teslim süresi ne kadar?",
+          "a": "Ortalama 1000 kelime/gün. Acil projeler için express seçenek mevcut."
+        },
+        {
+          "q": "Seslendirme için stüdyo gerekli mi?",
+          "a": "Hayır, stüdyo kalitesinde home studio ekipmanıyla çalışıyoruz."
+        },
+        {
+          "q": "Sosyal medya yönetiminde içerikleri siz mi üretiyorsunuz?",
+          "a": "Evet, fotoğraf, video, grafik ve metin dahil tüm içerikleri biz üretiyoruz."
+        }
+      ]
+    },
+    "where": {
+      "title": "Neredeyiz?",
+      "line1": "İstanbul, Türkiye",
+      "line2": "Ama tam anlamıyla uzaktayız —",
+      "line3": "Dünyanın her yerinden çalışabiliriz.",
+      "features": {
+        "remote": {
+          "icon": "🌍",
+          "text": "Uzaktan çalışma"
+        },
+        "video": {
+          "icon": "📞",
+          "text": "Video konferans"
+        },
+        "inPerson": {
+          "icon": "✈️",
+          "text": "Gerektiğinde yüz yüze"
         }
       }
     }

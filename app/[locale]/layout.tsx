@@ -1,6 +1,8 @@
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
+import { PublicMaintenanceView } from '@/components/maintenance/PublicMaintenanceView';
 import { routing } from '@/i18n/routing';
+import { getSiteSettingsMapSafe } from '@/lib/site-settings';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Inter, Playfair_Display } from 'next/font/google';
@@ -49,6 +51,20 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   if (!(routing.locales as readonly string[]).includes(locale)) {
     notFound();
+  }
+
+  const settingsMap = await getSiteSettingsMapSafe();
+  if (settingsMap.get('maintenance_mode') === 'true') {
+    const settings = Object.fromEntries(settingsMap);
+    return (
+      <html lang={locale} suppressHydrationWarning>
+        <body
+          className={`${inter.variable} ${playfair.variable} flex min-h-dvh flex-col bg-cream font-sans text-brown-deep antialiased`}
+        >
+          <PublicMaintenanceView locale={locale} settings={settings} />
+        </body>
+      </html>
+    );
   }
 
   setRequestLocale(locale);

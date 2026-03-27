@@ -86,6 +86,45 @@ section {
   }
 }
 
+@keyframes contact-form-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+.animate-contact-form-shake {
+  animation: contact-form-shake 0.5s ease;
+}
+
+@keyframes contact-where-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.animate-contact-where-ripple {
+  animation: contact-where-ripple 1.5s ease-out infinite;
+}
+
+.animate-contact-where-ripple-delayed {
+  animation: contact-where-ripple 1.5s ease-out infinite;
+  animation-delay: 0.5s;
+}
+
 @keyframes home-bounce-arrow {
   0%,
   100% {
@@ -293,6 +332,148 @@ section {
   margin: 1.25em 0;
 }
 
+/* Blog article (detail page) — typography overrides */
+.blog-article-prose :where(h1, h2, h3, h4) {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  color: #3d1f10;
+  font-weight: 600;
+}
+
+.blog-article-prose :where(h2) {
+  font-size: 1.65rem;
+  margin-top: 1.5em;
+}
+.blog-article-prose :where(h3) {
+  font-size: 1.3rem;
+  margin-top: 1.25em;
+}
+
+.blog-article-prose :where(a) {
+  color: #8b3a1e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+  -webkit-transition: color 0.15s ease;
+}
+
+.blog-article-prose :where(a:hover) {
+  color: #6b2c14;
+}
+
+.blog-article-prose :where(blockquote) {
+  margin: 1.35em 0;
+  padding: 20px 24px;
+  border-left: 3px solid #c4824a;
+  background: #fff5ec;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  color: #3d1f10;
+}
+
+.blog-article-prose :where(code) {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  background: #f5f0e6;
+  color: #8b3a1e;
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+}
+
+.blog-article-prose :where(pre) {
+  background: #f5f0e6;
+  border-radius: 0.5rem;
+}
+
+.blog-article-prose :where(pre code) {
+  color: #3d1f10;
+}
+
+.blog-article-prose :where(strong) {
+  color: #3d1f10;
+  font-weight: 600;
+}
+
+.blog-article-prose :where(img) {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(61, 31, 16, 0.08);
+  -webkit-box-shadow: 0 8px 32px rgba(61, 31, 16, 0.08);
+}
+
+@keyframes blog-cursor-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blog-marquee-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.blog-typewriter-cursor {
+  animation: blog-cursor-blink 1.1s step-end infinite;
+  -webkit-animation: blog-cursor-blink 1.1s step-end infinite;
+}
+
+.blog-marquee-30s {
+  animation: blog-marquee-slide 30s linear infinite;
+  -webkit-animation: blog-marquee-slide 30s linear infinite;
+}
+
+@keyframes about-hero-scroll-pulse {
+  0% {
+    transform: scaleY(0.35);
+    transform-origin: top;
+    -webkit-transform: scaleY(0.35);
+    -webkit-transform-origin: top;
+    opacity: 0.9;
+  }
+  45% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scaleY(0.35);
+    transform-origin: top;
+    -webkit-transform: scaleY(0.35);
+    -webkit-transform-origin: top;
+    opacity: 0.9;
+  }
+}
+
+.about-hero-scroll-line {
+  animation: about-hero-scroll-pulse 2.2s ease-in-out infinite;
+  -webkit-animation: about-hero-scroll-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes about-stat-infinity-pulse {
+  0%,
+  100% {
+    opacity: 0.88;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.035);
+  }
+}
+
+.about-stat-infinity-pulse {
+  animation: about-stat-infinity-pulse 2.6s ease-in-out infinite;
+  -webkit-animation: about-stat-infinity-pulse 2.6s ease-in-out infinite;
+}
+
 .blog-prose :where(ul, ol) {
   margin: 1em 0;
   padding-left: 1.5em;
@@ -386,5 +567,29 @@ section {
   [class*='animate-[services-draw_'],
   [class*='animate-[fadeInUp_'] {
     animation: none !important;
+  }
+
+  .blog-marquee-30s {
+    animation: none;
+    -webkit-animation: none;
+    transform: none;
+    -webkit-transform: none;
+  }
+
+  .blog-typewriter-cursor {
+    animation: none;
+    -webkit-animation: none;
+    opacity: 1;
+  }
+
+  .about-hero-scroll-line {
+    animation: none;
+    -webkit-animation: none;
+    opacity: 0.45;
+  }
+
+  .about-stat-infinity-pulse {
+    animation: none;
+    -webkit-animation: none;
   }
 }

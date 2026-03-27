@@ -3,23 +3,9 @@
 import { useEffect, useState } from 'react';
 
 export function ReadingProgress() {
-  const [reduced, setReduced] = useState(true);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const updateReduced = () => setReduced(mq.matches);
-    updateReduced();
-    mq.addEventListener('change', updateReduced);
-    return () => mq.removeEventListener('change', updateReduced);
-  }, []);
-
-  useEffect(() => {
-    if (reduced) {
-      setProgress(0);
-      return;
-    }
-
     const onScroll = () => {
       const el = document.documentElement;
       const scrollable = el.scrollHeight - el.clientHeight;
@@ -31,20 +17,24 @@ export function ReadingProgress() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [reduced]);
-
-  if (reduced) {
-    return null;
-  }
+  }, []);
 
   return (
     <div
-      className="pointer-events-none fixed left-0 right-0 top-0 z-[200] h-[3px] bg-beige/40"
+      className="pointer-events-none fixed left-0 right-0 top-0 z-[100] h-[3px] bg-[#F5F0E6]/50"
       aria-hidden
+      role="progressbar"
+      aria-valuenow={Math.round(progress)}
+      aria-valuemin={0}
+      aria-valuemax={100}
     >
       <div
-        className="h-full bg-terracotta transition-[width] duration-100 ease-out motion-reduce:transition-none"
-        style={{ width: `${progress}%` }}
+        className="h-full bg-gradient-to-r from-[#8B3A1E] via-[#C4824A] to-[#7A9E6E]"
+        style={{
+          width: `${progress}%`,
+          transition: 'none',
+          WebkitTransition: 'none',
+        }}
       />
     </div>
   );

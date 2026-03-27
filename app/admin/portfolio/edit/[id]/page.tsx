@@ -1,7 +1,8 @@
 import { createSupabaseClient } from '@/lib/supabase';
 import { revalidatePath } from 'next/cache';
 import { notFound, redirect } from 'next/navigation';
-import { PortfolioForm } from '../../PortfolioForm';
+import { deletePortfolioItem } from '../../actions';
+import { PortfolioEditor } from '../../PortfolioEditor';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -29,8 +30,8 @@ export default async function EditPortfolioPage({ params }: Props) {
         title_tr: String(formData.get('title_tr') ?? ''),
         title_en: String(formData.get('title_en') ?? ''),
         slug: String(formData.get('slug') ?? ''),
-        description_tr: String(formData.get('description_tr') ?? ''),
-        description_en: String(formData.get('description_en') ?? ''),
+        description_tr: String(formData.get('description_tr') ?? '') || null,
+        description_en: String(formData.get('description_en') ?? '') || null,
         category: String(formData.get('category') ?? '') || null,
         cover_image: String(formData.get('cover_image') ?? '') || null,
         images: toList(formData.get('images')),
@@ -45,10 +46,20 @@ export default async function EditPortfolioPage({ params }: Props) {
     redirect('/admin/portfolio');
   }
 
+  async function removePortfolio() {
+    'use server';
+    await deletePortfolioItem(id);
+  }
+
   return (
     <div className="space-y-4">
-      <h1 className="font-serif text-3xl text-brown-deep">Portfolyo Düzenle</h1>
-      <PortfolioForm initial={data} action={updateItem} submitLabel="Güncelle" />
+      <p className="font-sans text-sm text-[#6B4C35]">Kaydı düzenleyin veya silin.</p>
+      <PortfolioEditor
+        initial={data}
+        saveAction={updateItem}
+        deleteAction={removePortfolio}
+        submitLabel="Güncelle"
+      />
     </div>
   );
 }

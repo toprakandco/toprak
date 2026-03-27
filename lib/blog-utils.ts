@@ -37,3 +37,20 @@ export function sortBlogPostsForListing(posts: BlogPost[]): BlogPost[] {
     return tb - ta;
   });
 }
+
+export function filterPostsByTag(posts: BlogPost[], tag: string): BlogPost[] {
+  if (!tag || tag === 'all') return posts;
+  return posts.filter((p) => p.tags?.includes(tag));
+}
+
+export const BLOG_POSTS_PER_PAGE = 9;
+
+export function getBlogCardExcerpt(post: BlogPost, locale: string): string {
+  const excerptRaw =
+    locale === 'tr' ? post.excerpt_tr : post.excerpt_en;
+  if (excerptRaw && excerptRaw.trim().length > 0) {
+    return excerptRaw.trim();
+  }
+  const content = locale === 'tr' ? post.content_tr : post.content_en;
+  return `${stripHtml(content).slice(0, 180)}…`;
+}
