@@ -22,12 +22,12 @@ export default async function SssPage({ params }: Props) {
 
   return (
     <div className="text-brown-deep">
-      <header className="mx-auto max-w-3xl px-4 pt-4 md:px-6">
+      <header className="container max-w-3xl pt-4">
         <h1 className="font-serif text-4xl text-brown-deep md:text-5xl">{t('pageTitle')}</h1>
         <p className="mt-4 text-base leading-relaxed text-brown-deep/75">{t('intro')}</p>
       </header>
 
-      <div className="mx-auto mt-12 max-w-3xl space-y-3 px-4 pb-16 md:px-6">
+      <div className="container mt-12 max-w-3xl space-y-3 pb-16">
         {items.map((item, i) => (
           <details
             key={i}

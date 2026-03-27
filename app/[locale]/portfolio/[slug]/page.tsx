@@ -78,8 +78,8 @@ export default async function PortfolioDetailPage({ params }: Props) {
 
   return (
     <article className="text-brown-deep">
-      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-cream px-4 py-12 md:px-8 md:py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-cream py-12 md:py-16">
+        <div className="container">
           <nav
             className="text-sm text-brown-deep/55"
             aria-label="Breadcrumb"
@@ -108,7 +108,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
             </ol>
           </nav>
 
-          <h1 className="mt-8 font-serif text-4xl text-brown-deep md:text-5xl lg:text-[3rem]">
+          <h1 className="mt-8 font-serif text-[clamp(32px,5vw,60px)] text-brown-deep">
             {title}
           </h1>
 
@@ -132,7 +132,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <div className="mx-auto mt-10 max-w-6xl md:mt-14">
+      <div className="container mt-10 md:mt-14">
         <PortfolioGallery
           coverImage={item.cover_image}
           images={item.images ?? []}
@@ -140,7 +140,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
         />
       </div>
 
-      <div className="mx-auto mt-14 grid max-w-6xl gap-10 md:mt-16 md:grid-cols-3 md:gap-12">
+      <div className="container mt-14 grid gap-10 md:mt-16 md:grid-cols-3 md:gap-12">
         <div className="md:col-span-2">
           <h2 className="font-serif text-2xl text-brown-deep">
             {t('descriptionHeading')}
@@ -152,7 +152,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <aside className="h-fit rounded-2xl border border-beige bg-white p-6 shadow-sm md:sticky md:top-28">
+        <aside className="h-fit rounded-2xl border border-beige bg-white p-7 shadow-sm md:sticky md:top-[100px]">
           <dl className="space-y-5 text-sm">
             <div>
               <dt className="text-xs font-semibold uppercase tracking-wider text-brown-deep/50">
@@ -195,11 +195,17 @@ export default async function PortfolioDetailPage({ params }: Props) {
               </div>
             ) : null}
           </dl>
+          <Link
+            href="/contact"
+            className="mt-6 inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-terracotta px-5 py-2.5 text-sm text-cream transition hover:bg-terracotta-dark"
+          >
+            {t('similarCta')}
+          </Link>
         </aside>
       </div>
 
       {related.length > 0 ? (
-        <section className="mx-auto mt-20 max-w-6xl md:mt-28">
+        <section className="container mt-20 md:mt-28">
           <h2 className="font-serif text-3xl text-brown-deep md:text-4xl">
             {t('relatedTitle')}
           </h2>

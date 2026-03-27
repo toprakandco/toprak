@@ -23,7 +23,7 @@ export default async function ContactPage({ params }: Props) {
   const t = await getTranslations('contact');
 
   return (
-    <div className="space-y-10 py-6 md:space-y-12">
+    <div className="container space-y-10 py-6 md:space-y-12">
       <header className="text-center">
         <h1 className="font-serif text-4xl text-terracotta md:text-5xl">
           {t('title')}

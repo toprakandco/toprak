@@ -453,7 +453,9 @@
     },
     "filterEmpty": "Bu kategoride henüz proje yok.",
     "emptyState": {
-      "title": "Yakında burada harika işler göreceksiniz."
+      "title": "Yakında burada harika işler göreceksiniz.",
+      "subtitle": "Bu alan için çalışmalar ekleniyor.",
+      "cta": "Bizimle Çalışın →"
     },
     "detail": {
       "breadcrumbHome": "Ana Sayfa",
@@ -462,7 +464,27 @@
       "serviceLabel": "Hizmet",
       "tagsLabel": "Etiketler",
       "relatedTitle": "Benzer Çalışmalar",
-      "descriptionHeading": "Proje"
+      "descriptionHeading": "Proje",
+      "similarCta": "Benzer Proje İçin →"
+    },
+    "header": {
+      "overline": "PORTFÖY",
+      "heading": "Anlattığımız hikayeler.",
+      "subtitle": "Her projede strateji, estetik ve anlatıyı bir araya getiriyor; markaların gerçek etkisini görünür kılıyoruz.",
+      "stats": [
+        {
+          "value": "100+",
+          "label": "Proje"
+        },
+        {
+          "value": "6",
+          "label": "Alan"
+        },
+        {
+          "value": "Türkiye & Dünya",
+          "label": ""
+        }
+      ]
     }
   },
   "blog": {

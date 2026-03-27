@@ -50,18 +50,20 @@ export default async function BlogPage({ params, searchParams }: Props) {
 
   return (
     <div className="text-brown-deep">
-      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-beige px-4 py-16 md:px-8 md:py-20">
-        <div className="mx-auto max-w-3xl text-center md:text-left">
+      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-beige py-16 md:py-20">
+        <div className="container">
+          <div className="max-w-3xl text-center md:text-left">
           <h1 className="font-serif text-4xl text-brown-deep md:text-5xl lg:text-6xl">
             {t('pageTitle')}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brown-deep/70 md:mx-0 md:text-lg">
             {t('pageSubtitle')}
           </p>
+          </div>
         </div>
       </section>
 
-      <div className="mx-auto mt-10 max-w-6xl pb-12 md:mt-14">
+      <div className="container mt-10 pb-12 md:mt-14">
         {sorted.length === 0 ? (
           <p className="py-16 text-center text-brown-deep/70 md:py-24">
             {t('emptyState')}

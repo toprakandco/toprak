@@ -93,19 +93,22 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <div className="text-brown-deep">
-      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-beige px-4 py-16 md:px-8 md:py-20">
+      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-beige py-16 md:py-20">
         <HeaderBranch />
-        <div className="relative mx-auto max-w-3xl text-center md:text-left">
+        <div className="container relative">
+          <div className="max-w-3xl text-center md:text-left">
           <h1 className="font-serif text-4xl text-brown-deep md:text-5xl lg:text-6xl">
             {t('pageTitle')}
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brown-deep/75 md:mx-0 md:text-lg">
             {t('pageSubtitle')}
           </p>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+      <section className="py-16 md:py-24">
+        <div className="container">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="font-serif text-2xl italic leading-snug text-terracotta md:text-3xl lg:text-[2rem]">
@@ -121,9 +124,11 @@ export default async function AboutPage({ params }: Props) {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 md:py-12 lg:px-8">
+      <section className="py-8 md:py-12">
+        <div className="container">
         <h2 className="text-center font-serif text-3xl text-brown-deep md:text-4xl">
           {t('team.title')}
         </h2>
@@ -171,10 +176,11 @@ export default async function AboutPage({ params }: Props) {
             );
           })}
         </div>
+        </div>
       </section>
 
-      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-cream px-4 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-cream py-16 md:py-24">
+        <div className="container">
           <h2 className="text-center font-serif text-3xl text-brown-deep md:text-4xl">
             {t('values.title')}
           </h2>
@@ -204,8 +210,8 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-white py-16 md:py-24">
+        <div className="container">
           <h2 className="text-center font-serif text-3xl text-brown-deep md:text-4xl">
             {t('industries.title')}
           </h2>

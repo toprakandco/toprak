@@ -1,5 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
-import type { BlogPost, Contact, PortfolioItem, Service } from '@/types';
+import type {
+  BlogPost,
+  Client,
+  Contact,
+  PortfolioItem,
+  Service,
+  AdminUser,
+  SiteSetting,
+} from '@/types';
 
 export interface Database {
   public: {
@@ -15,6 +23,15 @@ export interface Database {
       };
       blog_posts: {
         Row: BlogPost;
+      };
+      clients: {
+        Row: Client;
+      };
+      site_settings: {
+        Row: SiteSetting;
+      };
+      admin_users: {
+        Row: AdminUser;
       };
     };
   };
@@ -37,7 +54,7 @@ export function createSupabaseClient() {
     );
   }
 
-  return createClient<Database>(url, anonKey);
+  return createClient(url, anonKey);
 }
 
 export const supabase = createSupabaseClient();
@@ -94,7 +111,7 @@ export async function getActiveServiceSlugs(): Promise<string[]> {
     return [];
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('services')
     .select('slug')
@@ -113,7 +130,7 @@ export async function getServiceBySlugSafe(slug: string): Promise<Service | null
     return null;
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('services')
     .select('*')
@@ -133,7 +150,7 @@ export async function getServicesSafe(): Promise<Service[]> {
     return [];
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('services')
     .select('*')
@@ -155,7 +172,7 @@ export async function getPortfolioItemsSafe(
     return [];
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   let query = client
     .from('portfolio_items')
     .select('*')
@@ -198,7 +215,7 @@ export async function getPortfolioItemBySlugSafe(
     return null;
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('portfolio_items')
     .select('*')
@@ -218,7 +235,7 @@ export async function getActivePortfolioSlugs(): Promise<string[]> {
     return [];
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('portfolio_items')
     .select('slug')
@@ -245,7 +262,7 @@ export async function getRelatedPortfolioItemsSafe(
     return [];
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('portfolio_items')
     .select('*')
@@ -284,7 +301,7 @@ export async function getLatestBlogPostsForHome(
     return [];
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('blog_posts')
     .select('*')
@@ -323,7 +340,7 @@ export async function getBlogPostsSafe(): Promise<BlogPost[]> {
     return [];
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('blog_posts')
     .select('*')
@@ -347,7 +364,7 @@ export async function getBlogPostBySlugSafe(
     return null;
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('blog_posts')
     .select('*')
@@ -369,7 +386,7 @@ export async function getActiveBlogSlugs(): Promise<string[]> {
     return [];
   }
 
-  const client = createClient<Database>(url, anonKey);
+  const client = createClient(url, anonKey);
   const { data, error } = await client
     .from('blog_posts')
     .select('slug')

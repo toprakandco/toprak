@@ -53,7 +53,8 @@ export default async function ServicesPage({ params }: Props) {
   return (
     <div className="text-[#3D1F10]">
       <section className="bg-cream py-20 text-center">
-        <div className="mx-auto w-full max-w-[980px] px-[max(24px,5vw)]">
+        <div className="container">
+          <div className="mx-auto w-full max-w-[980px]">
           <p className="animate-[fadeInUp_0.6s_ease_forwards] text-[10px] tracking-[0.22em] text-terracotta">
             {t('overline')}
           </p>
@@ -80,11 +81,12 @@ export default async function ServicesPage({ params }: Props) {
           <p className="mx-auto mt-6 max-w-[500px] text-[15px] leading-relaxed text-[#6B4C35]/75">
             {t('subtitle')}
           </p>
+          </div>
         </div>
       </section>
 
       <section className="pb-24">
-        <div className="mx-auto w-full max-w-[1280px] px-[max(24px,5vw)]">
+        <div className="container">
           <ServicesGridClient
             services={normalized}
             locale={locale}

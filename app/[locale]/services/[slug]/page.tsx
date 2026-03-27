@@ -88,7 +88,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           {order}
         </span>
 
-        <div className="mx-auto w-full max-w-[1280px] px-[max(24px,5vw)]">
+        <div className="container">
           <nav className="text-[13px] text-[#7A6050]" aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
@@ -144,7 +144,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <ServiceProcessClient title={t('processTitle')} steps={processSteps} />
 
       <section className="bg-[#fff] py-20">
-        <div className="mx-auto w-full max-w-[1280px] px-[max(24px,5vw)]">
+        <div className="container">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="font-serif text-[clamp(24px,4vw,38px)] text-[#3D1F10]">
               {t('portfolioTitle')}

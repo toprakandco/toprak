@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       <ReadingProgress />
       <article className="pb-28 text-brown-deep md:pb-0">
-        <section className="mx-auto max-w-6xl px-0 pt-4 md:pt-6">
+        <section className="container pt-4 md:pt-6">
           <nav
             className="text-sm text-brown-deep/55"
             aria-label="Breadcrumb"
@@ -139,7 +139,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {post.cover_image ? (
           <div className="relative left-1/2 mt-10 w-screen max-w-[100vw] -translate-x-1/2 px-4 md:mt-12 md:px-8">
-            <div className="relative mx-auto max-h-[480px] max-w-6xl overflow-hidden rounded-lg">
+            <div className="container relative max-h-[480px] overflow-hidden rounded-lg">
               <Image
                 src={post.cover_image}
                 alt={title}
@@ -153,7 +153,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         ) : null}
 
-        <div className="mx-auto mt-10 grid max-w-6xl gap-10 md:mt-12 md:grid-cols-[1fr_14rem] md:gap-12 lg:grid-cols-[1fr_16rem]">
+        <div className="container mt-10 grid gap-10 md:mt-12 md:grid-cols-[1fr_14rem] md:gap-12 lg:grid-cols-[1fr_16rem]">
           <div className="min-w-0">
             <div
               className="blog-prose prose prose-lg max-w-none text-brown-deep"

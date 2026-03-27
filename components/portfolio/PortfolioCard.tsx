@@ -7,27 +7,30 @@ import Image from 'next/image';
 type Props = {
   item: PortfolioItem;
   locale: string;
+  index?: number;
   categoryLabel: string;
   ctaLabel: string;
 };
 
-export function PortfolioCard({ item, locale, categoryLabel, ctaLabel }: Props) {
+export function PortfolioCard({ item, locale, index = 0, categoryLabel, ctaLabel }: Props) {
   const title = locale === 'tr' ? item.title_tr : item.title_en;
   const cat = item.category;
+  const ratioByIndex = ['aspect-[4/3]', 'aspect-square', 'aspect-[3/4]', 'aspect-[5/4]'];
+  const ratioClass = ratioByIndex[index % ratioByIndex.length];
   const showIcon =
     cat && isServiceSlug(cat) ? (
-      <div className="flex h-full w-full items-center justify-center p-8 [&_svg]:h-24 [&_svg]:w-24">
+      <div className="flex h-full w-full items-center justify-center p-8 [&_svg]:h-12 [&_svg]:w-12 [&_svg]:text-terracotta/30">
         <ServiceOrganicIcon slug={cat} />
       </div>
     ) : (
-      <div className="flex h-full w-full items-center justify-center text-leaf/35">
-        <svg viewBox="0 0 64 64" className="h-20 w-20" fill="none" aria-hidden>
+      <div className="flex h-full w-full min-h-[220px] items-center justify-center text-terracotta/30">
+        <svg viewBox="0 0 64 64" className="h-12 w-12" fill="none" aria-hidden>
           <path
-            d="M12 48L28 20l10 16 8-8 16 20H12z"
+            d="M12 50L28 20l10 16 8-8 16 22H12z"
             stroke="currentColor"
-            strokeWidth={1.2}
+            strokeWidth={1.4}
           />
-          <circle cx="24" cy="18" r="4" stroke="currentColor" strokeWidth={1.2} />
+          <circle cx="24" cy="18" r="4" stroke="currentColor" strokeWidth={1.4} />
         </svg>
       </div>
     );
@@ -36,35 +39,42 @@ export function PortfolioCard({ item, locale, categoryLabel, ctaLabel }: Props) 
     <Link
       href={`/portfolio/${item.slug}`}
       aria-label={`${title}, ${categoryLabel}. ${ctaLabel}`}
-      className={`group relative block break-inside-avoid overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md ${
-        item.is_featured ? 'ring-2 ring-gold' : 'ring-1 ring-beige'
-      }`}
+      className="group relative block cursor-pointer break-inside-avoid overflow-hidden rounded-2xl bg-white"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-beige">
+      <div className={`relative w-full overflow-hidden rounded-2xl ${ratioClass} bg-beige`}>
         {item.cover_image ? (
           <Image
             src={item.cover_image}
             alt={title}
             fill
-            className="object-cover transition duration-500 group-hover:scale-[1.02]"
+            className="object-cover transition duration-700 group-hover:scale-[1.06]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
-          showIcon
+          <div className="h-full w-full bg-[linear-gradient(135deg,#EDE4D3,#F5F0E6)]">{showIcon}</div>
         )}
 
         <div
-          className="pointer-events-none absolute inset-0 flex translate-y-full flex-col justify-end bg-terracotta/90 p-5 text-cream transition-transform duration-300 ease-out group-hover:translate-y-0 group-focus-within:translate-y-0 motion-reduce:transition-none motion-reduce:duration-0"
+          className="pointer-events-none absolute inset-0 flex translate-y-full flex-col justify-between bg-[linear-gradient(to_top,rgba(61,31,16,0.92)_0%,rgba(61,31,16,0.4)_50%,transparent_100%)] p-5 text-cream transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-focus-within:translate-y-0 motion-reduce:transition-none"
           aria-hidden
         >
-          <p className="font-serif text-lg leading-snug md:text-xl">{title}</p>
-          <p className="mt-1 text-xs font-medium uppercase tracking-wider text-cream/85">
+          <span className="inline-flex w-fit rounded-full bg-leaf px-2.5 py-1 text-[11px] text-cream">
             {categoryLabel}
-          </p>
-          <span className="mt-3 inline-flex text-sm font-medium">{ctaLabel}</span>
+          </span>
+          <div className="flex items-end justify-between gap-3">
+            <p className="translate-y-3 font-serif text-[20px] leading-snug text-cream transition-transform duration-500 group-hover:translate-y-0">
+              {title}
+            </p>
+            <span className="text-[13px] text-cream/95">{ctaLabel}</span>
+          </div>
         </div>
       </div>
 
+      {item.is_featured ? (
+        <span className="absolute right-0 top-0 inline-flex rounded-bl-md bg-gold px-2 py-1 text-[11px] text-cream">
+          ✦
+        </span>
+      ) : null}
     </Link>
   );
 }

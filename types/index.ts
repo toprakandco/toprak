@@ -69,6 +69,29 @@ export interface BlogPost {
   published_at: string | null;
 }
 
+export interface Client {
+  id: string;
+  created_at: string;
+  name: string;
+  logo_url: string | null;
+  website_url: string | null;
+  order_index: number;
+  is_active: boolean;
+}
+
+export interface SiteSetting {
+  key: string;
+  value: string;
+}
+
+export interface AdminUser {
+  id: string;
+  created_at: string;
+  username: string;
+  password: string;
+  is_active: boolean;
+}
+
 export interface ContactFormData {
   name: string;
   email: string;

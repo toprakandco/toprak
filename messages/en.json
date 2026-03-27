@@ -457,7 +457,9 @@
     },
     "filterEmpty": "No projects in this category yet.",
     "emptyState": {
-      "title": "Great work coming here soon."
+      "title": "Amazing work coming here soon.",
+      "subtitle": "New projects for this area are being added.",
+      "cta": "Work With Us →"
     },
     "detail": {
       "breadcrumbHome": "Home",
@@ -466,7 +468,27 @@
       "serviceLabel": "Service",
       "tagsLabel": "Tags",
       "relatedTitle": "Related Work",
-      "descriptionHeading": "Project"
+      "descriptionHeading": "Project",
+      "similarCta": "For a Similar Project →"
+    },
+    "header": {
+      "overline": "PORTFOLIO",
+      "heading": "The stories we tell.",
+      "subtitle": "We blend strategy, aesthetics, and storytelling in every project to create meaningful brand impact.",
+      "stats": [
+        {
+          "value": "100+",
+          "label": "Projects"
+        },
+        {
+          "value": "6",
+          "label": "Fields"
+        },
+        {
+          "value": "Turkey & Beyond",
+          "label": ""
+        }
+      ]
     }
   },
   "blog": {
