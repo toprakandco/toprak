@@ -1,7 +1,9 @@
 'use client';
 
-import { supabase } from '@/lib/supabase';
+import { Link } from '@/i18n/navigation';
+import { supabase } from '@/lib/supabase-browser';
 import { SERVICE_SLUGS } from '@/lib/service-slugs';
+import { isVoiceOverCategoryId } from '@/lib/voice-over-categories';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
@@ -23,6 +25,7 @@ type FormState = {
   subject: string;
   message: string;
   budget: string;
+  privacyAccepted: boolean;
 };
 
 const initialState: FormState = {
@@ -32,6 +35,7 @@ const initialState: FormState = {
   subject: '',
   message: '',
   budget: '',
+  privacyAccepted: false,
 };
 
 type FieldErrorKey = 'name' | 'email' | 'message';
@@ -133,13 +137,13 @@ function FloatInput({
 
   return (
     <div>
-      <div className="flex items-end gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-[#8B3A1E]">
+      <div className="flex items-end gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-accent">
         <div className="relative min-w-0 flex-1">
           <label
             htmlFor={id}
             className={`pointer-events-none absolute left-0 z-[1] origin-left font-sans transition-all duration-200 ease-out ${
               floated
-                ? 'top-0 -translate-y-[calc(100%-2px)] text-[11px] font-medium not-italic text-[#8B3A1E]'
+                ? 'top-0 -translate-y-[calc(100%-2px)] text-[11px] font-medium not-italic text-accent'
                 : 'top-[14px] translate-y-0 text-[15px] italic text-[#C4B5A8]'
             }`}
           >
@@ -165,7 +169,7 @@ function FloatInput({
         <FieldCheck show={showCheck} />
       </div>
       {error ? (
-        <p className="mt-1 font-sans text-[12px] text-[#8B3A1E]">{error}</p>
+        <p className="mt-1 font-sans text-[12px] text-accent">{error}</p>
       ) : null}
     </div>
   );
@@ -191,13 +195,13 @@ function FloatSelect({
 
   return (
     <div>
-      <div className="relative flex items-end gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-[#8B3A1E]">
+      <div className="relative flex items-end gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-accent">
         <div className="relative min-w-0 flex-1">
           <label
             htmlFor={id}
             className={`pointer-events-none absolute left-0 z-[1] origin-left font-sans transition-all duration-200 ease-out ${
               floated
-                ? 'top-0 -translate-y-[calc(100%-2px)] text-[11px] font-medium not-italic text-[#8B3A1E]'
+                ? 'top-0 -translate-y-[calc(100%-2px)] text-[11px] font-medium not-italic text-accent'
                 : 'top-[14px] translate-y-0 text-[15px] italic text-[#C4B5A8]'
             }`}
           >
@@ -260,13 +264,13 @@ function FloatTextarea({
 
   return (
     <div>
-      <div className="relative flex gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-[#8B3A1E]">
+      <div className="relative flex gap-2 border-b-[1.5px] border-[#EDE4D3] transition-[border-color] duration-200 focus-within:border-accent">
         <div className="relative min-h-[140px] min-w-0 flex-1 pb-7">
           <label
             htmlFor={id}
             className={`pointer-events-none absolute left-0 z-[1] origin-left font-sans transition-all duration-200 ease-out ${
               floated
-                ? 'top-0 text-[11px] font-medium not-italic text-[#8B3A1E]'
+                ? 'top-0 text-[11px] font-medium not-italic text-accent'
                 : 'top-[14px] text-[15px] italic text-[#C4B5A8]'
             }`}
           >
@@ -296,7 +300,7 @@ function FloatTextarea({
         </div>
       </div>
       {error ? (
-        <p className="mt-1 font-sans text-[12px] text-[#8B3A1E]">{error}</p>
+        <p className="mt-1 font-sans text-[12px] text-accent">{error}</p>
       ) : null}
     </div>
   );
@@ -327,6 +331,7 @@ function ButtonCheckDrawing() {
 
 export function ContactForm() {
   const t = useTranslations('contact');
+  const tVoice = useTranslations('services.voiceSelector');
   const searchParams = useSearchParams();
   const reduceMotion = useReducedMotion();
 
@@ -343,6 +348,7 @@ export function ContactForm() {
   const [submitError, setSubmitError] = useState(false);
   const [buttonSuccess, setButtonSuccess] = useState(false);
   const [shake, setShake] = useState(false);
+  const [privacyError, setPrivacyError] = useState(false);
   const [view, setView] = useState<'form' | 'thanks'>('form');
   const subjects = useMemo(
     () => [...SERVICE_SLUGS, 'other'] as const,
@@ -350,11 +356,31 @@ export function ContactForm() {
   );
 
   useEffect(() => {
-    const raw = searchParams.get('subject');
-    if (!raw) return;
-    if (!(subjects as readonly string[]).includes(raw)) return;
-    setForm((prev) => ({ ...prev, subject: raw }));
-  }, [searchParams, subjects]);
+    const rawSubject = searchParams.get('subject');
+    const rawType = searchParams.get('type');
+    if (!rawSubject || !(subjects as readonly string[]).includes(rawSubject)) {
+      return;
+    }
+    let prefillLine = '';
+    if (
+      rawSubject === 'seslendirme' &&
+      rawType &&
+      isVoiceOverCategoryId(rawType)
+    ) {
+      const categoryLabel = tVoice(`categories.${rawType}.title`);
+      prefillLine = tVoice('prefillMessage', { category: categoryLabel });
+    }
+    setForm((prev) => {
+      const next = { ...prev, subject: rawSubject };
+      if (!prefillLine) return next;
+      const msg = prev.message.trim();
+      if (msg.includes(prefillLine)) return next;
+      return {
+        ...next,
+        message: msg ? `${prefillLine}\n\n${msg}` : prefillLine,
+      };
+    });
+  }, [searchParams, subjects, tVoice]);
 
   const validateName = useCallback(
     (v: string) => (!v.trim() ? t('form.validation.name') : undefined),
@@ -449,6 +475,14 @@ export function ContactForm() {
       return;
     }
 
+    if (!form.privacyAccepted) {
+      setPrivacyError(true);
+      setShake(true);
+      window.setTimeout(() => setShake(false), 500);
+      return;
+    }
+    setPrivacyError(false);
+
     setLoading(true);
     const budgetVal = form.budget.trim() || null;
 
@@ -482,6 +516,7 @@ export function ContactForm() {
       setTouched({});
       setErrors({});
       setPhoneTouched(false);
+      setPrivacyError(false);
       setView('thanks');
     }, reduceMotion ? 400 : 900);
   };
@@ -617,13 +652,13 @@ export function ContactForm() {
                         ({t('form.budgetOptional')})
                       </span>
                     </p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
                       {BUDGET_OPTIONS.map(({ value: val, labelKey }) => (
                         <label
                           key={val}
                           className={`cursor-pointer rounded-full px-4 py-2.5 font-sans text-[14px] transition-colors duration-200 ${
                             form.budget === val
-                              ? 'bg-[#8B3A1E] text-[#F5F0E6]'
+                              ? 'bg-accent text-[#F5F0E6]'
                               : 'bg-[#EDE4D3]/80 text-[#3D1F10] hover:bg-[#EDE4D3]'
                           }`}
                         >
@@ -643,6 +678,51 @@ export function ContactForm() {
                     </div>
                   </div>
 
+                  <div className="mt-8">
+                    <label className="flex cursor-pointer items-start gap-3 text-left font-sans text-[14px] leading-snug text-[#3D1F10]">
+                      <input
+                        type="checkbox"
+                        name="privacy"
+                        checked={form.privacyAccepted}
+                        onChange={(e) => {
+                          setForm((s) => ({
+                            ...s,
+                            privacyAccepted: e.target.checked,
+                          }));
+                          setPrivacyError(false);
+                        }}
+                        className="mt-1 h-4 w-4 shrink-0 rounded border-[#EDE4D3] text-accent focus:ring-2 focus:ring-accent/30"
+                        required
+                        aria-invalid={privacyError}
+                        aria-describedby={
+                          privacyError ? 'contact-privacy-error' : undefined
+                        }
+                      />
+                      <span>
+                        {t('form.privacyConsentBefore')}
+                        <Link
+                          href="/kvkk"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium text-accent underline underline-offset-2 transition hover:text-accent-dark"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {t('form.privacyConsentLink')}
+                        </Link>
+                        {t('form.privacyConsentAfter')}
+                      </span>
+                    </label>
+                    {privacyError ? (
+                      <p
+                        id="contact-privacy-error"
+                        className="mt-2 font-sans text-[12px] text-accent"
+                        role="alert"
+                      >
+                        {t('form.validation.privacy')}
+                      </p>
+                    ) : null}
+                  </div>
+
                   <div className="mt-10">
                     <motion.button
                       type="submit"
@@ -652,7 +732,9 @@ export function ContactForm() {
                         maxWidth: '100%',
                         marginLeft: loading ? 'auto' : 0,
                         marginRight: loading ? 'auto' : 0,
-                        backgroundColor: buttonSuccess ? '#7A9E6E' : '#8B3A1E',
+                        backgroundColor: buttonSuccess
+                          ? '#7A9E6E'
+                          : 'var(--accent-color)',
                       }}
                       transition={{
                         type: 'spring',
@@ -696,7 +778,7 @@ export function ContactForm() {
                     </motion.button>
 
                     {submitError ? (
-                      <p className="mt-3 text-center font-sans text-[14px] text-[#8B3A1E]">
+                      <p className="mt-3 text-center font-sans text-[14px] text-accent">
                         {t('form.error')}
                       </p>
                     ) : null}

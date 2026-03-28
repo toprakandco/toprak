@@ -3,6 +3,7 @@ import { ServicesGridClient } from '@/components/services/ServicesGridClient';
 import { SERVICE_SLUGS } from '@/lib/service-slugs';
 import { getServices } from '@/lib/supabase';
 import type { Service } from '@/types';
+import { socialMetadata } from '@/lib/seo-metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 
@@ -13,9 +14,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'services.meta' });
+  const title = t('title');
+  const description = t('description');
   return {
-    title: t('title'),
-    description: t('description'),
+    title,
+    description,
+    ...socialMetadata(locale, title, description, '/services'),
   };
 }
 
@@ -99,6 +103,7 @@ export default async function ServicesPage({ params }: Props) {
         title={t('bottomCta.title')}
         subtitle={t('bottomCta.subtitle')}
         button={t('bottomCta.button')}
+        buttonStart={t('bottomCta.buttonStart')}
       />
     </div>
   );

@@ -105,11 +105,11 @@ export function PortfolioGrid({ initialItems, locale }: Props) {
   return (
     <div className="text-brown-deep">
       <div
-        className="sticky top-[80px] z-30 -mx-[max(24px,5vw)] mb-8 border-y border-[#EDE4D3] bg-[rgba(245,240,230,0.92)] px-[max(24px,5vw)] py-3 backdrop-blur-xl"
+        className="sticky top-[var(--navbar-height)] z-30 -mx-6 mb-8 border-y border-[#EDE4D3] bg-[rgba(245,240,230,0.92)] px-6 py-3 backdrop-blur-xl [-webkit-backdrop-filter:blur(12px)] [backdrop-filter:blur(12px)] md:-mx-[max(24px,5vw)] md:px-[max(24px,5vw)]"
         role="tablist"
         aria-label={t('filters.aria')}
       >
-        <div className="flex gap-2 overflow-x-auto [scrollbar-width:thin]">
+        <div className="scroll-touch-x flex gap-2">
           {FILTER_ORDER.map((key) => {
             const active = selected === key;
             const label =
@@ -123,7 +123,7 @@ export function PortfolioGrid({ initialItems, locale }: Props) {
                 onClick={() => applyFilter(key)}
                 className={`min-h-[44px] shrink-0 rounded-full border px-4 py-2 text-sm transition-all duration-250 ${
                   active
-                    ? 'border-terracotta bg-terracotta text-cream shadow-[0_4px_12px_rgba(139,58,30,0.2)]'
+                    ? 'border-accent bg-accent text-cream shadow-[0_4px_12px_rgba(139,58,30,0.2)]'
                     : 'border-[#EDE4D3] bg-white text-[#6B4C35] hover:bg-[#F8F4EC]'
                 }`}
               >
@@ -160,7 +160,7 @@ export function PortfolioGrid({ initialItems, locale }: Props) {
           <p className="mt-3 text-[14px] text-[#6B4C35]/75">{t('emptyState.subtitle')}</p>
           <Link
             href="/contact"
-            className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-full border border-terracotta px-6 py-2 text-sm text-terracotta transition hover:bg-terracotta hover:text-cream"
+            className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-full border border-accent px-6 py-2 text-sm text-accent transition hover:bg-accent hover:text-cream"
           >
             {t('emptyState.cta')}
           </Link>

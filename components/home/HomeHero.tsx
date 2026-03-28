@@ -26,7 +26,7 @@ function HeroBranchSvg({ scrollY }: { scrollY: number }) {
 
   return (
     <motion.svg
-      className="pointer-events-none absolute right-0 top-1/2 w-[40vw] min-w-[280px] max-w-[520px] text-terracotta"
+      className="parallax-element pointer-events-none absolute right-0 top-1/2 w-[40vw] min-w-[280px] max-w-[520px] text-terracotta"
       style={{ transform: `translateY(calc(-50% + ${parallaxY}px))` }}
       viewBox="0 0 400 520"
       fill="none"
@@ -178,12 +178,12 @@ export function HomeHero({ label, lines, subtext, ctaPrimary, ctaSecondary, scro
         aria-hidden
       >
         <span
+          className="opacity-[0.03] md:opacity-[0.05]"
           style={{
             fontFamily: 'var(--font-playfair)',
             fontWeight: 700,
             fontSize: 'clamp(80px, 14vw, 180px)',
             color: '#8B3A1E',
-            opacity: 0.05,
             letterSpacing: '0.06em',
             whiteSpace: 'nowrap',
           }}
@@ -192,7 +192,7 @@ export function HomeHero({ label, lines, subtext, ctaPrimary, ctaSecondary, scro
         </span>
       </motion.div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1280px] flex-col justify-center px-[max(24px,5vw)] pb-[max(60px,8vh)] pt-[max(80px,12vh)]">
+      <div className="relative z-10 mx-auto flex min-h-[100vh] min-h-[100svh] w-full max-w-[1280px] flex-col justify-center px-6 pb-[max(60px,8vh)] pt-[max(72px,10vh)] md:px-[max(24px,5vw)] md:pt-[max(80px,12vh)]">
         <motion.p
           className="font-serif text-lg italic text-terracotta md:text-xl"
           initial={reduce ? false : { opacity: 0 }}
@@ -238,7 +238,7 @@ export function HomeHero({ label, lines, subtext, ctaPrimary, ctaSecondary, scro
         </div>
 
         <motion.p
-          className="mt-10 max-w-xl text-[clamp(14px,2vw,16px)] leading-relaxed text-brown-deep/70"
+          className="mt-10 max-w-xl text-[clamp(14px,2vw,16px)] leading-[1.6] text-brown-deep/70"
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.5 }}
@@ -247,7 +247,7 @@ export function HomeHero({ label, lines, subtext, ctaPrimary, ctaSecondary, scro
         </motion.p>
 
         <motion.div
-          className="mt-10 flex flex-wrap gap-4"
+          className="mt-10 flex w-full max-w-md flex-col gap-3 md:max-w-none md:flex-row md:flex-wrap md:gap-4"
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}
@@ -255,7 +255,7 @@ export function HomeHero({ label, lines, subtext, ctaPrimary, ctaSecondary, scro
           <Magnetic>
             <Link
               href="/services"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-terracotta px-8 py-3 text-sm font-medium text-cream shadow-sm transition hover:bg-terracotta-dark"
+              className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-accent px-8 py-3 text-sm font-medium text-cream shadow-sm transition hover:bg-accent-dark md:w-auto"
             >
               {ctaPrimary}
             </Link>
@@ -263,7 +263,7 @@ export function HomeHero({ label, lines, subtext, ctaPrimary, ctaSecondary, scro
           <Magnetic>
             <Link
               href="/portfolio"
-              className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-terracotta bg-transparent px-8 py-3 text-sm font-medium text-terracotta transition hover:bg-terracotta/10"
+              className="inline-flex min-h-[44px] w-full items-center justify-center rounded-full border-2 border-accent bg-transparent px-8 py-3 text-sm font-medium text-accent transition hover:bg-accent/10 md:w-auto"
             >
               {ctaSecondary}
             </Link>
@@ -271,13 +271,13 @@ export function HomeHero({ label, lines, subtext, ctaPrimary, ctaSecondary, scro
         </motion.div>
 
         <motion.div
-          className="mt-16 flex flex-col items-center gap-3 self-start md:mt-24"
+          className="mt-16 hidden flex-col items-center gap-3 self-start md:mt-24 md:flex"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 0.5 }}
         >
-          <div className="relative h-14 w-px overflow-hidden bg-terracotta/25">
-            <div className="home-scroll-line-dot absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-terracotta" />
+          <div className="relative h-14 w-px overflow-hidden bg-accent/25">
+            <div className="home-scroll-line-dot absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-accent" />
           </div>
           <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-brown-deep/45">
             {scrollHint}

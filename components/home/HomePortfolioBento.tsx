@@ -1,7 +1,8 @@
 'use client';
 
+import { BeforeAfterSlider } from '@/components/portfolio/BeforeAfterSlider';
 import { ServiceOrganicIcon } from '@/components/services/ServiceOrganicIcon';
-import { Link } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 import { isServiceSlug } from '@/lib/service-slugs';
 import type { PortfolioItem } from '@/types';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -47,6 +48,7 @@ export function HomePortfolioBento({
   items,
   categoryFallback,
 }: Props) {
+  const router = useRouter();
   const reduce = useReducedMotion();
   const locale = useLocale();
   const tCard = useTranslations('home.servicesCards');
@@ -86,6 +88,59 @@ export function HomePortfolioBento({
             const titleText = getTitle(item);
             const cat = categoryName(item);
             const large = idx === 0;
+            const hasBA = Boolean(item.before_image && item.after_image);
+
+            const shellClass = `relative w-full overflow-hidden bg-beige ${
+              large ? 'min-h-[200px] md:aspect-auto md:h-full md:min-h-[360px]' : 'aspect-[4/3]'
+            }`;
+            const cardClass =
+              'relative block h-full overflow-hidden rounded-2xl border border-beige bg-beige shadow-sm ring-1 ring-beige/80';
+
+            const cardBody = (
+              <div className={shellClass}>
+                {hasBA ? (
+                  <BeforeAfterSlider
+                    beforeImage={item.before_image!}
+                    afterImage={item.after_image!}
+                    title={titleText}
+                    className={
+                      large
+                        ? 'absolute inset-0 h-full min-h-[200px] w-full md:min-h-[360px]'
+                        : 'absolute inset-0 h-full w-full'
+                    }
+                  />
+                ) : item.cover_image ? (
+                  <Image
+                    src={item.cover_image}
+                    alt={titleText}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                ) : (
+                  <div className="flex h-full min-h-[inherit] w-full items-center justify-center p-4">
+                    {item.category && isServiceSlug(item.category) ? (
+                      <div className="text-terracotta/45 [&_svg]:h-20 [&_svg]:w-20 md:[&_svg]:h-28 md:[&_svg]:w-28">
+                        <ServiceOrganicIcon slug={item.category} />
+                      </div>
+                    ) : (
+                      <PlaceholderCard />
+                    )}
+                  </div>
+                )}
+                <div className="pointer-events-none absolute inset-0 flex translate-y-full flex-col justify-end bg-brown-deep/75 p-3 text-cream transition-transform duration-300 ease-out group-hover:translate-y-0 md:p-5">
+                  <p
+                    className={`font-serif leading-snug ${large ? 'text-xl md:text-2xl' : 'text-sm md:text-base'}`}
+                  >
+                    {titleText}
+                  </p>
+                  <p className="mt-1 text-[10px] font-medium uppercase tracking-wider text-cream/85">
+                    {cat}
+                  </p>
+                  <span className="mt-2 text-xs">{viewProject}</span>
+                </div>
+              </div>
+            );
 
             return (
               <motion.div
@@ -96,45 +151,29 @@ export function HomePortfolioBento({
                 viewport={{ once: true, margin: '-8%' }}
                 transition={{ delay: idx * 0.06, duration: 0.45 }}
               >
-                <Link
-                  href={`/portfolio/${item.slug}`}
-                  className="relative block h-full overflow-hidden rounded-2xl border border-beige bg-beige shadow-sm ring-1 ring-beige/80"
-                >
+                {hasBA ? (
                   <div
-                    className={`relative w-full overflow-hidden bg-beige ${
-                      large ? 'min-h-[200px] md:aspect-auto md:h-full md:min-h-[360px]' : 'aspect-[4/3]'
-                    }`}
+                    role="link"
+                    tabIndex={0}
+                    className={`${cardClass} cursor-pointer outline-none ring-brown-deep/30 focus-visible:ring-2`}
+                    onClick={(e) => {
+                      if ((e.target as HTMLElement).closest('[data-ba-slider]')) return;
+                      router.push(`/portfolio/${item.slug}`);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        router.push(`/portfolio/${item.slug}`);
+                      }
+                    }}
                   >
-                    {item.cover_image ? (
-                      <Image
-                        src={item.cover_image}
-                        alt={titleText}
-                        fill
-                        className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                        sizes="(max-width: 768px) 50vw, 25vw"
-                      />
-                    ) : (
-                      <div className="flex h-full min-h-[inherit] w-full items-center justify-center p-4">
-                        {item.category && isServiceSlug(item.category) ? (
-                          <div className="text-terracotta/45 [&_svg]:h-20 [&_svg]:w-20 md:[&_svg]:h-28 md:[&_svg]:w-28">
-                            <ServiceOrganicIcon slug={item.category} />
-                          </div>
-                        ) : (
-                          <PlaceholderCard />
-                        )}
-                      </div>
-                    )}
-                    <div className="pointer-events-none absolute inset-0 flex translate-y-full flex-col justify-end bg-brown-deep/75 p-3 text-cream transition-transform duration-300 ease-out group-hover:translate-y-0 md:p-5">
-                      <p className={`font-serif leading-snug ${large ? 'text-xl md:text-2xl' : 'text-sm md:text-base'}`}>
-                        {titleText}
-                      </p>
-                      <p className="mt-1 text-[10px] font-medium uppercase tracking-wider text-cream/85">
-                        {cat}
-                      </p>
-                      <span className="mt-2 text-xs">{viewProject}</span>
-                    </div>
+                    {cardBody}
                   </div>
-                </Link>
+                ) : (
+                  <Link href={`/portfolio/${item.slug}`} className={cardClass}>
+                    {cardBody}
+                  </Link>
+                )}
               </motion.div>
             );
           })}

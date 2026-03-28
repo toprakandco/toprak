@@ -5,6 +5,7 @@ import {
   sortBlogPostsForListing,
 } from '@/lib/blog-utils';
 import { getBlogPostsSafe } from '@/lib/supabase';
+import { socialMetadata } from '@/lib/seo-metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -20,9 +21,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'blog.meta' });
+  const title = t('title');
+  const description = t('description');
   return {
-    title: t('title'),
-    description: t('description'),
+    title,
+    description,
+    ...socialMetadata(locale, title, description, '/blog'),
   };
 }
 

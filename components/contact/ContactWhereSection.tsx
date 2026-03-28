@@ -28,9 +28,9 @@ function TurkeyMapIllustration() {
         className="pointer-events-none absolute left-[26%] top-[21%] flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center"
         aria-hidden
       >
-        <span className="absolute inline-flex h-6 w-6 rounded-full border border-[#8B3A1E]/50 animate-contact-where-ripple" />
-        <span className="absolute inline-flex h-6 w-6 rounded-full border border-[#8B3A1E]/40 animate-contact-where-ripple-delayed" />
-        <span className="relative z-[1] h-[8px] w-[8px] rounded-full bg-[#8B3A1E]" />
+        <span className="absolute inline-flex h-6 w-6 rounded-full border border-accent/50 animate-contact-where-ripple" />
+        <span className="absolute inline-flex h-6 w-6 rounded-full border border-accent/40 animate-contact-where-ripple-delayed" />
+        <span className="relative z-[1] h-[8px] w-[8px] rounded-full bg-accent" />
       </div>
     </div>
   );

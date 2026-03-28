@@ -61,11 +61,12 @@ export function BlogFeaturedHero({
     >
       <Link
         href={`/blog/${post.slug}`}
-        className="group flex min-h-[480px] flex-col overflow-hidden rounded-[20px] md:min-h-[480px] md:flex-row"
+        className="group flex min-h-0 flex-col-reverse overflow-hidden rounded-[20px] md:min-h-[480px] md:flex-row"
       >
         <div
-          className="flex w-full flex-shrink-0 flex-col justify-center md:w-[55%] md:max-w-[55%]"
-          style={{ backgroundColor: '#3D1F10', padding: '52px' }}
+          className="flex w-full flex-shrink-0 flex-col justify-center px-6 py-8 md:w-[55%] md:max-w-[55%] md:p-[52px]"
+          data-spotlight-dark
+          style={{ backgroundColor: '#3D1F10' }}
         >
           <span
             className="mb-5 inline-flex w-fit rounded-full bg-[#C4824A] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#F5F0E6]"
@@ -94,7 +95,7 @@ export function BlogFeaturedHero({
           </span>
         </div>
 
-        <div className="relative h-64 w-full flex-shrink-0 overflow-hidden md:h-auto md:min-h-[480px] md:w-[45%] md:max-w-[45%]">
+        <div className="relative h-[220px] w-full flex-shrink-0 overflow-hidden md:h-auto md:min-h-[480px] md:w-[45%] md:max-w-[45%]">
           {post.cover_image ? (
             <>
               <Image
@@ -102,13 +103,14 @@ export function BlogFeaturedHero({
                 alt=""
                 fill
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                sizes="(max-width: 768px) 100vw, 45vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 45vw, 520px"
                 priority
               />
             </>
           ) : (
             <div
               className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#8B3A1E] to-[#6B2C14]"
+              data-spotlight-dark
               aria-hidden
             >
               <LogoMark />

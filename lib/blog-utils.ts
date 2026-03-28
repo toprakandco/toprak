@@ -1,4 +1,5 @@
 import type { BlogPost } from '@/types';
+import { formatDate } from '@/lib/formatters';
 
 const WORDS_PER_MINUTE = 200;
 
@@ -16,15 +17,7 @@ export function estimateReadingMinutes(html: string): number {
 
 export function formatBlogDate(iso: string | null, locale: string): string {
   if (!iso) return '';
-  try {
-    return new Intl.DateTimeFormat(locale === 'tr' ? 'tr-TR' : 'en-US', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    }).format(new Date(iso));
-  } catch {
-    return iso;
-  }
+  return formatDate(iso, locale);
 }
 
 export function sortBlogPostsForListing(posts: BlogPost[]): BlogPost[] {

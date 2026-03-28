@@ -1,7 +1,9 @@
+import { CallbackWidget } from '@/components/contact/CallbackWidget';
 import { ContactFaqAccordion } from '@/components/contact/ContactFaqAccordion';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { ContactHeroSection } from '@/components/contact/ContactHeroSection';
 import { ContactWhereSection } from '@/components/contact/ContactWhereSection';
+import { socialMetadata } from '@/lib/seo-metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
@@ -13,10 +15,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'contact.meta' });
-
+  const title = t('title');
+  const description = t('description');
   return {
-    title: t('title'),
-    description: t('description'),
+    title,
+    description,
+    ...socialMetadata(locale, title, description, '/contact'),
   };
 }
 
@@ -36,6 +40,8 @@ export default async function ContactPage({ params }: Props) {
         >
           <ContactForm />
         </Suspense>
+
+        <CallbackWidget />
       </div>
 
       <ContactFaqAccordion />

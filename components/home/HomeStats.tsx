@@ -97,7 +97,8 @@ export function HomeStats() {
   return (
     <section
       ref={sectionRef}
-      className="relative left-1/2 w-[100dvw] max-w-[100dvw] -translate-x-1/2 overflow-hidden bg-terracotta py-7 text-cream"
+      className="relative left-1/2 hidden w-[100dvw] max-w-[100dvw] -translate-x-1/2 overflow-hidden bg-terracotta py-7 text-cream md:block"
+      data-spotlight-dark
     >
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full text-cream opacity-[0.05]"
@@ -145,6 +146,37 @@ export function HomeStats() {
             </li>
           ))}
           </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Compact 2-up row directly under hero on small screens; full animated strip is `hidden md:block`. */
+export function HomeStatsMobileRow() {
+  const t = useTranslations('home.stats');
+  return (
+    <section
+      className="relative left-1/2 w-[100dvw] max-w-[100dvw] -translate-x-1/2 overflow-hidden bg-terracotta py-6 text-cream md:hidden"
+      data-spotlight-dark
+      aria-label={t('title')}
+    >
+      <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-4 px-6">
+        <div className="flex min-h-[44px] flex-col items-center justify-center text-center">
+          <p className="font-serif text-[clamp(28px,8vw,40px)] leading-none text-gold">
+            10+
+          </p>
+          <p className="mt-2 max-w-[10rem] text-[13px] leading-[1.6] text-cream/85">
+            {t('labels.social')}
+          </p>
+        </div>
+        <div className="flex min-h-[44px] flex-col items-center justify-center text-center">
+          <p className="font-serif text-[clamp(28px,8vw,40px)] leading-none text-gold">
+            100+
+          </p>
+          <p className="mt-2 max-w-[10rem] text-[13px] leading-[1.6] text-cream/85">
+            {t('labels.projects')}
+          </p>
         </div>
       </div>
     </section>

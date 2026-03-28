@@ -9,7 +9,10 @@ export function CtaBanner() {
   const patternId = useId().replace(/:/g, '');
 
   return (
-    <section className="relative overflow-hidden bg-terracotta py-20 text-cream md:py-24">
+    <section
+      className="relative overflow-hidden bg-terracotta py-20 text-cream md:py-24"
+      data-spotlight-dark
+    >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.12]"
         aria-hidden

@@ -80,12 +80,12 @@ export function ShareBar({ shareUrl, title }: Props) {
         </button>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 z-40 flex items-center justify-center gap-3 border-t border-[#EDE4D3] bg-white/95 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-sm lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 flex h-14 min-h-[56px] items-center justify-center gap-4 border-t-[0.5px] border-[#EDE4D3] bg-white px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-sm [-webkit-backdrop-filter:blur(8px)] lg:hidden">
         <a
           href={twitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#EDE4D3] text-[#3D1F10]"
+          className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-[#EDE4D3] text-[#3D1F10]"
           aria-label="X / Twitter"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
@@ -96,7 +96,7 @@ export function ShareBar({ shareUrl, title }: Props) {
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#EDE4D3] text-[#3D1F10]"
+          className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-[#EDE4D3] text-[#3D1F10]"
           aria-label="LinkedIn"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
@@ -107,7 +107,7 @@ export function ShareBar({ shareUrl, title }: Props) {
           href={whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#EDE4D3] text-[#3D1F10]"
+          className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-[#EDE4D3] text-[#3D1F10]"
           aria-label="WhatsApp"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
@@ -117,9 +117,13 @@ export function ShareBar({ shareUrl, title }: Props) {
         <button
           type="button"
           onClick={onCopy}
-          className="rounded-full border border-[#8B3A1E] px-4 py-2 text-sm font-medium text-[#8B3A1E]"
+          className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-accent text-accent"
+          aria-label={t('copyLink')}
         >
-          {t('copyLink')}
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+            <rect x="9" y="9" width="13" height="13" rx="2" />
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+          </svg>
         </button>
       </div>
 

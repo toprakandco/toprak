@@ -38,13 +38,13 @@ export function ContactFaqAccordion() {
                     type="button"
                     onClick={() => setOpen(isOpen ? null : i)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left outline-none ring-[#8B3A1E] focus-visible:ring-2"
+                    className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left outline-none ring-accent focus-visible:ring-2"
                   >
                     <span className="font-sans text-[15px] font-medium leading-snug text-[#3D1F10]">
                       {item.q}
                     </span>
                     <span
-                      className={`mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center font-sans text-xl leading-none text-[#8B3A1E] transition-transform duration-300 ease-out ${
+                      className={`mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center font-sans text-xl leading-none text-accent transition-transform duration-300 ease-out ${
                         isOpen ? 'rotate-45' : 'rotate-0'
                       }`}
                       aria-hidden

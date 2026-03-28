@@ -42,7 +42,7 @@ export function HomeServicesGrid({ overline, heading, detailCta, cards }: Props)
       id="services-preview"
       className="relative left-1/2 w-[100dvw] max-w-[100dvw] -translate-x-1/2 bg-white py-20 md:py-28"
     >
-      <div className="mx-auto w-full max-w-[1280px] px-[max(24px,5vw)]">
+      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-[max(24px,5vw)]">
         <p className="text-center text-xs font-medium uppercase tracking-[0.35em] text-terracotta">
           {overline}
         </p>
@@ -79,15 +79,15 @@ export function HomeServicesGrid({ overline, heading, detailCta, cards }: Props)
                 style={i === 0 ? { backgroundColor: '#F9F6EF' } : undefined}
               >
                 <GrainOverlay id={`n-${noiseId}-${slug}`} />
-                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#EAF3DE,#F5F0E6)]">
-                  <div className="home-service-icon relative h-8 w-8 text-[#5C7A52] [&_svg]:h-full [&_svg]:w-full">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#EAF3DE,#F5F0E6)] md:h-16 md:w-16">
+                  <div className="home-service-icon relative h-7 w-7 text-[#5C7A52] md:h-8 md:w-8 [&_svg]:h-full [&_svg]:w-full">
                     <ServiceOrganicIcon slug={slug} className="!text-[#5C7A52]" />
                   </div>
                 </div>
-                <h3 className="relative mb-2 font-serif text-[20px] text-brown-deep">
+                <h3 className="relative mb-2 font-serif text-[18px] text-brown-deep md:text-[20px]">
                   {copy.title}
                 </h3>
-                <p className="relative mb-4 text-[13px] leading-[1.7] text-[#7A6050]">
+                <p className="relative mb-4 text-[14px] leading-[1.6] text-[#7A6050] md:text-[13px] md:leading-[1.7]">
                   {copy.description}
                 </p>
                 <Link

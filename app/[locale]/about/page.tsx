@@ -6,6 +6,7 @@ import { AboutRootsIllustration } from '@/components/about/AboutRootsIllustratio
 import { AboutStatsSection } from '@/components/about/AboutStatsSection';
 import { AboutTeamSection } from '@/components/about/AboutTeamSection';
 import { AboutValuesHoverSection } from '@/components/about/AboutValuesHoverSection';
+import { socialMetadata } from '@/lib/seo-metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 
@@ -16,9 +17,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about.meta' });
+  const title = t('title');
+  const description = t('description');
   return {
-    title: t('title'),
-    description: t('description'),
+    title,
+    description,
+    ...socialMetadata(locale, title, description, '/about'),
   };
 }
 

@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Host
+Host: https://toprakco.tr
+
+# Sitemaps
+Sitemap: https://toprakco.tr/sitemap.xml

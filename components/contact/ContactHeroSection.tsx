@@ -1,5 +1,6 @@
 'use client';
 
+import { Link } from '@/i18n/navigation';
 import type { ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -139,7 +140,7 @@ function InfoCard({ icon, title, value, href }: CardProps) {
   const inner = (
     <>
       <div className="flex items-start gap-3">
-        <span className="mt-0.5 shrink-0 text-[#8B3A1E]">{icon}</span>
+        <span className="mt-0.5 shrink-0 text-accent">{icon}</span>
         <div className="min-w-0">
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#3D1F10]/55">
             {title}
@@ -151,7 +152,7 @@ function InfoCard({ icon, title, value, href }: CardProps) {
   );
 
   const className =
-    'block rounded-xl border border-[#EDE4D3] bg-white px-5 py-4 transition-[transform,border-color] duration-300 ease-out hover:border-[#8B3A1E] hover:translate-x-[4px] motion-reduce:transition-none motion-reduce:hover:translate-x-0';
+    'block rounded-xl border border-[#EDE4D3] bg-white px-5 py-4 transition-[transform,border-color] duration-300 ease-out hover:border-accent hover:translate-x-[4px] motion-reduce:transition-none motion-reduce:hover:translate-x-0';
 
   if (href) {
     return (
@@ -180,7 +181,7 @@ export function ContactHeroSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="mx-auto w-full max-w-[560px] lg:mx-0">
             <p
-              className="text-[10px] font-medium uppercase tracking-[0.22em] text-[#8B3A1E]"
+              className="text-[10px] font-medium uppercase tracking-[0.22em] text-accent"
               style={{ letterSpacing: '0.22em' }}
             >
               {t('overline')}
@@ -193,7 +194,7 @@ export function ContactHeroSection() {
             >
               <span>{t('titleBefore')}</span>
               <span className="relative inline-block">
-                <span className="italic text-[#8B3A1E]">{t('titleHighlight')}</span>
+                <span className="italic text-accent">{t('titleHighlight')}</span>
                 <WavyUnderline className="absolute -bottom-1 left-0 w-[min(100%,7.5rem)]" />
               </span>
               <span>{t('titleAfter')}</span>
@@ -203,7 +204,17 @@ export function ContactHeroSection() {
               {t('intro')}
             </p>
 
-            <div className="mt-10 flex flex-col gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/start"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-accent bg-transparent px-6 py-2.5 font-sans text-sm font-semibold text-accent transition hover:bg-accent/8"
+                aria-label={t('projectCtaAria')}
+              >
+                {t('projectCta')}
+              </Link>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3">
               <InfoCard
                 icon={<MailIcon className="h-5 w-5" />}
                 title={t('cards.email.title')}
@@ -227,7 +238,7 @@ export function ContactHeroSection() {
                 href={t('social.instagram')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#8B3A1E] transition hover:scale-[1.2] hover:text-[#6B2C14]"
+                className="text-accent transition hover:scale-[1.2] hover:text-accent-dark"
                 aria-label={t('social.instagramAria')}
               >
                 <InstagramIcon className="h-5 w-5" />
@@ -236,7 +247,7 @@ export function ContactHeroSection() {
                 href={t('social.linkedin')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#8B3A1E] transition hover:scale-[1.2] hover:text-[#6B2C14]"
+                className="text-accent transition hover:scale-[1.2] hover:text-accent-dark"
                 aria-label={t('social.linkedinAria')}
               >
                 <LinkedInIcon className="h-5 w-5" />
@@ -245,7 +256,7 @@ export function ContactHeroSection() {
                 href={t('social.youtube')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#8B3A1E] transition hover:scale-[1.2] hover:text-[#6B2C14]"
+                className="text-accent transition hover:scale-[1.2] hover:text-accent-dark"
                 aria-label={t('social.youtubeAria')}
               >
                 <YouTubeIcon className="h-5 w-5" />

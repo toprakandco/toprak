@@ -24,7 +24,7 @@ export function AboutIndustriesSection({ labels }: Props) {
   }, [labels, reduce]);
 
   return (
-    <section className="bg-[#3D1F10] py-20">
+    <section className="bg-[#3D1F10] py-20" data-spotlight-dark>
       <div className="container">
         <h2 className="text-center font-serif leading-snug text-[#F5F0E6] text-[clamp(1.35rem,3vw,2rem)]">
           {t('sectionHeading')}

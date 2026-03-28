@@ -74,6 +74,7 @@ export function BlogMasonryCard({
         <Link
           href={`/blog/${post.slug}`}
           className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-[16px] bg-[#3D1F10] p-6 transition-colors duration-300 hover:-translate-y-1 hover:bg-[#6B2C14] motion-reduce:transition-none motion-reduce:hover:translate-y-0 md:min-h-[320px] md:p-7"
+          data-spotlight-dark
         >
           {post.cover_image ? (
             <div

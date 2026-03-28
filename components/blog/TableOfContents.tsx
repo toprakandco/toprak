@@ -91,15 +91,15 @@ export function TableOfContents({ containerId, contentKey }: Props) {
                 <button
                   type="button"
                   onClick={() => onClick(item.id)}
-                  className={`relative w-full text-left transition-colors ${
+                    className={`relative w-full text-left transition-colors ${
                     isActive
-                      ? 'pl-3 font-medium text-[#8B3A1E]'
-                      : 'text-[#3D1F10]/65 hover:text-[#8B3A1E]'
+                      ? 'pl-3 font-medium text-accent'
+                      : 'text-[#3D1F10]/65 hover:text-accent'
                   }`}
                 >
                   {isActive ? (
                     <span
-                      className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#8B3A1E]"
+                      className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-accent"
                       aria-hidden
                     />
                   ) : null}

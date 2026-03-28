@@ -46,6 +46,8 @@ export interface PortfolioItem {
   description_en: string | null;
   category: string | null;
   cover_image: string | null;
+  before_image: string | null;
+  after_image: string | null;
   images: string[];
   tags: string[];
   is_featured: boolean;
@@ -99,6 +101,30 @@ export interface NewsletterSubscriber {
   created_at: string;
   email: string;
   is_active: boolean;
+}
+
+export interface CallbackRequest {
+  id: string;
+  created_at: string;
+  phone: string;
+  preferred_time: string;
+  is_called: boolean;
+}
+
+export interface ProjectApplication {
+  id: string;
+  created_at: string;
+  services: string[];
+  budget: string;
+  timeline: string;
+  description: string;
+  reference_url: string | null;
+  name: string;
+  email: string;
+  phone: string | null;
+  company: string | null;
+  contact_preference: string;
+  is_read: boolean;
 }
 
 export interface ContactFormData {

@@ -2,6 +2,7 @@ import { PortfolioGallery } from '@/components/portfolio/PortfolioGallery';
 import { PortfolioCard } from '@/components/portfolio/PortfolioCard';
 import { CtaBanner } from '@/components/shared/CtaBanner';
 import { Link } from '@/i18n/navigation';
+import { socialMetadata } from '@/lib/seo-metadata';
 import { isServiceSlug } from '@/lib/service-slugs';
 import { SEED_PORTFOLIO_SLUGS } from '@/lib/seed-portfolio';
 import {
@@ -30,16 +31,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'portfolio.meta' });
 
   if (!item) {
-    return { title: t('title') };
+    const fallbackTitle = t('title');
+    const fallbackDesc = t('description');
+    return {
+      title: fallbackTitle,
+      ...socialMetadata(locale, fallbackTitle, fallbackDesc, `/portfolio/${slug}`),
+    };
   }
 
   const title = locale === 'tr' ? item.title_tr : item.title_en;
   const description =
     (locale === 'tr' ? item.description_tr : item.description_en) ?? t('description');
+  const descShort = description.slice(0, 180);
+  const pageTitle = `${title} | Toprak & Co.`;
 
   return {
-    title: `${title} | Toprak & Co.`,
-    description: description.slice(0, 180),
+    title: pageTitle,
+    description: descShort,
+    ...socialMetadata(locale, pageTitle, descShort, `/portfolio/${slug}`),
   };
 }
 
@@ -86,7 +95,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
           >
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/" className="transition hover:text-terracotta">
+                <Link href="/" className="transition hover:text-accent">
                   {t('breadcrumbHome')}
                 </Link>
               </li>
@@ -96,7 +105,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
               <li>
                 <Link
                   href="/portfolio"
-                  className="transition hover:text-terracotta"
+                  className="transition hover:text-accent"
                 >
                   {t('breadcrumbPortfolio')}
                 </Link>
@@ -137,6 +146,8 @@ export default async function PortfolioDetailPage({ params }: Props) {
           coverImage={item.cover_image}
           images={item.images ?? []}
           alt={title}
+          beforeImage={item.before_image}
+          afterImage={item.after_image}
         />
       </div>
 
@@ -168,7 +179,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
                 {serviceHref ? (
                   <Link
                     href={serviceHref}
-                    className="font-medium text-terracotta underline-offset-4 hover:underline"
+                    className="font-medium text-accent underline-offset-4 hover:underline"
                   >
                     {categoryLabel}
                   </Link>
@@ -197,7 +208,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
           </dl>
           <Link
             href="/contact"
-            className="mt-6 inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-terracotta px-5 py-2.5 text-sm text-cream transition hover:bg-terracotta-dark"
+            className="mt-6 inline-flex min-h-[44px] w-full items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm text-cream transition hover:bg-accent-dark"
           >
             {t('similarCta')}
           </Link>

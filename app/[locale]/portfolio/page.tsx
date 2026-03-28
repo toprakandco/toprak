@@ -1,5 +1,6 @@
 import { PortfolioGrid } from '@/components/portfolio/PortfolioGrid';
 import { PortfolioPageHeader } from '@/components/portfolio/PortfolioPageHeader';
+import { socialMetadata } from '@/lib/seo-metadata';
 import { getPortfolioItemsSafe } from '@/lib/supabase';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
@@ -12,9 +13,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'portfolio.meta' });
+  const title = t('title');
+  const description = t('description');
   return {
-    title: t('title'),
-    description: t('description'),
+    title,
+    description,
+    ...socialMetadata(locale, title, description, '/portfolio'),
   };
 }
 

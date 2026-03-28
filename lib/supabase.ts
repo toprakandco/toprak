@@ -1,45 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
+import type { Database } from './database.types';
 import type {
   BlogPost,
-  Client,
-  Contact,
-  NewsletterSubscriber,
   PortfolioItem,
   Service,
-  AdminUser,
-  SiteSetting,
 } from '@/types';
 
-export interface Database {
-  public: {
-    Tables: {
-      contacts: {
-        Row: Contact;
-      };
-      services: {
-        Row: Service;
-      };
-      portfolio_items: {
-        Row: PortfolioItem;
-      };
-      blog_posts: {
-        Row: BlogPost;
-      };
-      clients: {
-        Row: Client;
-      };
-      site_settings: {
-        Row: SiteSetting;
-      };
-      admin_users: {
-        Row: AdminUser;
-      };
-      newsletter_subscribers: {
-        Row: NewsletterSubscriber;
-      };
-    };
-  };
-}
+export type { Database };
 
 function getSupabaseEnv() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;

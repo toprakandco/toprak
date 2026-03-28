@@ -12,17 +12,29 @@
     "sss": "FAQ",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "language": "Language"
+    "language": "Language",
+    "logoHome": "Toprak & Co. — Home",
+    "localeCodeTr": "TR",
+    "localeCodeEn": "EN",
+    "switchToTurkish": "View site in Turkish",
+    "switchToEnglish": "View site in English"
   },
   "footer": {
     "rights": "All rights reserved.",
     "tagline": "Creativity begins at the roots.",
     "quicklinks": "Quick links",
-    "contact": "Contact"
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy"
   },
   "meta": {
-    "title": "Toprak & Co. | Kreatif Ajans",
+    "title": "Toprak & Co. | Creative Agency",
     "description": "Toprak & Co. is a multilingual creative agency focused on brand strategy, storytelling, and digital experience."
+  },
+  "notFound": {
+    "title": "Nothing has grown here yet.",
+    "subtitle": "The page you are looking for could not be found.",
+    "primaryCta": "Back to home",
+    "secondaryCta": "Contact us"
   },
   "home": {
     "hero": {
@@ -211,7 +223,8 @@
     "ctaFinal": {
       "titleLine1": "Let's bring your",
       "titleLine2": "project to life.",
-      "button": "Get in Touch"
+      "button": "Get in Touch",
+      "buttonStart": "I Have a Project — Let's Start →"
     },
     "blogSection": {
       "overline": "BLOG",
@@ -379,6 +392,48 @@
       "portfolioEmpty": "No published work in this area yet; coming soon.",
       "breadcrumbServices": "Services"
     },
+    "voiceSelector": {
+      "title": "What type of voice over?",
+      "step2": {
+        "question": "Great! When would you like to get started with {category}?"
+      },
+      "timelines": {
+        "urgent": "Urgent (1–3 days)",
+        "normal": "Standard (1–2 weeks)",
+        "planning": "I'm planning ahead"
+      },
+      "cta": {
+        "text": "Let’s prepare a tailored quote for your project.",
+        "button": "Get in touch →"
+      },
+      "prefillMessage": "Requested voice-over type: {category}",
+      "categories": {
+        "reklam": {
+          "title": "Advertising voice over",
+          "desc": "TV, radio, digital ads"
+        },
+        "belgesel-haber": {
+          "title": "Documentary & news",
+          "desc": "Corporate film, documentary, news"
+        },
+        "elearning": {
+          "title": "E-learning & training",
+          "desc": "Online courses, training videos"
+        },
+        "kitap": {
+          "title": "Books & audiobooks",
+          "desc": "Novels, children’s books, academic"
+        },
+        "animasyon-oyun": {
+          "title": "Animation & games",
+          "desc": "Character voice, animated film"
+        },
+        "kurumsal-ivr": {
+          "title": "Corporate & IVR",
+          "desc": "Company profiles, phone greetings"
+        }
+      }
+    },
     "slugs": {
       "grafik-tasarim": {
         "title": "Graphic Design",
@@ -453,7 +508,58 @@
     "bottomCta": {
       "title": "Get a quote for your project.",
       "subtitle": "info@toprakco.tr · Free intro call",
-      "button": "Contact Us"
+      "button": "Contact Us",
+      "buttonStart": "I Have a Project — Let's Start →"
+    }
+  },
+  "kvkk": {
+    "meta": {
+      "title": "Privacy Policy & KVKK | Toprak & Co.",
+      "description": "Toprak & Co. privacy policy and KVKK disclosure: how we process personal data, retention, and your rights."
+    },
+    "title": "Privacy Policy & KVKK Disclosure",
+    "breadcrumbHome": "Home",
+    "sections": {
+      "controller": {
+        "heading": "1. Data controller",
+        "body": "Toprak & Co. — Ece [Surname] & Eymen [Surname]\ninfo@toprakco.tr / toprakco.tr"
+      },
+      "collected": {
+        "heading": "2. What data we collect",
+        "items": [
+          "Contact form: name, email, phone, message",
+          "Cookies (technical, essential)",
+          "Server logs (automatic)"
+        ]
+      },
+      "purpose": {
+        "heading": "3. Why we collect data",
+        "items": [
+          "To respond to requests and questions",
+          "To prepare service proposals",
+          "To meet legal obligations"
+        ]
+      },
+      "sharing": {
+        "heading": "4. Who we share data with",
+        "body": "We do not share your data with third parties for marketing.\nAside from Supabase (database) and Vercel (hosting), we do not use other services that receive your personal data."
+      },
+      "retention": {
+        "heading": "5. Retention period",
+        "body": "Contact data is kept for 2 years, then deleted."
+      },
+      "rights": {
+        "heading": "6. Your rights (KVKK Art. 11)",
+        "body": "You have the right to access, rectify, and request deletion of your data.\nRequests: info@toprakco.tr"
+      },
+      "cookies": {
+        "heading": "7. Cookie policy",
+        "body": "Only essential technical cookies are used.\nAnalytics is not active at this time."
+      },
+      "contact": {
+        "heading": "8. Contact",
+        "body": "info@toprakco.tr\nLast updated: March 2025"
+      }
     }
   },
   "portfolio": {
@@ -647,6 +753,8 @@
           "value": "Usually within 24 hours"
         }
       },
+      "projectCta": "I Have a Project — Let's Start →",
+      "projectCtaAria": "Open the multi-step project application form",
       "social": {
         "instagram": "https://www.instagram.com/toprakandco/",
         "linkedin": "https://www.linkedin.com/company/toprak-co",
@@ -657,8 +765,22 @@
       }
     },
     "meta": {
-      "title": "Get in Touch | Toprak & Co.",
+      "title": "Contact | Toprak & Co.",
       "description": "Contact Toprak & Co. for your next project. Let's quickly discuss process, pricing and the best collaboration model."
+    },
+    "callbackWidget": {
+      "title": "Request a call",
+      "subtitle": "Prefer a phone call? Leave your number and we’ll call you.",
+      "phonePlaceholder": "05XX XXX XX XX",
+      "submit": "Call me",
+      "saved": "✓ Saved",
+      "error": "Enter a valid Turkish mobile number (05XX XXX XX XX).",
+      "time": {
+        "morning": "Morning (9–12)",
+        "noon": "Noon (12–3)",
+        "evening": "Afternoon (3–6)",
+        "any": "No preference"
+      }
     },
     "form": {
       "sectionTitle": "Write to Us",
@@ -682,8 +804,12 @@
         "name": "Please enter your name.",
         "email": "Please enter a valid email address.",
         "message": "Please enter a message (max 500 characters).",
-        "phone": "Please enter a valid phone number."
+        "phone": "Please enter a valid phone number.",
+        "privacy": "You must accept the privacy policy to continue."
       },
+      "privacyConsentBefore": "I have read and accept the ",
+      "privacyConsentLink": "Privacy Policy & KVKK",
+      "privacyConsentAfter": " disclosure.",
       "budget": {
         "lt5k": "< ₺5,000",
         "5to15k": "₺5K–15K",
@@ -757,6 +883,94 @@
           "icon": "✈️",
           "text": "In-person when it matters"
         }
+      }
+    }
+  },
+  "project": {
+    "start": {
+      "brandLine": "Toprak & Co.",
+      "heroTitle": "Project application",
+      "heroSubtitle": "Reach us in a few steps — from services to contact details. We’ll reply within 24 hours.",
+      "meta": {
+        "title": "Project Application | Toprak & Co.",
+        "description": "Share your services, budget and details — we’ll reply within 24 hours."
+      },
+      "steps": {
+        "service": "Services",
+        "budget": "Budget",
+        "details": "Details",
+        "contact": "Contact"
+      },
+      "step1": {
+        "heading": "What would you like us to do?",
+        "continue": "Continue →"
+      },
+      "step2": {
+        "heading": "Your budget and timeline?",
+        "budgetLabel": "Budget",
+        "timelineLabel": "Timeline",
+        "back": "← Back",
+        "continue": "Continue →"
+      },
+      "step3": {
+        "heading": "Tell us about your project",
+        "hint": "The more you share, the more accurate our quote can be.",
+        "referenceLabel": "Any reference you like? (link)",
+        "referencePlaceholder": "https://...",
+        "back": "← Back",
+        "continue": "Continue →"
+      },
+      "step4": {
+        "heading": "How can we reach you?",
+        "name": "Full name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company / brand",
+        "companyOptional": "optional",
+        "preferenceLabel": "How would you prefer we contact you?",
+        "submit": "Submit application 🌿",
+        "sending": "Sending...",
+        "kvkkBefore": "I have read and accept the ",
+        "kvkkLink": "Privacy Policy & KVKK",
+        "kvkkAfter": " disclosure.",
+        "back": "← Back"
+      },
+      "success": {
+        "title": "Application received! 🌿",
+        "subtitle": "We’ll get back to you within 24 hours at the latest.",
+        "help": "If you have questions in the meantime:",
+        "whatsapp": "WhatsApp",
+        "emailUs": "Email"
+      },
+      "services": {
+        "grafik-tasarim": "Graphic Design",
+        "ceviri": "Translation",
+        "seslendirme": "Voice Over",
+        "icerik-uretimi": "Content & Social",
+        "fotograf-video": "Photo & Video",
+        "web-yazilim": "Web & Software"
+      },
+      "budget": {
+        "lt-5k": "< ₺5,000",
+        "5-15k": "₺5K–15K",
+        "15-30k": "₺15K–30K",
+        "30k-plus": "₺30K+",
+        "prefer-not": "Prefer not to say"
+      },
+      "timeline": {
+        "urgent-1-3": "Urgent (1–3 days)",
+        "1-2-weeks": "1–2 weeks",
+        "1-month": "1 month",
+        "flexible": "Flexible"
+      },
+      "contactPref": {
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "video": "Video call",
+        "any": "No preference"
+      },
+      "errors": {
+        "submit": "Could not submit — please try again."
       }
     }
   },

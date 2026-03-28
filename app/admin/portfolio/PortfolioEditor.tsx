@@ -77,6 +77,8 @@ export function PortfolioEditor({
   const [descEn, setDescEn] = useState(initial?.description_en ?? '');
   const [category, setCategory] = useState(initial?.category ?? '');
   const [coverUrl, setCoverUrl] = useState(initial?.cover_image ?? '');
+  const [beforeUrl, setBeforeUrl] = useState(initial?.before_image ?? '');
+  const [afterUrl, setAfterUrl] = useState(initial?.after_image ?? '');
   const [extraImages, setExtraImages] = useState<string[]>(
     Array.isArray(initial?.images) ? [...initial.images] : [],
   );
@@ -94,6 +96,10 @@ export function PortfolioEditor({
   const [deleting, setDeleting] = useState(false);
 
   const categoryOptions = portfolioCategoryOptions();
+
+  const showBeforeAfterFields =
+    category === 'grafik-tasarim' ||
+    Boolean(beforeUrl.trim() || afterUrl.trim());
 
   const addImage = () => {
     const u = newImageUrl.trim();
@@ -131,6 +137,8 @@ export function PortfolioEditor({
     fd.set('description_en', descEn);
     fd.set('category', category);
     fd.set('cover_image', coverUrl.trim());
+    fd.set('before_image', beforeUrl.trim());
+    fd.set('after_image', afterUrl.trim());
     fd.set('images', extraImages.join(', '));
     fd.set('tags', tags.join(', '));
     fd.set('order_index', orderIndex);
@@ -240,6 +248,30 @@ export function PortfolioEditor({
         </div>
 
         <ImageUpload label="Kapak görseli adresi" value={coverUrl} onChange={setCoverUrl} />
+
+        {showBeforeAfterFields ? (
+          <div className="space-y-4 rounded-xl border border-[#EDE4D3] bg-[#FAFAF8] p-4">
+            <p className="font-sans text-sm font-medium text-[#3D1F10]">
+              Önce / sonra karşılaştırma
+            </p>
+            <p className="font-sans text-xs leading-relaxed text-[#6B4C35]">
+              Bu iki alan dolu olursa kart otomatik before/after slider olarak gösterilir (tüm
+              kategorilerde geçerli; özellikle grafik tasarım işleri için uygundur).
+            </p>
+            <ImageUpload
+              label="Önce görseli"
+              name="before_image"
+              value={beforeUrl}
+              onChange={setBeforeUrl}
+            />
+            <ImageUpload
+              label="Sonra görseli"
+              name="after_image"
+              value={afterUrl}
+              onChange={setAfterUrl}
+            />
+          </div>
+        ) : null}
 
         <div>
           <span className="mb-1.5 block font-sans text-sm font-medium text-[#3D1F10]">

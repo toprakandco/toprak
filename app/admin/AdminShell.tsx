@@ -10,12 +10,13 @@ type NavItem = {
   href: string;
   label: string;
   icon: ReactNode;
-  badge?: 'unread';
+  badgeCount?: number;
 };
 
 type Props = {
   children: ReactNode;
   unreadContacts: number;
+  unreadApplications: number;
   /** Giriş yapan yönetici (eymen / ece); sunucu çerezinden doğrulanır. */
   adminDisplay?: string | null;
 };
@@ -27,7 +28,12 @@ function navActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function AdminShell({ children, unreadContacts, adminDisplay }: Props) {
+export function AdminShell({
+  children,
+  unreadContacts,
+  unreadApplications,
+  adminDisplay,
+}: Props) {
   const pathname = usePathname() ?? '';
 
   if (pathname === '/admin/login' || pathname.startsWith('/admin/login/')) {
@@ -61,7 +67,13 @@ export function AdminShell({ children, unreadContacts, adminDisplay }: Props) {
       href: '/admin/contacts',
       label: 'Mesajlar',
       icon: <IconMessages />,
-      badge: 'unread',
+      badgeCount: unreadContacts,
+    },
+    {
+      href: '/admin/applications',
+      label: 'Başvurular',
+      icon: <IconApplications />,
+      badgeCount: unreadApplications,
     },
     {
       href: '/admin/settings',
@@ -86,7 +98,8 @@ export function AdminShell({ children, unreadContacts, adminDisplay }: Props) {
         <nav className="flex flex-1 flex-col gap-0.5 px-3">
           {items.map((item) => {
             const active = navActive(pathname, item.href);
-            const showBadge = item.badge === 'unread' && unreadContacts > 0;
+            const badgeN = item.badgeCount ?? 0;
+            const showBadge = badgeN > 0;
             return (
               <Link
                 key={item.href}
@@ -103,7 +116,7 @@ export function AdminShell({ children, unreadContacts, adminDisplay }: Props) {
                   <span className="flex shrink-0 items-center gap-1.5">
                     <span className="h-2 w-2 rounded-full bg-red-500" aria-hidden />
                     <span className="font-sans text-[11px] font-medium tabular-nums text-[#F5F0E6]/80">
-                      {unreadContacts > 99 ? '99+' : unreadContacts}
+                      {badgeN > 99 ? '99+' : badgeN}
                     </span>
                   </span>
                 ) : null}
@@ -218,6 +231,21 @@ function IconMessages() {
         strokeWidth="1.5"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+}
+
+function IconApplications() {
+  return (
+    <svg width={16} height={16} viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M9 12h6M9 16h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }

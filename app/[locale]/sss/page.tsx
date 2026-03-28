@@ -1,3 +1,4 @@
+import { socialMetadata } from '@/lib/seo-metadata';
 import { SssRedirectClient } from './SssRedirectClient';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
@@ -9,9 +10,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'sss.meta' });
+  const title = t('title');
+  const description = t('description');
   return {
-    title: t('title'),
-    description: t('description'),
+    title,
+    description,
+    ...socialMetadata(locale, title, description, '/sss'),
   };
 }
 

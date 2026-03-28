@@ -196,7 +196,7 @@ export function BlogPageClient({ posts, featured, tags, locale, line1, line2 }: 
             {safePage > 1 ? (
               <Link
                 href={blogHref(tag, safePage - 1)}
-                className="min-h-10 rounded-full px-4 py-2 text-sm text-[#3D1F10]/70 transition hover:text-[#8B3A1E]"
+                className="min-h-10 rounded-full px-4 py-2 text-sm text-[#3D1F10]/70 transition hover:text-accent"
               >
                 {t('pagination.previous')}
               </Link>
@@ -221,7 +221,7 @@ export function BlogPageClient({ posts, featured, tags, locale, line1, line2 }: 
                       href={blogHref(tag, p)}
                       className={`flex h-10 min-w-10 items-center justify-center rounded-full text-sm font-medium transition ${
                         p === safePage
-                          ? 'bg-[#8B3A1E] text-[#F5F0E6]'
+                          ? 'bg-accent text-[#F5F0E6]'
                           : 'text-[#3D1F10]/70 hover:bg-[#EDE4D3]/80'
                       }`}
                       aria-current={p === safePage ? 'page' : undefined}
@@ -236,7 +236,7 @@ export function BlogPageClient({ posts, featured, tags, locale, line1, line2 }: 
             {safePage < totalPages ? (
               <Link
                 href={blogHref(tag, safePage + 1)}
-                className="min-h-10 rounded-full px-4 py-2 text-sm text-[#3D1F10]/70 transition hover:text-[#8B3A1E]"
+                className="min-h-10 rounded-full px-4 py-2 text-sm text-[#3D1F10]/70 transition hover:text-accent"
               >
                 {t('pagination.next')}
               </Link>
@@ -269,8 +269,8 @@ function FilterPill({
         layout={!reduce}
         className={`inline-flex shrink-0 rounded-full px-4 py-2 text-[13px] font-medium transition-colors ${
           active
-            ? 'bg-[#8B3A1E] text-[#F5F0E6]'
-            : 'bg-white/60 text-[#3D1F10]/80 ring-1 ring-[#EDE4D3] hover:bg-white hover:text-[#8B3A1E]'
+            ? 'bg-accent text-[#F5F0E6]'
+            : 'bg-white/60 text-[#3D1F10]/80 ring-1 ring-[#EDE4D3] hover:bg-white hover:text-accent'
         }`}
       >
         {label}

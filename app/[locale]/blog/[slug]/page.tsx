@@ -16,6 +16,7 @@ import {
   getRelatedBlogPostsByTags,
 } from '@/lib/supabase';
 import { Link } from '@/i18n/navigation';
+import { socialMetadata } from '@/lib/seo-metadata';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { headers } from 'next/headers';
 import type { Metadata } from 'next';
@@ -38,17 +39,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'blog.meta' });
 
   if (!post) {
-    return { title: t('title') };
+    const fallbackTitle = t('title');
+    const fallbackDesc = t('description');
+    return {
+      title: fallbackTitle,
+      ...socialMetadata(locale, fallbackTitle, fallbackDesc, `/blog/${slug}`),
+    };
   }
 
   const title = locale === 'tr' ? post.title_tr : post.title_en;
   const description =
     (locale === 'tr' ? post.excerpt_tr : post.excerpt_en) ??
     (locale === 'tr' ? post.content_tr : post.content_en).slice(0, 160);
+  const pageTitle = `${title} | Toprak & Co.`;
 
   return {
-    title: `${title} | Toprak & Co.`,
+    title: pageTitle,
     description,
+    ...socialMetadata(locale, pageTitle, description, `/blog/${slug}`),
   };
 }
 
@@ -94,7 +102,7 @@ export default async function BlogPostPage({ params }: Props) {
             >
               <ol className="flex flex-wrap items-center gap-2">
                 <li>
-                  <Link href="/" className="transition hover:text-[#8B3A1E]">
+                  <Link href="/" className="transition hover:text-accent">
                     {t('breadcrumbHome')}
                   </Link>
                 </li>
@@ -102,7 +110,7 @@ export default async function BlogPostPage({ params }: Props) {
                   /
                 </li>
                 <li>
-                  <Link href="/blog" className="transition hover:text-[#8B3A1E]">
+                  <Link href="/blog" className="transition hover:text-accent">
                     {t('breadcrumbBlog')}
                   </Link>
                 </li>
@@ -189,7 +197,7 @@ export default async function BlogPostPage({ params }: Props) {
                     </p>
                     <Link
                       href="/contact"
-                      className="mt-5 inline-flex text-sm font-semibold text-[#8B3A1E] underline-offset-4 transition hover:underline"
+                      className="mt-5 inline-flex text-sm font-semibold text-accent underline-offset-4 transition hover:underline"
                     >
                       {t('authorCtaCollaborate')}
                     </Link>

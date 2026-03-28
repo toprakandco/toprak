@@ -11,6 +11,25 @@
   --gold: #c4824a;
   --brown-deep: #3d1f10;
   --navbar-height: 80px;
+  /* Locale-aware interactive accents (default: Turkish) */
+  --accent-color: #8b3a1e;
+  --accent-dark: #6b2c14;
+}
+
+[data-locale='en'] {
+  --accent-color: #7a9e6e;
+  --accent-dark: #5c7a52;
+}
+
+[data-locale='tr'] {
+  --accent-color: #8b3a1e;
+  --accent-dark: #6b2c14;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 64px;
+  }
 }
 
 @theme inline {
@@ -22,6 +41,8 @@
   --color-leaf-dark: var(--leaf-dark);
   --color-gold: var(--gold);
   --color-brown-deep: var(--brown-deep);
+  --color-accent: var(--accent-color);
+  --color-accent-dark: var(--accent-dark);
   /* Backward-compatible aliases for existing pages. */
   --color-navy: var(--brown-deep);
   --color-navy-light: var(--terracotta-dark);
@@ -34,6 +55,17 @@ html {
   scroll-behavior: smooth;
   width: 100%;
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: none) {
+  .spotlight-cursor {
+    display: none !important;
+  }
+
+  .parallax-element {
+    transform: none !important;
+  }
 }
 
 *,
@@ -45,7 +77,99 @@ html {
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px !important;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 15px !important;
+  }
+}
+
+input,
+select,
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Mobile nav: hamburger → X */
+.nav-hamburger {
+  position: relative;
+  display: inline-flex;
+  height: 44px;
+  width: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-hamburger-line {
+  position: absolute;
+  left: 50%;
+  height: 2px;
+  width: 24px;
+  margin-left: -12px;
+  border-radius: 1px;
+  background-color: #8b3a1e;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    top 0.3s ease;
+}
+
+.nav-hamburger-line:nth-child(1) {
+  top: calc(50% - 7px);
+}
+
+.nav-hamburger-line:nth-child(2) {
+  top: 50%;
+  margin-top: -1px;
+}
+
+.nav-hamburger-line:nth-child(3) {
+  top: calc(50% + 6px);
+}
+
+.nav-hamburger[aria-expanded='true'] .nav-hamburger-line:nth-child(1) {
+  top: 50%;
+  margin-top: -1px;
+  transform: rotate(45deg);
+}
+
+.nav-hamburger[aria-expanded='true'] .nav-hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger[aria-expanded='true'] .nav-hamburger-line:nth-child(3) {
+  top: 50%;
+  margin-top: -1px;
+  transform: rotate(-45deg);
+}
+
+/* Horizontal scroll regions (filters, etc.) */
+.scroll-touch-x {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.scroll-touch-x::-webkit-scrollbar {
+  display: none;
 }
 
 img,
@@ -507,7 +631,84 @@ section {
   animation: home-marquee 32s linear infinite;
 }
 
+@keyframes project-confetti-fall {
+  0% {
+    transform: translate3d(0, -20px, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 120vh, 0) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.project-confetti-piece {
+  animation: project-confetti-fall 2s ease-in forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .project-confetti-piece {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@keyframes whatsapp-float-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.4;
+  }
+}
+
+.whatsapp-float-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 9999px;
+  background: #25d366;
+  pointer-events: none;
+  animation: whatsapp-float-pulse 2s ease-in-out infinite;
+}
+
+@keyframes whatsapp-proactive-in {
+  0% {
+    opacity: 0;
+    transform: translateX(1.25rem);
+  }
+  55% {
+    opacity: 1;
+    transform: translateX(-0.25rem);
+  }
+  75% {
+    transform: translateX(0.125rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.whatsapp-proactive-tooltip {
+  animation: whatsapp-proactive-in 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-proactive-tooltip {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .whatsapp-float-pulse::before {
+    animation: none;
+  }
+
   html {
     scroll-behavior: auto;
   }

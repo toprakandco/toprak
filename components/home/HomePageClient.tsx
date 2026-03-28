@@ -1,6 +1,5 @@
 'use client';
 
-import { CustomCursor } from '@/components/ui/CustomCursor';
 import { HomeBlogGrid } from '@/components/home/HomeBlogGrid';
 import { HomeClientsMarquee } from '@/components/home/HomeClientsMarquee';
 import { HomeCtaFinal } from '@/components/home/HomeCtaFinal';
@@ -11,7 +10,7 @@ import { HomePortfolioBento } from '@/components/home/HomePortfolioBento';
 import { HomeProcess } from '@/components/home/HomeProcess';
 import { ServiceMorph } from '@/components/home/ServiceMorph';
 import { HomeServicesGrid } from '@/components/home/HomeServicesGrid';
-import { HomeStats } from '@/components/home/HomeStats';
+import { HomeStats, HomeStatsMobileRow } from '@/components/home/HomeStats';
 import type { BlogPost, PortfolioItem } from '@/types';
 import type { ServiceSlug } from '@/lib/service-slugs';
 import { SERVICE_SLUGS } from '@/lib/service-slugs';
@@ -69,8 +68,6 @@ export function HomePageClient({ portfolioItems, blogPosts, homeOverrides }: Pro
 
   return (
     <div className="overflow-x-hidden text-brown-deep">
-      <CustomCursor />
-
       <HomeHero
         label={t('hero.label')}
         lines={heroLines}
@@ -79,6 +76,8 @@ export function HomePageClient({ portfolioItems, blogPosts, homeOverrides }: Pro
         ctaSecondary={t('hero.ctaPortfolio')}
         scrollHint={t('hero.scrollHint')}
       />
+
+      <HomeStatsMobileRow />
 
       <HomeMarqueeStrip row1={marqueeRow1} />
 
@@ -137,6 +136,7 @@ export function HomePageClient({ portfolioItems, blogPosts, homeOverrides }: Pro
         titleLine1={t('ctaFinal.titleLine1')}
         titleLine2={t('ctaFinal.titleLine2')}
         button={t('ctaFinal.button')}
+        buttonStart={t('ctaFinal.buttonStart')}
       />
     </div>
   );

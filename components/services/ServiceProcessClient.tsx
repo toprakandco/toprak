@@ -24,7 +24,7 @@ export function ServiceProcessClient({ title, steps }: Props) {
 
         <div className="relative mt-12 hidden md:block">
           <svg
-            className="absolute left-0 right-0 top-5 h-[10px] w-full text-[#8B3A1E]/25"
+            className="absolute left-0 right-0 top-5 h-[10px] w-full text-accent/25"
             viewBox="0 0 1000 10"
             preserveAspectRatio="none"
             aria-hidden
@@ -61,7 +61,7 @@ export function ServiceProcessClient({ title, steps }: Props) {
         <ol className="mt-10 space-y-7 md:hidden">
           {steps.map((step, i) => (
             <li key={step.title} className="flex gap-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#8B3A1E] font-serif text-[17px] text-cream">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent font-serif text-[17px] text-cream">
                 {i + 1}
               </span>
               <div>

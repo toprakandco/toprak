@@ -34,6 +34,8 @@ export default async function EditPortfolioPage({ params }: Props) {
         description_en: String(formData.get('description_en') ?? '') || null,
         category: String(formData.get('category') ?? '') || null,
         cover_image: String(formData.get('cover_image') ?? '') || null,
+        before_image: String(formData.get('before_image') ?? '') || null,
+        after_image: String(formData.get('after_image') ?? '') || null,
         images: toList(formData.get('images')),
         tags: toList(formData.get('tags')),
         is_featured: Boolean(formData.get('is_featured')),

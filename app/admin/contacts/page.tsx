@@ -1,16 +1,39 @@
+import { createServiceSupabaseClient } from '@/lib/supabase-service';
 import { createSupabaseClient } from '@/lib/supabase';
+import type { CallbackRequest } from '@/types';
+import { CallbackRequestsListClient } from './CallbackRequestsListClient';
 import { ContactsListClient } from './ContactsListClient';
+import { ContactsViewTabs } from './ContactsViewTabs';
 
 type Filter = 'all' | 'unread' | 'read';
 
 type Props = {
-  searchParams: Promise<{ filter?: string }>;
+  searchParams: Promise<{ filter?: string; view?: string }>;
 };
 
 export default async function AdminContactsPage({ searchParams }: Props) {
-  const { filter: raw } = await searchParams;
+  const sp = await searchParams;
+  const view = sp.view === 'callbacks' ? 'callbacks' : 'messages';
+
+  if (view === 'callbacks') {
+    const db = createServiceSupabaseClient();
+    const { data } = await db
+      .from('callback_requests')
+      .select('*')
+      .order('created_at', { ascending: false });
+    const rows = (data ?? []) as CallbackRequest[];
+
+    return (
+      <div className="space-y-6">
+        <h1 className="font-serif text-3xl text-brown-deep">İletişim</h1>
+        <ContactsViewTabs view="callbacks" />
+        <CallbackRequestsListClient rows={rows} />
+      </div>
+    );
+  }
+
   const filter: Filter =
-    raw === 'unread' ? 'unread' : raw === 'read' ? 'read' : 'all';
+    sp.filter === 'unread' ? 'unread' : sp.filter === 'read' ? 'read' : 'all';
 
   const db = createSupabaseClient();
 
@@ -32,7 +55,8 @@ export default async function AdminContactsPage({ searchParams }: Props) {
 
   return (
     <div className="space-y-6">
-      <h1 className="font-serif text-3xl text-brown-deep">İletişim Mesajları</h1>
+      <h1 className="font-serif text-3xl text-brown-deep">İletişim</h1>
+      <ContactsViewTabs view="messages" />
       <ContactsListClient
         contacts={rows}
         filter={filter}

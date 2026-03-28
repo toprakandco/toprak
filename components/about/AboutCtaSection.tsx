@@ -12,6 +12,7 @@ export function AboutCtaSection() {
   return (
     <section
       className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden py-24"
+      data-spotlight-dark
       style={{
         background: 'linear-gradient(135deg, #8B3A1E 0%, #6B2C14 100%)',
       }}

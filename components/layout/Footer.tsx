@@ -7,10 +7,10 @@ export async function Footer() {
   const tNav = await getTranslations('nav');
 
   return (
-    <footer className="mt-auto bg-brown-deep text-cream">
-      <div className="mx-auto max-w-6xl px-4 pt-14 md:px-6">
-        <div className="grid gap-10 md:grid-cols-3">
-          <div>
+    <footer className="mt-auto bg-brown-deep text-cream" data-spotlight-dark>
+      <div className="mx-auto max-w-6xl px-6 pt-14 md:px-6">
+        <div className="grid gap-10 text-center md:grid-cols-3 md:text-left">
+          <div className="flex flex-col items-center md:items-start">
             <Link
               href="/"
               className="inline-flex rounded-lg bg-cream/95 p-2 shadow-sm ring-1 ring-cream/20"
@@ -24,11 +24,11 @@ export async function Footer() {
                 className="h-9 w-auto max-w-[200px] object-contain object-left"
               />
             </Link>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/80">
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/80 md:mx-0">
               {t('tagline')}
             </p>
           </div>
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-cream/70">
               {t('quicklinks')}
             </h3>
@@ -51,9 +51,12 @@ export async function Footer() {
               <Link href="/contact#sss" className="hover:text-gold">
                 {tNav('sss')}
               </Link>
+              <Link href="/kvkk" className="hover:text-gold">
+                {t('privacyPolicy')}
+              </Link>
             </nav>
           </div>
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-cream/70">
               {t('contact')}
             </h3>
@@ -91,8 +94,9 @@ export async function Footer() {
           </svg>
         </div>
 
-        <p className="pb-8 text-center text-xs text-cream/70">
-          © 2025 Toprak &amp; Co. {t('rights')}
+        <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pb-8 text-center text-xs text-cream/70">
+          <span>© 2025 Toprak &amp; Co.</span>
+          <span>{t('rights')}</span>
         </p>
       </div>
     </footer>

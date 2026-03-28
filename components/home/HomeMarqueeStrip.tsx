@@ -6,7 +6,7 @@ type Props = {
 
 function buildMarquee(items: string[]) {
   return items.map((item, i) => (
-    <span key={`${item}-${i}`} className="inline-flex items-center gap-3">
+    <span key={`${item}-${i}`} className="inline-flex items-center gap-2 md:gap-3">
       <span>{item}</span>
       <span className={i % 2 === 0 ? 'text-[#C4824A]' : 'text-[#7A9E6E]'}>✦</span>
     </span>
@@ -17,7 +17,10 @@ export function HomeMarqueeStrip({ row1 }: Props) {
   const a = [...row1, ...row1];
 
   return (
-    <section className="relative left-1/2 w-[100dvw] max-w-[100dvw] -translate-x-1/2 overflow-hidden bg-[#3D1F10] py-[14px]">
+    <section
+      className="relative left-1/2 w-[100dvw] max-w-[100dvw] -translate-x-1/2 overflow-hidden bg-[#3D1F10] py-[14px]"
+      data-spotlight-dark
+    >
       <div
         className="group flex flex-col gap-[6px]"
         style={{
@@ -25,7 +28,7 @@ export function HomeMarqueeStrip({ row1 }: Props) {
             'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
         }}
       >
-        <div className="home-marquee-new-row-1 flex w-max gap-4 whitespace-nowrap text-[11px] uppercase tracking-[0.15em] text-[rgba(245,240,230,0.75)] group-hover:[animation-play-state:paused]">
+        <div className="home-marquee-new-row-1 flex w-max gap-2 whitespace-nowrap text-[10px] uppercase tracking-[0.15em] text-[rgba(245,240,230,0.75)] group-hover:[animation-play-state:paused] md:gap-4 md:text-[11px]">
           {buildMarquee(a)}
           <span aria-hidden className="inline-flex items-center gap-3">
             {buildMarquee(a)}

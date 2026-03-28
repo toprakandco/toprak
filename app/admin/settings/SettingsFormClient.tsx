@@ -2,6 +2,8 @@
 
 import { saveSiteSettings } from './actions';
 import type { SiteSettingKey } from './settings-keys';
+import { EmailSignatureGenerator } from '@/components/admin/EmailSignatureGenerator';
+import { EmailSignaturePanel } from './EmailSignaturePanel';
 import { useActionState, useEffect, useState } from 'react';
 
 type Props = {
@@ -17,10 +19,13 @@ function fld(
   return { key, label, multiline, placeholder };
 }
 
+type SettingsTab = 'site' | 'email' | 'signatures';
+
 export function SettingsFormClient({ initial }: Props) {
   const [state, formAction] = useActionState(saveSiteSettings, null);
   const [maintain, setMaintain] = useState(initial.maintenance_mode === 'true');
   const [showToast, setShowToast] = useState(false);
+  const [tab, setTab] = useState<SettingsTab>('site');
 
   useEffect(() => {
     setMaintain(initial.maintenance_mode === 'true');
@@ -50,7 +55,54 @@ export function SettingsFormClient({ initial }: Props) {
         </p>
       ) : null}
 
-      <form action={formAction} className="space-y-10 rounded-xl border border-beige bg-white p-6 shadow-sm">
+      <div className="flex flex-wrap gap-2 border-b border-[#EDE4D3] pb-4">
+        <button
+          type="button"
+          onClick={() => setTab('site')}
+          className={`rounded-lg px-4 py-2 font-sans text-sm font-medium transition ${
+            tab === 'site'
+              ? 'bg-[#8B3A1E]/10 text-[#3D1F10] ring-1 ring-inset ring-[#8B3A1E]/30'
+              : 'text-[#6B4C35] hover:bg-[#F5F0E6]'
+          }`}
+        >
+          Site ayarları
+        </button>
+        <button
+          type="button"
+          onClick={() => setTab('email')}
+          className={`rounded-lg px-4 py-2 font-sans text-sm font-medium transition ${
+            tab === 'email'
+              ? 'bg-[#8B3A1E]/10 text-[#3D1F10] ring-1 ring-inset ring-[#8B3A1E]/30'
+              : 'text-[#6B4C35] hover:bg-[#F5F0E6]'
+          }`}
+        >
+          E-posta İmzası Önizleme
+        </button>
+        <button
+          type="button"
+          onClick={() => setTab('signatures')}
+          className={`rounded-lg px-4 py-2 font-sans text-sm font-medium transition ${
+            tab === 'signatures'
+              ? 'bg-[#8B3A1E]/10 text-[#3D1F10] ring-1 ring-inset ring-[#8B3A1E]/30'
+              : 'text-[#6B4C35] hover:bg-[#F5F0E6]'
+          }`}
+        >
+          E-posta İmzaları
+        </button>
+      </div>
+
+      {tab === 'email' ? (
+        <EmailSignaturePanel />
+      ) : null}
+
+      {tab === 'signatures' ? (
+        <EmailSignatureGenerator />
+      ) : null}
+
+      <form
+        action={formAction}
+        className={`space-y-10 rounded-xl border border-beige bg-white p-6 shadow-sm ${tab !== 'site' ? 'hidden' : ''}`}
+      >
         <input type="hidden" name="maintenance_mode" value={maintain ? 'true' : 'false'} />
 
         <fieldset className="space-y-4">

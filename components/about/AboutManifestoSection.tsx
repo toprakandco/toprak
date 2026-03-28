@@ -24,6 +24,7 @@ export function AboutManifestoSection() {
   return (
     <section
       className="relative overflow-hidden bg-[#3D1F10] py-32"
+      data-spotlight-dark
       aria-labelledby="about-manifesto-heading"
     >
       <h2 id="about-manifesto-heading" className="sr-only">

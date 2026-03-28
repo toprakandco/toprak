@@ -1,7 +1,9 @@
 import { ServiceProcessClient } from '@/components/services/ServiceProcessClient';
+import { VoiceOverSelector } from '@/components/services/VoiceOverSelector';
 import { ServiceSignatureIcon } from '@/components/services/ServiceSignatureIcon';
 import { ServicesBottomCta } from '@/components/services/ServicesBottomCta';
 import { Link } from '@/i18n/navigation';
+import { socialMetadata } from '@/lib/seo-metadata';
 import { SERVICE_SLUGS, isServiceSlug } from '@/lib/service-slugs';
 import {
   getActiveServiceSlugs,
@@ -33,17 +35,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale, namespace: 'services.meta' });
 
+  const fallbackTitle = t('title');
+  const fallbackDesc = t('description');
+
   try {
     const service = await getServiceBySlug(slug);
-    if (!service) return { title: t('title'), description: t('description') };
+    if (!service) {
+      return {
+        title: fallbackTitle,
+        description: fallbackDesc,
+        ...socialMetadata(locale, fallbackTitle, fallbackDesc, `/services/${slug}`),
+      };
+    }
+    const pageTitle = `${locale === 'tr' ? service.title_tr : service.title_en} | Toprak & Co.`;
+    const description =
+      (locale === 'tr' ? service.description_tr : service.description_en) ??
+      fallbackDesc;
     return {
-      title: `${locale === 'tr' ? service.title_tr : service.title_en} | Toprak & Co.`,
-      description:
-        (locale === 'tr' ? service.description_tr : service.description_en) ??
-        t('description'),
+      title: pageTitle,
+      description,
+      ...socialMetadata(locale, pageTitle, description, `/services/${slug}`),
     };
   } catch {
-    return { title: t('title'), description: t('description') };
+    return {
+      title: fallbackTitle,
+      description: fallbackDesc,
+      ...socialMetadata(locale, fallbackTitle, fallbackDesc, `/services/${slug}`),
+    };
   }
 }
 
@@ -92,13 +110,13 @@ export default async function ServiceDetailPage({ params }: Props) {
           <nav className="text-[13px] text-[#7A6050]" aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/" className="transition hover:text-terracotta">
+                <Link href="/" className="transition hover:text-accent">
                   {t('breadcrumbHome')}
                 </Link>
               </li>
               <li aria-hidden>&gt;</li>
               <li>
-                <Link href="/services" className="transition hover:text-terracotta">
+                <Link href="/services" className="transition hover:text-accent">
                   {t('breadcrumbServices')}
                 </Link>
               </li>
@@ -141,6 +159,8 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
       </section>
 
+      {slug === 'seslendirme' ? <VoiceOverSelector /> : null}
+
       <ServiceProcessClient title={t('processTitle')} steps={processSteps} />
 
       <section className="bg-[#fff] py-20">
@@ -151,7 +171,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             </h2>
             <Link
               href={`/portfolio?category=${encodeURIComponent(slug)}`}
-              className="inline-flex min-h-[44px] items-center text-sm text-terracotta transition hover:translate-x-1"
+              className="inline-flex min-h-[44px] items-center text-sm text-accent transition hover:translate-x-1"
             >
               {t('portfolioSeeAll')}
             </Link>

@@ -1,5 +1,6 @@
 'use client';
 
+import { BeforeAfterSlider } from '@/components/portfolio/BeforeAfterSlider';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -8,9 +9,19 @@ type Props = {
   coverImage: string | null;
   images: string[];
   alt: string;
+  beforeImage?: string | null;
+  afterImage?: string | null;
 };
 
-export function PortfolioGallery({ coverImage, images, alt }: Props) {
+export function PortfolioGallery({
+  coverImage,
+  images,
+  alt,
+  beforeImage,
+  afterImage,
+}: Props) {
+  const hasBeforeAfter = Boolean(beforeImage && afterImage);
+
   const allImages = useMemo(() => {
     const out: string[] = [];
     if (coverImage) {
@@ -52,12 +63,12 @@ export function PortfolioGallery({ coverImage, images, alt }: Props) {
   }, [activeIndex, allImages.length]);
 
   useEffect(() => {
-    if (prefersReduced) return;
+    if (prefersReduced || hasBeforeAfter) return;
     const onScroll = () => setParallaxY(window.scrollY * 0.4);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [prefersReduced]);
+  }, [prefersReduced, hasBeforeAfter]);
 
   useEffect(() => {
     if (!lightboxOpen) return;
@@ -74,7 +85,7 @@ export function PortfolioGallery({ coverImage, images, alt }: Props) {
     return () => window.removeEventListener('keydown', onKey);
   }, [lightboxOpen, allImages.length]);
 
-  if (allImages.length === 0) {
+  if (allImages.length === 0 && !hasBeforeAfter) {
     return (
       <div className="flex min-h-[280px] w-full items-center justify-center rounded-2xl bg-beige">
         <svg
@@ -99,27 +110,38 @@ export function PortfolioGallery({ coverImage, images, alt }: Props) {
 
   return (
     <div className="w-full">
-      <div
-        className="relative aspect-[16/10] max-h-[560px] w-full cursor-zoom-in overflow-hidden rounded-2xl bg-beige"
-        style={{
-          opacity: fade,
-          transition: prefersReduced ? 'none' : 'opacity 200ms ease-out',
-        }}
-        onClick={() => setLightboxOpen(true)}
-      >
-        <Image
-          src={mainSrc}
-          alt={alt}
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="(max-width: 1200px) 100vw, 1152px"
+      {hasBeforeAfter ? (
+        <div className="relative aspect-[16/10] max-h-[560px] w-full overflow-hidden rounded-2xl bg-beige">
+          <BeforeAfterSlider
+            beforeImage={beforeImage!}
+            afterImage={afterImage!}
+            title={alt}
+            className="absolute inset-0 h-full w-full"
+          />
+        </div>
+      ) : (
+        <div
+          className="relative aspect-[16/10] max-h-[560px] w-full cursor-zoom-in overflow-hidden rounded-2xl bg-beige"
           style={{
-            transform: prefersReduced ? 'none' : `translate3d(0, ${parallaxY}px, 0)`,
-            transition: prefersReduced ? 'none' : 'transform 120ms linear',
+            opacity: fade,
+            transition: prefersReduced ? 'none' : 'opacity 200ms ease-out',
           }}
-        />
-      </div>
+          onClick={() => setLightboxOpen(true)}
+        >
+          <Image
+            src={mainSrc}
+            alt={alt}
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="(max-width: 1200px) 100vw, 1152px"
+            style={{
+              transform: prefersReduced ? 'none' : `translate3d(0, ${parallaxY}px, 0)`,
+              transition: prefersReduced ? 'none' : 'transform 120ms linear',
+            }}
+          />
+        </div>
+      )}
 
       {showThumbs ? (
         <div className="mt-4 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:thin]">
@@ -147,7 +169,7 @@ export function PortfolioGallery({ coverImage, images, alt }: Props) {
       ) : null}
 
       <AnimatePresence>
-        {lightboxOpen ? (
+        {lightboxOpen && !hasBeforeAfter ? (
           <motion.div
             className="fixed inset-0 z-[90] flex items-center justify-center bg-black/95 p-4"
             initial={prefersReduced ? false : { opacity: 0 }}
