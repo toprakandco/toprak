@@ -8,9 +8,13 @@ import { TableOfContents } from '@/components/blog/TableOfContents';
 import {
   estimateReadingMinutes,
   formatBlogDate,
+  stripHtml,
 } from '@/lib/blog-utils';
 import { SEED_BLOG_SLUGS } from '@/lib/seed-blog';
 import {
+  blogPostContent,
+  blogPostExcerpt,
+  blogPostTitle,
   getActiveBlogSlugs,
   getBlogPostBySlugSafe,
   getRelatedBlogPostsByTags,
@@ -47,10 +51,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = locale === 'tr' ? post.title_tr : post.title_en;
+  const title = blogPostTitle(post, locale);
+  const rawEx = blogPostExcerpt(post, locale);
   const description =
-    (locale === 'tr' ? post.excerpt_tr : post.excerpt_en) ??
-    (locale === 'tr' ? post.content_tr : post.content_en).slice(0, 160);
+    rawEx && rawEx.trim().length > 0
+      ? rawEx.trim()
+      : stripHtml(blogPostContent(post, locale)).slice(0, 160);
   const pageTitle = `${title} | Toprak & Co.`;
 
   return {
@@ -72,8 +78,8 @@ export default async function BlogPostPage({ params }: Props) {
   const t = await getTranslations('blog.detail');
   const tBlog = await getTranslations('blog');
 
-  const title = locale === 'tr' ? post.title_tr : post.title_en;
-  const content = locale === 'tr' ? post.content_tr : post.content_en;
+  const title = blogPostTitle(post, locale);
+  const content = blogPostContent(post, locale);
   const minutes = estimateReadingMinutes(content);
   const dateStr = formatBlogDate(post.published_at, locale);
 

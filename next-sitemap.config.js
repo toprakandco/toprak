@@ -9,7 +9,7 @@ const SERVICE_SLUGS = [
   'web-yazilim',
 ];
 
-const LOCALES = ['tr', 'en'];
+const LOCALES = ['tr', 'en', 'de', 'fr'];
 const STATIC_SEGMENTS = [
   '',
   'about',

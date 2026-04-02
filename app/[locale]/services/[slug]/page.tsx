@@ -9,6 +9,9 @@ import {
   getActiveServiceSlugs,
   getPortfolioItems,
   getServiceBySlug,
+  localizedPortfolioTitle,
+  localizedServiceDescription,
+  localizedServiceTitle,
 } from '@/lib/supabase';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
@@ -47,10 +50,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ...socialMetadata(locale, fallbackTitle, fallbackDesc, `/services/${slug}`),
       };
     }
-    const pageTitle = `${locale === 'tr' ? service.title_tr : service.title_en} | Toprak & Co.`;
+    const pageTitle = `${localizedServiceTitle(service, locale)} | Toprak & Co.`;
     const description =
-      (locale === 'tr' ? service.description_tr : service.description_en) ??
-      fallbackDesc;
+      localizedServiceDescription(service, locale) || fallbackDesc;
     return {
       title: pageTitle,
       description,
@@ -81,9 +83,8 @@ export default async function ServiceDetailPage({ params }: Props) {
   const t = await getTranslations('services.detail');
   const tServices = await getTranslations('services');
 
-  const title = locale === 'tr' ? service.title_tr : service.title_en;
-  const description =
-    (locale === 'tr' ? service.description_tr : service.description_en) ?? '';
+  const title = localizedServiceTitle(service, locale);
+  const description = localizedServiceDescription(service, locale);
   const tags = service.tags ?? [];
   const order = String(service.order_index || 1).padStart(2, '0');
 
@@ -197,7 +198,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           ) : (
             <ul className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {portfolioItems.map((item) => {
-                const itemTitle = locale === 'tr' ? item.title_tr : item.title_en;
+                const itemTitle = localizedPortfolioTitle(item, locale);
                 return (
                   <li key={item.id}>
                     <Link

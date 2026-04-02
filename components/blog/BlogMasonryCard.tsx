@@ -6,6 +6,7 @@ import {
   getBlogCardExcerpt,
 } from '@/lib/blog-utils';
 import { Link } from '@/i18n/navigation';
+import { blogPostContent, blogPostTitle } from '@/lib/cms-localization';
 import type { BlogPost } from '@/types';
 import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
@@ -51,8 +52,8 @@ export function BlogMasonryCard({
   readTimeLabel,
 }: Props) {
   const reduce = useReducedMotion();
-  const title = locale === 'tr' ? post.title_tr : post.title_en;
-  const content = locale === 'tr' ? post.content_tr : post.content_en;
+  const title = blogPostTitle(post, locale);
+  const content = blogPostContent(post, locale);
   const excerpt = getBlogCardExcerpt(post, locale);
   const dateStr = formatBlogDate(post.published_at, locale);
   const mins = estimateReadingMinutes(content);

@@ -2,6 +2,10 @@
 
 import { Link } from '@/i18n/navigation';
 import { ServiceSignatureIcon } from '@/components/services/ServiceSignatureIcon';
+import {
+  localizedServiceDescription,
+  localizedServiceTitle,
+} from '@/lib/cms-localization';
 import type { ServiceSlug } from '@/lib/service-slugs';
 import type { Service } from '@/types';
 import { isServiceSlug } from '@/lib/service-slugs';
@@ -17,9 +21,8 @@ export function ServicesGridClient({ services, locale, detailLabel }: Props) {
   const cards = useMemo(
     () =>
       services.map((s, i) => {
-        const title = locale === 'tr' ? s.title_tr : s.title_en;
-        const description =
-          (locale === 'tr' ? s.description_tr : s.description_en) ?? '';
+        const title = localizedServiceTitle(s, locale);
+        const description = localizedServiceDescription(s, locale);
         const slug = s.slug;
         const tags = s.tags ?? [];
         const iconSlug: ServiceSlug | null = isServiceSlug(slug) ? slug : null;

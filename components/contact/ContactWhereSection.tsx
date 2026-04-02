@@ -1,31 +1,28 @@
 import { getTranslations } from 'next-intl/server';
 
+/** Türkiye ana kara + Trakya konturları (world.geo.json / Natural Earth tarzı sınır, equirectangular ölçek). */
+const TURKEY_MAP_PATH =
+  'M 114.13 20.86 L 128.48 27.79 L 140.13 25.03 L 148.73 26.62 L 160.54 17.27 L 171.2 16.42 L 180.83 25.22 L 182.53 31.52 L 181.56 40.23 L 189.0 44.69 L 192.94 49.92 L 186.09 55.02 L 189.21 75.56 L 187.26 81.11 L 192.73 95.45 L 187.93 98.48 L 184.42 93.92 L 172.79 91.61 L 168.5 94.39 L 157.12 97.18 L 151.73 96.87 L 140.23 103.59 L 132.0 103.65 L 126.68 100.28 L 115.67 105.26 L 112.39 101.78 L 111.85 111.77 L 109.18 115.69 L 106.5 119.61 L 102.82 111.49 L 106.61 104.77 L 100.51 106.29 L 92.15 102.17 L 85.27 112.48 L 70.09 114.49 L 62.0 104.88 L 51.22 104.28 L 48.91 111.71 L 42.0 113.83 L 32.33 104.3 L 21.41 104.62 L 15.49 86.81 L 8.18 76.87 L 13.05 62.94 L 6.71 54.38 L 17.8 37.25 L 33.2 36.54 L 37.4 22.93 L 56.46 25.3 L 68.48 13.68 L 80.13 8.62 L 96.68 8.23 L 114.13 20.86 Z M 16.92 32.41 L 8.58 42.05 L 5.43 33.71 L 5.57 30.02 L 7.95 28.01 L 11.04 16.8 L 6.17 12.06 L 16.36 6.42 L 24.97 8.82 L 26.16 15.71 L 34.88 21.49 L 33.06 25.88 L 21.19 26.87 L 16.92 32.41 Z';
+
 function TurkeyMapIllustration() {
   return (
     <div className="relative mx-auto w-full max-w-[280px]" aria-hidden>
       <svg
         viewBox="0 0 200 120"
         className="h-auto w-full"
-        fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
       >
         <path
-          d="M38 28c8-6 22-8 34-5l14 4 8-2 12 6 6 14-2 10 8 4 10-2 18 8 4 12-6 18-14 10-22 6-28 2-24-4-32-14-10-18-6-22 2-28 10-6z"
-          stroke="#EDE4D3"
-          strokeWidth="1.35"
+          d={TURKEY_MAP_PATH}
+          className="fill-[#EDE4D3]/55 stroke-[#C4B8A0]"
+          strokeWidth={0.9}
           strokeLinejoin="round"
-          fill="none"
-        />
-        <path
-          d="M44 32c6-4 16-5 24-2"
-          stroke="#EDE4D3"
-          strokeWidth="1"
           strokeLinecap="round"
-          opacity="0.7"
         />
       </svg>
       <div
-        className="pointer-events-none absolute left-[26%] top-[21%] flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+        className="pointer-events-none absolute left-[17%] top-[22%] flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center"
         aria-hidden
       >
         <span className="absolute inline-flex h-6 w-6 rounded-full border border-accent/50 animate-contact-where-ripple" />

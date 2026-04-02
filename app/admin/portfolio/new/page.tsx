@@ -18,9 +18,13 @@ export default function NewPortfolioPage() {
     await db.from('portfolio_items').insert({
       title_tr: String(formData.get('title_tr') ?? ''),
       title_en: String(formData.get('title_en') ?? ''),
+      title_de: String(formData.get('title_de') ?? '') || null,
+      title_fr: String(formData.get('title_fr') ?? '') || null,
       slug: String(formData.get('slug') ?? ''),
       description_tr: String(formData.get('description_tr') ?? '') || null,
       description_en: String(formData.get('description_en') ?? '') || null,
+      description_de: String(formData.get('description_de') ?? '') || null,
+      description_fr: String(formData.get('description_fr') ?? '') || null,
       category: String(formData.get('category') ?? '') || null,
       cover_image: String(formData.get('cover_image') ?? '') || null,
       before_image: String(formData.get('before_image') ?? '') || null,

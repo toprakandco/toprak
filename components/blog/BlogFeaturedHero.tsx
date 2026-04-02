@@ -1,6 +1,11 @@
 'use client';
 
 import {
+  blogPostContent,
+  blogPostExcerpt,
+  blogPostTitle,
+} from '@/lib/cms-localization';
+import {
   estimateReadingMinutes,
   formatBlogDate,
   stripHtml,
@@ -40,11 +45,11 @@ export function BlogFeaturedHero({
   readTimeLabel,
 }: Props) {
   const reduce = useReducedMotion();
-  const title = locale === 'tr' ? post.title_tr : post.title_en;
-  const excerptRaw = locale === 'tr' ? post.excerpt_tr : post.excerpt_en;
-  const content = locale === 'tr' ? post.content_tr : post.content_en;
+  const title = blogPostTitle(post, locale);
+  const excerptRaw = blogPostExcerpt(post, locale);
+  const content = blogPostContent(post, locale);
   const excerpt =
-    excerptRaw?.trim() ||
+    (excerptRaw && excerptRaw.trim().length > 0 ? excerptRaw.trim() : null) ||
     `${stripHtml(content).slice(0, 220)}…`;
   const dateStr = formatBlogDate(post.published_at, locale);
   const mins = estimateReadingMinutes(content);

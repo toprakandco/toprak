@@ -28,6 +28,7 @@ export default async function ServicesPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations('services');
+  const tTr = await getTranslations({ locale: 'tr', namespace: 'services' });
   const tEn = await getTranslations({ locale: 'en', namespace: 'services' });
 
   let services: Service[] = [];
@@ -44,9 +45,9 @@ export default async function ServicesPage({ params }: Props) {
           id: `fallback-${slug}`,
           created_at: '',
           slug,
-          title_tr: t(`slugs.${slug}.title`),
+          title_tr: tTr(`slugs.${slug}.title`),
           title_en: tEn(`slugs.${slug}.title`),
-          description_tr: t(`slugs.${slug}.description`),
+          description_tr: tTr(`slugs.${slug}.description`),
           description_en: tEn(`slugs.${slug}.description`),
           icon: null,
           tags: (t.raw(`slugs.${slug}.tags`) as string[]) ?? [],

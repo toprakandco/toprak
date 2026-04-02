@@ -22,25 +22,6 @@ function usePrefersReducedMotion() {
   return reduced;
 }
 
-function HandDrawnLine({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 400 10"
-      fill="none"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <path
-        d="M0 5 C40 2 80 8 120 5 S200 2 240 5 S320 8 400 5"
-        stroke="#EDE4D3"
-        strokeWidth={0.75}
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 type NumericStatProps = {
   target: number;
   showPlus: boolean;
@@ -166,7 +147,7 @@ export function AboutStatsSection() {
   return (
     <section ref={sectionRef} className="bg-white py-20">
       <div className="container">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
           <NumericStat
             target={100}
             showPlus
@@ -181,19 +162,9 @@ export function AboutStatsSection() {
             started={started}
             reduced={reduced}
           />
-
-          <div className="col-span-2 py-2 lg:hidden">
-            <HandDrawnLine className="h-2 w-full" />
+          <div className="col-span-2 flex justify-center lg:col-span-1">
+            <InfinityStat label={t('labels.creativity')} reduced={reduced} />
           </div>
-
-          <NumericStat
-            target={3}
-            showPlus={false}
-            label={t('labels.books')}
-            started={started}
-            reduced={reduced}
-          />
-          <InfinityStat label={t('labels.creativity')} reduced={reduced} />
         </div>
       </div>
     </section>

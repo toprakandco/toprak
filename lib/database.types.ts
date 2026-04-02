@@ -9,6 +9,7 @@ import type {
   ProjectApplication,
   Service,
   SiteSetting,
+  Testimonial,
 } from '@/types';
 
 /** Supabase `Database` shape — lives in its own file so client bundles never pull `lib/supabase` via type-only chains. */
@@ -44,6 +45,9 @@ export interface Database {
       };
       callback_requests: {
         Row: CallbackRequest;
+      };
+      testimonials: {
+        Row: Testimonial;
       };
     };
   };

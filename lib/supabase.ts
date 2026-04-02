@@ -400,3 +400,14 @@ export async function getRelatedBlogPostsByTags(
 
   return scored.slice(0, limit).map((x) => x.post);
 }
+
+/** CMS row field resolution (de/fr → EN fallback). */
+export {
+  blogPostContent,
+  blogPostExcerpt,
+  blogPostTitle,
+  localizedPortfolioDescription,
+  localizedPortfolioTitle,
+  localizedServiceDescription,
+  localizedServiceTitle,
+} from './cms-localization';

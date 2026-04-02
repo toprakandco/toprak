@@ -4,10 +4,17 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-/** Blog/article dates: TR "24 Mart 2026", EN "24 March 2026" (en-GB). */
+const intlLocaleFor = (locale: string) => {
+  if (locale === 'tr') return 'tr-TR';
+  if (locale === 'de') return 'de-DE';
+  if (locale === 'fr') return 'fr-FR';
+  return 'en-GB';
+};
+
+/** Blog/article dates by UI locale. */
 export function formatDate(dateStr: string, locale: string): string {
   try {
-    return new Intl.DateTimeFormat(locale === 'tr' ? 'tr-TR' : 'en-GB', {
+    return new Intl.DateTimeFormat(intlLocaleFor(locale), {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
@@ -22,11 +29,15 @@ export function readingTime(content: string, locale: string): string {
   const text = stripHtml(content ?? '');
   const words = text.split(/\s+/).filter(Boolean).length;
   const mins = Math.max(1, Math.ceil(words / WORDS_PER_MINUTE));
-  return locale === 'tr' ? `~${mins} dk okuma` : `~${mins} min read`;
+  if (locale === 'tr') return `~${mins} dk okuma`;
+  if (locale === 'de') return `~${mins} Min. Lesezeit`;
+  if (locale === 'fr') return `~${mins} min de lecture`;
+  return `~${mins} min read`;
 }
 
 export function formatCurrency(amount: number, locale: string): string {
+  const loc = intlLocaleFor(locale);
   return locale === 'tr'
     ? `${amount.toLocaleString('tr-TR')} ₺`
-    : `₺${amount.toLocaleString('en-GB')}`;
+    : `₺${amount.toLocaleString(loc)}`;
 }

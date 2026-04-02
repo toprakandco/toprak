@@ -116,19 +116,28 @@ export function CallbackWidget() {
             style={{ borderWidth: '0.5px' }}
             aria-invalid={error}
           />
-          <select
-            value={preferred}
-            onChange={(e) => setPreferred(e.target.value)}
-            disabled={saved}
-            className="min-h-[42px] min-w-0 flex-1 rounded-lg border border-[#C0DD97] bg-white px-3 py-2.5 font-sans text-sm text-[#3D1F10] outline-none focus:border-accent focus:ring-1 focus:ring-accent/25 disabled:opacity-70 sm:min-w-[160px] sm:flex-initial"
-            style={{ borderWidth: '0.5px' }}
-          >
-            {PREFERRED_OPTIONS.map((o) => (
-              <option key={o.value} value={o.value}>
-                {t(`time.${o.key}`)}
-              </option>
-            ))}
-          </select>
+          <div className="flex w-full min-w-0 flex-1 flex-col gap-1 sm:min-w-[160px] sm:flex-initial">
+            <label
+              htmlFor="callback-preferred-time"
+              className="font-sans text-[11px] italic leading-tight text-[#6B4C35]/85"
+            >
+              {t('timeLabel')}
+            </label>
+            <select
+              id="callback-preferred-time"
+              value={preferred}
+              onChange={(e) => setPreferred(e.target.value)}
+              disabled={saved}
+              className="min-h-[42px] w-full rounded-lg border border-[#C0DD97] bg-white px-3 py-2.5 font-sans text-sm text-[#3D1F10] outline-none focus:border-accent focus:ring-1 focus:ring-accent/25 disabled:opacity-70"
+              style={{ borderWidth: '0.5px' }}
+            >
+              {PREFERRED_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {t(`time.${o.key}`)}
+                </option>
+              ))}
+            </select>
+          </div>
           <button
             type="submit"
             disabled={submitting || saved}

@@ -19,13 +19,13 @@ export default async function HomePageRoute({ params }: Props) {
   ]);
 
   const heroLinesOverride =
-    locale === 'en'
-      ? parseHeroHeadingOverride(settingsMap.get('hero_heading_en'))
-      : parseHeroHeadingOverride(settingsMap.get('hero_heading_tr'));
+    locale === 'tr'
+      ? parseHeroHeadingOverride(settingsMap.get('hero_heading_tr'))
+      : parseHeroHeadingOverride(settingsMap.get('hero_heading_en'));
   const heroSubOverrideRaw =
-    locale === 'en'
-      ? settingsMap.get('hero_subtitle_en')
-      : settingsMap.get('hero_subtitle_tr');
+    locale === 'tr'
+      ? settingsMap.get('hero_subtitle_tr')
+      : settingsMap.get('hero_subtitle_en');
   const heroSubOverride = heroSubOverrideRaw?.trim() || undefined;
   const clientsSectionTitle =
     settingsMap.get('clients_section_title')?.trim() || undefined;

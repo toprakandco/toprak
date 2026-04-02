@@ -28,11 +28,25 @@ const COPY = {
     primaryCta: 'Back to home',
     secondaryCta: 'Contact us',
   },
+  de: {
+    title: 'Hier ist noch nichts gewachsen.',
+    subtitle: 'Die gesuchte Seite wurde nicht gefunden.',
+    primaryCta: 'Zur Startseite',
+    secondaryCta: 'Kontakt',
+  },
+  fr: {
+    title: 'Rien n’a encore poussé ici.',
+    subtitle: 'La page que vous cherchez est introuvable.',
+    primaryCta: "Retour à l’accueil",
+    secondaryCta: 'Nous contacter',
+  },
 } as const;
 
 function pickLocale(accept: string | null): keyof typeof COPY {
   if (!accept) return 'tr';
   const first = accept.split(',')[0]?.trim().toLowerCase() ?? '';
+  if (first.startsWith('de')) return 'de';
+  if (first.startsWith('fr')) return 'fr';
   if (first.startsWith('en')) return 'en';
   return 'tr';
 }

@@ -11,6 +11,14 @@ type Props = {
   steps: Step[];
 };
 
+/** 1 → 4: en şeffaf yeşilden tam opak yeşile (marka --leaf). */
+const STEP_CIRCLE_CLASSES = [
+  'border-leaf/40 bg-leaf/15 text-leaf-dark',
+  'border-leaf/45 bg-leaf/35 text-leaf-dark',
+  'border-leaf/55 bg-leaf/60 text-leaf-dark',
+  'border-leaf bg-leaf text-cream',
+] as const;
+
 export function HomeProcess({ overline, heading, steps }: Props) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-10% 0px' });
@@ -53,8 +61,17 @@ export function HomeProcess({ overline, heading, steps }: Props) {
                 animate={inView ? { scale: 1 } : {}}
                 transition={{ type: 'spring', stiffness: 260, damping: 18, delay: 0.2 + i * 0.1 }}
               >
-                <div className="relative z-[1] flex h-11 w-11 items-center justify-center rounded-full border-2 border-terracotta bg-cream text-sm font-semibold text-terracotta">
-                  {i + 1}
+                <div className="relative">
+                  {/* Opak krem disk: üstteki bağlantı çizgisini yuvarlak alanında keser */}
+                  <span
+                    className="pointer-events-none absolute left-1/2 top-[22px] z-0 h-[52px] w-[52px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cream"
+                    aria-hidden
+                  />
+                  <div
+                    className={`relative z-[1] flex h-11 w-11 items-center justify-center rounded-full border-2 text-sm font-semibold ${STEP_CIRCLE_CLASSES[i] ?? STEP_CIRCLE_CLASSES[3]}`}
+                  >
+                    {i + 1}
+                  </div>
                 </div>
                 <h3 className="mt-6 font-serif text-lg text-brown-deep">{step.title}</h3>
                 <p className="mt-2 text-sm text-brown-deep/75">{step.desc}</p>
@@ -66,7 +83,9 @@ export function HomeProcess({ overline, heading, steps }: Props) {
         <ol className="relative mt-12 space-y-10 md:hidden">
           {steps.map((step, i) => (
             <li key={step.title} className="flex gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-terracotta bg-cream text-sm font-semibold text-terracotta">
+              <div
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 text-sm font-semibold ${STEP_CIRCLE_CLASSES[i] ?? STEP_CIRCLE_CLASSES[3]}`}
+              >
                 {i + 1}
               </div>
               <div>

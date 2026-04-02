@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Link, usePathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-import { motion, useReducedMotion } from 'framer-motion';
 
 const navKeys = [
   { href: '/services', key: 'services' as const },
@@ -19,9 +18,8 @@ export function Navbar() {
   const t = useTranslations('nav');
   const locale = useLocale();
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 6);
@@ -31,23 +29,72 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
-  }, [open]);
+  }, [isOpen]);
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname, locale]);
+    setIsOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 769px)');
+    const onChange = () => {
+      if (mq.matches) setIsOpen(false);
+    };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
 
   const isActive = (href: string) =>
     href === '/'
       ? pathname === href
       : pathname === href || pathname.startsWith(`${href}/`);
 
-  const localeLabel = (loc: string) =>
-    loc === 'tr' ? t('localeCodeTr') : t('localeCodeEn');
+  const localeLabel = (loc: string) => {
+    switch (loc) {
+      case 'tr':
+        return t('localeCodeTr');
+      case 'en':
+        return t('localeCodeEn');
+      case 'de':
+        return t('localeCodeDe');
+      case 'fr':
+        return t('localeCodeFr');
+      default:
+        return loc.toUpperCase();
+    }
+  };
+
+  const switchAria = (loc: string) => {
+    switch (loc) {
+      case 'tr':
+        return t('switchToTurkish');
+      case 'en':
+        return t('switchToEnglish');
+      case 'de':
+        return t('switchToGerman');
+      case 'fr':
+        return t('switchToFrench');
+      default:
+        return t('language');
+    }
+  };
+
+  const localePillActive =
+    'inline-flex min-h-[36px] min-w-[2.75rem] cursor-default items-center justify-center rounded-md bg-[#8B3A1E] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white shadow-sm';
+  const localePillInactive =
+    'inline-flex min-h-[36px] min-w-[2.75rem] items-center justify-center rounded-md bg-[#EDE4D3] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#3D1F10] transition-colors hover:bg-[#8B3A1E] hover:text-white';
 
   return (
     <>
@@ -72,7 +119,10 @@ export function Navbar() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-5 md:flex" aria-label="Primary">
+          <nav
+            className="nav-links items-center gap-5"
+            aria-label="Primary"
+          >
             {navKeys.map(({ href, key }) => (
               <Link
                 key={key}
@@ -89,126 +139,172 @@ export function Navbar() {
           </nav>
 
           <div
-            className="hidden items-center gap-3 text-xs uppercase tracking-[0.2em] text-brown-deep md:flex"
+            className="nav-lang items-center gap-2"
             role="group"
             aria-label={t('language')}
           >
-            {routing.locales.map((loc, idx) => (
-              <span key={loc} className="flex items-center gap-3">
-                {loc === locale ? (
-                  <span
-                    className="cursor-default font-semibold text-accent"
-                    aria-current="true"
-                  >
-                    {localeLabel(loc)}
-                  </span>
-                ) : (
-                  <Link
-                    href={pathname}
-                    locale={loc}
-                    className="opacity-65 transition hover:opacity-100"
-                    aria-label={
-                      loc === 'tr' ? t('switchToTurkish') : t('switchToEnglish')
-                    }
-                  >
-                    {localeLabel(loc)}
-                  </Link>
-                )}
-                {idx === 0 ? <span className="opacity-50">|</span> : null}
-              </span>
-            ))}
+            {routing.locales.map((loc) =>
+              loc === locale ? (
+                <span
+                  key={loc}
+                  className={localePillActive}
+                  aria-current="true"
+                >
+                  {localeLabel(loc)}
+                </span>
+              ) : (
+                <Link
+                  key={loc}
+                  href={pathname}
+                  locale={loc}
+                  className={localePillInactive}
+                  aria-label={switchAria(loc)}
+                >
+                  {localeLabel(loc)}
+                </Link>
+              ),
+            )}
           </div>
 
           <button
             type="button"
-            className="nav-hamburger md:hidden"
-            aria-expanded={open}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
             aria-controls="mobile-overlay-nav"
-            onClick={() => setOpen((v) => !v)}
+            aria-label={isOpen ? t('closeMenu') : t('openMenu')}
+            className="hamburger-btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8B3A1E]"
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '8px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px',
+              width: '44px',
+              height: '44px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: '8px',
+              WebkitTapHighlightColor: 'transparent',
+            }}
           >
-            <span className="nav-hamburger-line" aria-hidden />
-            <span className="nav-hamburger-line" aria-hidden />
-            <span className="nav-hamburger-line" aria-hidden />
-            <span className="sr-only">
-              {open ? t('closeMenu') : t('openMenu')}
-            </span>
+            <span
+              style={{
+                display: 'block',
+                width: '22px',
+                height: '2px',
+                background: '#8B3A1E',
+                borderRadius: '1px',
+                transition: 'all 0.3s ease',
+                transform: isOpen
+                  ? 'translateY(8px) rotate(45deg)'
+                  : 'translateY(0) rotate(0)',
+              }}
+              aria-hidden
+            />
+            <span
+              style={{
+                display: 'block',
+                width: '22px',
+                height: '2px',
+                background: '#8B3A1E',
+                borderRadius: '1px',
+                transition: 'all 0.3s ease',
+                opacity: isOpen ? 0 : 1,
+                transform: isOpen ? 'scaleX(0)' : 'scaleX(1)',
+              }}
+              aria-hidden
+            />
+            <span
+              style={{
+                display: 'block',
+                width: '22px',
+                height: '2px',
+                background: '#8B3A1E',
+                borderRadius: '1px',
+                transition: 'all 0.3s ease',
+                transform: isOpen
+                  ? 'translateY(-8px) rotate(-45deg)'
+                  : 'translateY(0) rotate(0)',
+              }}
+              aria-hidden
+            />
           </button>
         </div>
       </header>
 
-      {open ? (
+      {isOpen ? (
         <div
           id="mobile-overlay-nav"
-          className="fixed inset-0 z-[49] flex max-h-[100dvh] flex-col bg-[#F5F0E6] md:hidden"
           role="dialog"
           aria-modal="true"
           aria-label={t('openMenu')}
-          onClick={() => setOpen(false)}
+          onClick={() => setIsOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: '#F5F0E6',
+            zIndex: 48,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '8px',
+            animation: 'fadeIn 0.25s ease',
+          }}
         >
-          <div
-            className="flex min-h-0 flex-1 flex-col items-center justify-center gap-8 overflow-y-auto px-6 py-10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <nav className="flex flex-col items-center gap-8" aria-label="Primary">
-              {navKeys.map(({ href, key }, i) => (
-                <motion.div
-                  key={key}
-                  initial={reduce ? false : { opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: reduce ? 0 : 0.12 + i * 0.05,
-                    duration: 0.35,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  <Link
-                    href={href}
-                    className={`font-serif text-[32px] leading-tight text-[#3D1F10] ${
-                      isActive(href) ? 'text-accent' : ''
-                    }`}
-                    aria-current={isActive(href) ? 'page' : undefined}
-                    onClick={() => setOpen(false)}
-                  >
-                    {t(key)}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
-
-            <div
-              className="mt-8 flex flex-col items-center gap-4 pb-[max(1rem,env(safe-area-inset-bottom))]"
-              role="group"
-              aria-label={t('language')}
+          {navKeys.map(({ href, key }, i) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setIsOpen(false)}
+              style={{
+                fontFamily: 'Georgia, serif',
+                fontSize: '32px',
+                color: isActive(href) ? '#8B3A1E' : '#3D1F10',
+                textDecoration: 'none',
+                padding: '12px 24px',
+                animation: `slideUp 0.3s ease ${i * 0.06}s both`,
+              }}
+              aria-current={isActive(href) ? 'page' : undefined}
             >
-              <div className="flex items-center gap-6 text-sm uppercase tracking-[0.2em]">
-                {routing.locales.map((loc) =>
-                  loc === locale ? (
-                    <span
-                      key={loc}
-                      className="cursor-default font-semibold text-accent"
-                      aria-current="true"
-                    >
-                      {localeLabel(loc)}
-                    </span>
-                  ) : (
-                    <Link
-                      key={loc}
-                      href={pathname}
-                      locale={loc}
-                      className="text-brown-deep/65"
-                      onClick={() => setOpen(false)}
-                      aria-label={
-                        loc === 'tr'
-                          ? t('switchToTurkish')
-                          : t('switchToEnglish')
-                      }
-                    >
-                      {localeLabel(loc)}
-                    </Link>
-                  ),
-                )}
-              </div>
-            </div>
+              {t(key)}
+            </Link>
+          ))}
+
+          <div
+            style={{
+              display: 'flex',
+              gap: '16px',
+              marginTop: '32px',
+              paddingTop: '24px',
+              borderTop: '0.5px solid #EDE4D3',
+            }}
+            role="group"
+            aria-label={t('language')}
+          >
+            {routing.locales.map((lang) => (
+              <Link
+                key={lang}
+                href={pathname}
+                locale={lang}
+                onClick={() => setIsOpen(false)}
+                style={{
+                  fontFamily: 'sans-serif',
+                  fontSize: '12px',
+                  letterSpacing: '0.12em',
+                  color: locale === lang ? '#8B3A1E' : '#7A6050',
+                  fontWeight: locale === lang ? '700' : '400',
+                  textDecoration: 'none',
+                  textTransform: 'uppercase',
+                }}
+                aria-label={switchAria(lang)}
+                aria-current={locale === lang ? 'true' : undefined}
+              >
+                {lang.toUpperCase()}
+              </Link>
+            ))}
           </div>
         </div>
       ) : null}

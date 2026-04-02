@@ -7,31 +7,64 @@ import { usePathname } from 'next/navigation';
 const PROACTIVE_DISMISS_KEY = 'pk-whatsapp-proactive-tooltip-dismissed';
 
 function getMessageForPath(pathname: string, locale: string): string {
-  const isEn = locale === 'en';
-
   if (pathname.includes('/services/grafik-tasarim')) {
-    return isEn
-      ? "Hello, I'm interested in your graphic design services."
-      : 'Merhaba, grafik tasarım hizmeti hakkında bilgi almak istiyorum.';
+    switch (locale) {
+      case 'tr':
+        return 'Merhaba, grafik tasarım hizmeti hakkında bilgi almak istiyorum.';
+      case 'de':
+        return 'Hallo, ich interessiere mich für Ihre Grafikdesign-Leistungen.';
+      case 'fr':
+        return 'Bonjour, je souhaite en savoir plus sur vos services de design graphique.';
+      default:
+        return "Hello, I'm interested in your graphic design services.";
+    }
   }
   if (pathname.includes('/services/ceviri')) {
-    return isEn
-      ? 'Hello, I would like to learn more about your translation services.'
-      : 'Merhaba, çeviri hizmeti hakkında bilgi almak istiyorum.';
+    switch (locale) {
+      case 'tr':
+        return 'Merhaba, çeviri hizmeti hakkında bilgi almak istiyorum.';
+      case 'de':
+        return 'Hallo, ich möchte mehr über Ihre Übersetzungsleistungen erfahren.';
+      case 'fr':
+        return 'Bonjour, je souhaite en savoir plus sur vos services de traduction.';
+      default:
+        return 'Hello, I would like to learn more about your translation services.';
+    }
   }
   if (pathname.includes('/services/seslendirme')) {
-    return isEn
-      ? 'Hello, I would like to learn more about your voice-over services.'
-      : 'Merhaba, seslendirme hizmeti hakkında bilgi almak istiyorum.';
+    switch (locale) {
+      case 'tr':
+        return 'Merhaba, seslendirme hizmeti hakkında bilgi almak istiyorum.';
+      case 'de':
+        return 'Hallo, ich möchte mehr über Ihre Sprachaufnahme-Leistungen erfahren.';
+      case 'fr':
+        return 'Bonjour, je souhaite en savoir plus sur vos services de voix off.';
+      default:
+        return 'Hello, I would like to learn more about your voice-over services.';
+    }
   }
   if (pathname.includes('/blog')) {
-    return isEn
-      ? "Hello, I'd like to learn more about Toprak & Co."
-      : 'Merhaba, Toprak & Co. hakkında bilgi almak istiyorum.';
+    switch (locale) {
+      case 'tr':
+        return 'Merhaba, Toprak & Co. hakkında bilgi almak istiyorum.';
+      case 'de':
+        return 'Hallo, ich möchte mehr über Toprak & Co. erfahren.';
+      case 'fr':
+        return 'Bonjour, je souhaite en savoir plus sur Toprak & Co.';
+      default:
+        return "Hello, I'd like to learn more about Toprak & Co.";
+    }
   }
-  return isEn
-    ? "Hello, I'd like to learn more about Toprak & Co."
-    : 'Merhaba, Toprak & Co. hakkında bilgi almak istiyorum.';
+  switch (locale) {
+    case 'tr':
+      return 'Merhaba, Toprak & Co. hakkında bilgi almak istiyorum.';
+    case 'de':
+      return 'Hallo, ich möchte mehr über Toprak & Co. erfahren.';
+    case 'fr':
+      return 'Bonjour, je souhaite en savoir plus sur Toprak & Co.';
+    default:
+      return "Hello, I'd like to learn more about Toprak & Co.";
+  }
 }
 
 function buildWaUrl(phoneDigits: string, message: string) {

@@ -19,7 +19,14 @@ export function socialMetadata(
   const url = `${SITE_URL}${path}`;
   const imagePath = `/${locale}/opengraph-image`;
   const imageUrl = `${SITE_URL}${imagePath}`;
-  const ogLocale = locale === 'tr' ? 'tr_TR' : 'en_US';
+  const ogLocale =
+    locale === 'tr'
+      ? 'tr_TR'
+      : locale === 'de'
+        ? 'de_DE'
+        : locale === 'fr'
+          ? 'fr_FR'
+          : 'en_US';
 
   return {
     openGraph: {

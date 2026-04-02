@@ -5,9 +5,9 @@ type Props = {
 
 export function PublicMaintenanceView({ locale, settings }: Props) {
   const msg =
-    locale === 'en'
-      ? settings.maintenance_message_en?.trim() || 'We will be back soon.'
-      : settings.maintenance_message_tr?.trim() || 'Yakında döneceğiz.';
+    locale === 'tr'
+      ? settings.maintenance_message_tr?.trim() || 'Yakında döneceğiz.'
+      : settings.maintenance_message_en?.trim() || 'We will be back soon.';
 
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center bg-cream px-6 text-center text-[#3D1F10]">
@@ -15,7 +15,9 @@ export function PublicMaintenanceView({ locale, settings }: Props) {
         Toprak & Co.
       </p>
       <h1 className="mt-4 font-serif text-3xl md:text-4xl">
-        {locale === 'en' ? 'We’ll be right back' : 'Kısa bir ara veriyoruz'}
+        {locale === 'tr'
+          ? 'Kısa bir ara veriyoruz'
+          : 'We’ll be right back'}
       </h1>
       <p className="mt-6 max-w-md text-base leading-relaxed text-[#6B4C35]">{msg}</p>
     </div>

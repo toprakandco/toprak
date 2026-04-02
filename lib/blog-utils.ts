@@ -1,3 +1,4 @@
+import { blogPostContent, blogPostExcerpt } from '@/lib/cms-localization';
 import type { BlogPost } from '@/types';
 import { formatDate } from '@/lib/formatters';
 
@@ -39,11 +40,10 @@ export function filterPostsByTag(posts: BlogPost[], tag: string): BlogPost[] {
 export const BLOG_POSTS_PER_PAGE = 9;
 
 export function getBlogCardExcerpt(post: BlogPost, locale: string): string {
-  const excerptRaw =
-    locale === 'tr' ? post.excerpt_tr : post.excerpt_en;
+  const excerptRaw = blogPostExcerpt(post, locale);
   if (excerptRaw && excerptRaw.trim().length > 0) {
     return excerptRaw.trim();
   }
-  const content = locale === 'tr' ? post.content_tr : post.content_en;
+  const content = blogPostContent(post, locale);
   return `${stripHtml(content).slice(0, 180)}…`;
 }

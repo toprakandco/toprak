@@ -1,6 +1,8 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
+import { getBlogCardExcerpt } from '@/lib/blog-utils';
+import { blogPostTitle } from '@/lib/cms-localization';
 import type { BlogPost } from '@/types';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
@@ -68,12 +70,10 @@ export function HomeBlogGrid({
                     {formatDate(slot.post.published_at, locale)}
                   </p>
                   <h3 className="mt-3 font-serif text-xl text-brown-deep">
-                    {locale === 'tr' ? slot.post.title_tr : slot.post.title_en}
+                    {blogPostTitle(slot.post, locale)}
                   </h3>
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-brown-deep/75">
-                    {locale === 'tr'
-                      ? slot.post.excerpt_tr ?? ''
-                      : slot.post.excerpt_en ?? ''}
+                    {getBlogCardExcerpt(slot.post, locale)}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {(slot.post.tags?.[0] ? [slot.post.tags[0]] : [tagFallback]).map((tag) => (

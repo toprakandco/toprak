@@ -16,8 +16,12 @@
     "logoHome": "Toprak & Co. — Ana sayfa",
     "localeCodeTr": "TR",
     "localeCodeEn": "EN",
+    "localeCodeDe": "DE",
+    "localeCodeFr": "FR",
     "switchToTurkish": "Siteyi Türkçe görüntüle",
-    "switchToEnglish": "Siteyi İngilizce görüntüle"
+    "switchToEnglish": "Siteyi İngilizce görüntüle",
+    "switchToGerman": "Siteyi Almanca görüntüle",
+    "switchToFrench": "Siteyi Fransızca görüntüle"
   },
   "footer": {
     "rights": "Tüm hakları saklıdır.",
@@ -28,7 +32,7 @@
   },
   "meta": {
     "title": "Toprak & Co. | Kreatif Ajans",
-    "description": "Toprak & Co., marka stratejisi, yaratıcı içerik ve dijital deneyim odaklı çok dilli kreatif ajans."
+    "description": "Tasarım, çeviri, seslendirme ve web — tek çatı altında."
   },
   "notFound": {
     "title": "Bu toprakta henüz bir şey yetişmedi.",
@@ -114,7 +118,7 @@
       },
       "web-yazilim": {
         "title": "Web & Yazılım",
-        "description": "Next.js ile modern, hızlı web siteleri"
+        "description": "Modern teknolojilerle hızlı, şık ve ölçeklenebilir web siteleri yazıyor ve takibini sağlıyoruz."
       }
     },
     "serviceMorph": {
@@ -250,14 +254,14 @@
       "description": "Toprak & Co. ekibi, tasarımdan çeviriye ve web geliştirmeye kadar her projeye özenle yaklaşan iki kurucunun hikâyesi."
     },
     "pageTitle": "Hakkımızda",
-    "pageSubtitle": "Bir tutku, sınırsız yaratıcılık.",
+    "pageSubtitle": "Bir tutku. Sınırsız yenilik.",
     "hero": {
       "overline": "TOPRAK & CO. — KREATİF AJANS",
       "year": "2025",
       "line1": "",
       "line2": "Bir tutku.",
-      "line3": "Sınırsız.",
-      "intro": "Toprak & Co., farklı alanlardaki uzmanlıklarını tek çatı altında buluşturan iki yaratıcının ortak hikâyesidir. Tasarımdan sese, içerikten koda.",
+      "line3": "Sınırsız yenilik",
+      "intro": "Toprak & Co., farklı alanlardaki uzmanlıklarını tek çatı altında buluşturan iki kişinin ortak hikâyesidir. Tasarımdan sese, içerikten koda...",
       "scrollHint": "KAYDIRIN"
     },
     "manifesto": {
@@ -268,7 +272,7 @@
     },
     "story": {
       "pullQuote": "Yaratıcılık köklerde başlar.",
-      "body": "Toprak & Co., farklı alanlardaki uzmanlıklarını birleştiren iki yaratıcı insanın ortak hayalidir. Tasarımdan çeviriye, seslendirmeden web geliştirmeye kadar uzanan geniş bir yelpazede, her projeye özenle ve kişisel bir dokunuşla yaklaşıyoruz."
+      "body": "Toprak & Co., farklı alanlardaki uzmanlıklarını birleştiren iki kişinin ortak hayalidir. Nihayetinde tasarımdan çeviriye, seslendirmeden web geliştirmeye kadar uzanan geniş bir yelpazede, her projeye özenle ve kişisel bir dokunuşla yaklaşıyoruz."
     },
     "team": {
       "title": "Ekibimiz",
@@ -317,7 +321,7 @@
         },
         "c": {
           "title": "Sürekli Gelişim",
-          "desc": "Her proje bizi bir adım daha ileriye taşır."
+          "desc": "Her projenin bizi bir adım daha ileriye taşıdığını biliyoruz."
         }
       }
     },
@@ -326,7 +330,6 @@
       "labels": {
         "projects": "Tamamlanan Proje",
         "services": "Hizmet Alanı",
-        "books": "Yayımlanan Kitap",
         "creativity": "Yaratıcılık"
       }
     },
@@ -444,7 +447,7 @@
       },
       "ceviri": {
         "title": "Çeviri",
-        "description": "Türkçe, İngilizce, Fransızca ve Almanca arasında profesyonel çeviri. 3 yayımlanmış çeviri kitabı ve onlarca akademik makale deneyimiyle hassas, akıcı çeviriler sunuyoruz.",
+        "description": "Türkçe, İngilizce, Fransızca ve Almanca arasında profesyonel çeviri. 10'dan fazla yayımlanmış çeviri kitap ve onlarca akademik makale deneyimi olan ekibimizin deneyimiyle hassas, akıcı çeviriler sunuyoruz.",
         "tags": [
           "TR↔EN",
           "TR↔FR",
@@ -488,7 +491,7 @@
       },
       "web-yazilim": {
         "title": "Web & Yazılım",
-        "description": "Next.js, Supabase ve modern teknolojilerle hızlı, şık ve ölçeklenebilir web siteleri. 5 canlı site referansıyla baştan sona geliştirme ve bakım hizmetleri.",
+        "description": "Modern teknolojilerle hızlı, şık ve ölçeklenebilir web siteleri yazıyor ve takibini sağlıyoruz.",
         "tags": [
           "Next.js",
           "Web Sitesi",
@@ -746,7 +749,7 @@
         },
         "response": {
           "title": "Yanıt Süresi",
-          "value": "Genellikle 24 saat içinde"
+          "value": "Genellikle 2 saat içerisinde"
         }
       },
       "projectCta": "Projem Var, Başlayalım →",
@@ -767,6 +770,7 @@
     "callbackWidget": {
       "title": "Sizi arayalım",
       "subtitle": "Telefon görüşmesi tercih ediyorsanız, numaranızı bırakın, biz arayalım.",
+      "timeLabel": "Aramamızı istediğiniz saat",
       "phonePlaceholder": "05XX XXX XX XX",
       "submit": "Arayın",
       "saved": "✓ Kaydedildi",

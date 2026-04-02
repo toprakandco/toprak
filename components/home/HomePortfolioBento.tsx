@@ -3,6 +3,7 @@
 import { BeforeAfterSlider } from '@/components/portfolio/BeforeAfterSlider';
 import { ServiceOrganicIcon } from '@/components/services/ServiceOrganicIcon';
 import { Link, useRouter } from '@/i18n/navigation';
+import { localizedPortfolioTitle } from '@/lib/cms-localization';
 import { isServiceSlug } from '@/lib/service-slugs';
 import type { PortfolioItem } from '@/types';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -56,7 +57,7 @@ export function HomePortfolioBento({
   const five = Array.from({ length: 5 }, (_, i) => list[i] ?? null);
 
   const getTitle = (item: PortfolioItem) =>
-    locale === 'tr' ? item.title_tr : item.title_en;
+    localizedPortfolioTitle(item, locale);
 
   const categoryName = (item: PortfolioItem) => {
     const c = item.category;

@@ -29,7 +29,7 @@ const ROWS = [
     title_tr: 'Çeviri',
     title_en: 'Translation',
     description_tr:
-      'Türkçe, İngilizce, Fransızca ve Almanca arasında profesyonel çeviri. 3 yayımlanmış çeviri kitabı ve onlarca akademik makale deneyimiyle hassas, akıcı çeviriler sunuyoruz.',
+      "Türkçe, İngilizce, Fransızca ve Almanca arasında profesyonel çeviri. 10'dan fazla yayımlanmış çeviri kitap ve onlarca akademik makale deneyimi olan ekibimizin deneyimiyle hassas, akıcı çeviriler sunuyoruz.",
     description_en:
       'Professional translation between Turkish, English, French and German. With three published book translations and dozens of academic articles, we deliver precise, fluent copy.',
     tags: ['TR↔EN', 'TR↔FR', 'TR↔DE', 'Kitap', 'Makale', 'Akademik'],
@@ -92,7 +92,7 @@ const ROWS = [
     title_tr: 'Web & Yazılım',
     title_en: 'Web & Software',
     description_tr:
-      'Next.js, Supabase ve modern teknolojilerle hızlı, şık ve ölçeklenebilir web siteleri. 5 canlı site referansıyla baştan sona geliştirme ve bakım hizmetleri.',
+      'Modern teknolojilerle hızlı, şık ve ölçeklenebilir web siteleri yazıyor ve takibini sağlıyoruz.',
     description_en:
       'Fast, elegant, scalable sites with Next.js, Supabase and modern stacks. End-to-end build and maintenance with five live references.',
     tags: ['Next.js', 'Web Sitesi', 'E-ticaret', 'Bakım & Güncelleme'],

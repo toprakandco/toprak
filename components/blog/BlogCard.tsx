@@ -1,4 +1,9 @@
 import { Link } from '@/i18n/navigation';
+import {
+  blogPostContent,
+  blogPostExcerpt,
+  blogPostTitle,
+} from '@/lib/cms-localization';
 import { formatBlogDate } from '@/lib/blog-utils';
 import type { BlogPost } from '@/types';
 import Image from 'next/image';
@@ -18,16 +23,13 @@ export function BlogCard({
   readMoreLabel,
   readShortLabel,
 }: Props) {
-  const title = locale === 'tr' ? post.title_tr : post.title_en;
-  const excerptRaw =
-    locale === 'tr' ? post.excerpt_tr : post.excerpt_en;
+  const title = blogPostTitle(post, locale);
+  const excerptRaw = blogPostExcerpt(post, locale);
+  const content = blogPostContent(post, locale);
   const excerpt =
     excerptRaw && excerptRaw.trim().length > 0
       ? excerptRaw
-      : stripHtml(locale === 'tr' ? post.content_tr : post.content_en).slice(
-          0,
-          180,
-        ) + '…';
+      : stripHtml(content).slice(0, 180) + '…';
   const dateStr = formatBlogDate(post.published_at, locale);
   const primaryTag = post.tags?.[0] ?? '';
 

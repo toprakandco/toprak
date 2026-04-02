@@ -95,7 +95,7 @@ export async function Footer() {
         </div>
 
         <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 pb-8 text-center text-xs text-cream/70">
-          <span>© 2025 Toprak &amp; Co.</span>
+          <span>© 2026 Toprak &amp; Co.</span>
           <span>{t('rights')}</span>
         </p>
       </div>

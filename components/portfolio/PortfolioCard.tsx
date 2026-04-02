@@ -4,6 +4,7 @@ import { BeforeAfterSlider } from '@/components/portfolio/BeforeAfterSlider';
 import { ServiceOrganicIcon } from '@/components/services/ServiceOrganicIcon';
 import { Link, useRouter } from '@/i18n/navigation';
 import { isServiceSlug } from '@/lib/service-slugs';
+import { localizedPortfolioTitle } from '@/lib/cms-localization';
 import type { PortfolioItem } from '@/types';
 import Image from 'next/image';
 
@@ -16,9 +17,8 @@ type Props = {
 };
 
 export function PortfolioCard({ item, locale, index = 0, categoryLabel, ctaLabel }: Props) {
-  void locale;
   const router = useRouter();
-  const title = locale === 'tr' ? item.title_tr : item.title_en;
+  const title = localizedPortfolioTitle(item, locale);
   const cat = item.category;
   const ratioByIndex = ['aspect-[4/3]', 'aspect-square', 'aspect-[3/4]', 'aspect-[5/4]'];
   const ratioClass = ratioByIndex[index % ratioByIndex.length];

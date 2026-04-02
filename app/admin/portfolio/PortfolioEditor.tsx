@@ -7,6 +7,7 @@ import type { PortfolioItem } from '@/types';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
+import { translateFromTurkish } from './translate-actions';
 
 function slugify(text: string) {
   return text
@@ -75,6 +76,10 @@ export function PortfolioEditor({
 
   const [descTr, setDescTr] = useState(initial?.description_tr ?? '');
   const [descEn, setDescEn] = useState(initial?.description_en ?? '');
+  const [titleDe, setTitleDe] = useState(initial?.title_de ?? '');
+  const [titleFr, setTitleFr] = useState(initial?.title_fr ?? '');
+  const [descDe, setDescDe] = useState(initial?.description_de ?? '');
+  const [descFr, setDescFr] = useState(initial?.description_fr ?? '');
   const [category, setCategory] = useState(initial?.category ?? '');
   const [coverUrl, setCoverUrl] = useState(initial?.cover_image ?? '');
   const [beforeUrl, setBeforeUrl] = useState(initial?.before_image ?? '');
@@ -94,8 +99,34 @@ export function PortfolioEditor({
   const [saving, setSaving] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [txKey, setTxKey] = useState<string | null>(null);
 
   const categoryOptions = portfolioCategoryOptions();
+
+  async function runAutoTranslate(
+    field: 'title_de' | 'title_fr' | 'desc_de' | 'desc_fr',
+  ) {
+    const src =
+      field.startsWith('title') ? titleTr.trim() : descTr;
+    const target = field.endsWith('de') ? 'de' : 'fr';
+    if (!src.trim()) {
+      setFormError('Önce ilgili Türkçe metni girin.');
+      return;
+    }
+    setFormError('');
+    setTxKey(field);
+    try {
+      const out = await translateFromTurkish(src, target);
+      if (field === 'title_de') setTitleDe(out);
+      else if (field === 'title_fr') setTitleFr(out);
+      else if (field === 'desc_de') setDescDe(out);
+      else setDescFr(out);
+    } catch (e) {
+      setFormError(e instanceof Error ? e.message : 'Çeviri başarısız.');
+    } finally {
+      setTxKey(null);
+    }
+  }
 
   const showBeforeAfterFields =
     category === 'grafik-tasarim' ||
@@ -132,9 +163,13 @@ export function PortfolioEditor({
     const fd = new FormData();
     fd.set('title_tr', titleTr.trim());
     fd.set('title_en', titleEn.trim());
+    fd.set('title_de', titleDe.trim());
+    fd.set('title_fr', titleFr.trim());
     fd.set('slug', slugFinal);
     fd.set('description_tr', descTr);
     fd.set('description_en', descEn);
+    fd.set('description_de', descDe);
+    fd.set('description_fr', descFr);
     fd.set('category', category);
     fd.set('cover_image', coverUrl.trim());
     fd.set('before_image', beforeUrl.trim());
@@ -194,6 +229,41 @@ export function PortfolioEditor({
           />
         </div>
 
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          <div className="space-y-2">
+            <FormField
+              type="text"
+              label="Başlık DE"
+              value={titleDe}
+              onChange={setTitleDe}
+            />
+            <button
+              type="button"
+              disabled={txKey !== null}
+              onClick={() => void runAutoTranslate('title_de')}
+              className="font-sans text-xs font-medium text-[#8B3A1E] underline decoration-[#8B3A1E]/40 underline-offset-2 hover:text-[#6B2C14] disabled:opacity-50"
+            >
+              {txKey === 'title_de' ? 'Çevriliyor…' : 'Otomatik Çevir (TR→DE)'}
+            </button>
+          </div>
+          <div className="space-y-2">
+            <FormField
+              type="text"
+              label="Başlık FR"
+              value={titleFr}
+              onChange={setTitleFr}
+            />
+            <button
+              type="button"
+              disabled={txKey !== null}
+              onClick={() => void runAutoTranslate('title_fr')}
+              className="font-sans text-xs font-medium text-[#8B3A1E] underline decoration-[#8B3A1E]/40 underline-offset-2 hover:text-[#6B2C14] disabled:opacity-50"
+            >
+              {txKey === 'title_fr' ? 'Çevriliyor…' : 'Otomatik Çevir (TR→FR)'}
+            </button>
+          </div>
+        </div>
+
         <div>
           <FormField
             type="text"
@@ -245,6 +315,43 @@ export function PortfolioEditor({
             onChange={setDescEn}
             rows={6}
           />
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          <div className="space-y-2">
+            <FormField
+              type="textarea"
+              label="Açıklama DE"
+              value={descDe}
+              onChange={setDescDe}
+              rows={6}
+            />
+            <button
+              type="button"
+              disabled={txKey !== null}
+              onClick={() => void runAutoTranslate('desc_de')}
+              className="font-sans text-xs font-medium text-[#8B3A1E] underline decoration-[#8B3A1E]/40 underline-offset-2 hover:text-[#6B2C14] disabled:opacity-50"
+            >
+              {txKey === 'desc_de' ? 'Çevriliyor…' : 'Otomatik Çevir (TR→DE)'}
+            </button>
+          </div>
+          <div className="space-y-2">
+            <FormField
+              type="textarea"
+              label="Açıklama FR"
+              value={descFr}
+              onChange={setDescFr}
+              rows={6}
+            />
+            <button
+              type="button"
+              disabled={txKey !== null}
+              onClick={() => void runAutoTranslate('desc_fr')}
+              className="font-sans text-xs font-medium text-[#8B3A1E] underline decoration-[#8B3A1E]/40 underline-offset-2 hover:text-[#6B2C14] disabled:opacity-50"
+            >
+              {txKey === 'desc_fr' ? 'Çevriliyor…' : 'Otomatik Çevir (TR→FR)'}
+            </button>
+          </div>
         </div>
 
         <ImageUpload label="Kapak görseli adresi" value={coverUrl} onChange={setCoverUrl} />

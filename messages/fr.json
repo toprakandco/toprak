@@ -31,8 +31,8 @@
     "privacyPolicy": "Privacy Policy"
   },
   "meta": {
-    "title": "Toprak & Co. | Creative Agency",
-    "description": "Design, translation, voice over and web — under one roof."
+    "title": "Toprak & Co. | Agence Créative",
+    "description": "Design, traduction, doublage et web — sous un même toit."
   },
   "notFound": {
     "title": "Nothing has grown here yet.",
@@ -774,7 +774,7 @@
     "callbackWidget": {
       "title": "Request a call",
       "subtitle": "Prefer a phone call? Leave your number and we’ll call you.",
-      "timeLabel": "When you’d like us to call",
+      "timeLabel": "Créneau souhaité pour l’appel",
       "phonePlaceholder": "05XX XXX XX XX",
       "submit": "Call me",
       "saved": "✓ Saved",

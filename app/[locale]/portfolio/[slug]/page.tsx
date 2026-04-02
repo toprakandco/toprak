@@ -9,6 +9,8 @@ import {
   getActivePortfolioSlugs,
   getPortfolioItemBySlugSafe,
   getRelatedPortfolioItemsSafe,
+  localizedPortfolioDescription,
+  localizedPortfolioTitle,
 } from '@/lib/supabase';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
@@ -39,9 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const title = locale === 'tr' ? item.title_tr : item.title_en;
+  const title = localizedPortfolioTitle(item, locale);
   const description =
-    (locale === 'tr' ? item.description_tr : item.description_en) ?? t('description');
+    localizedPortfolioDescription(item, locale) || t('description');
   const descShort = description.slice(0, 180);
   const pageTitle = `${title} | Toprak & Co.`;
 
@@ -64,9 +66,8 @@ export default async function PortfolioDetailPage({ params }: Props) {
   const t = await getTranslations('portfolio.detail');
   const tPf = await getTranslations('portfolio');
 
-  const title = locale === 'tr' ? item.title_tr : item.title_en;
-  const description =
-    (locale === 'tr' ? item.description_tr : item.description_en) ?? '';
+  const title = localizedPortfolioTitle(item, locale);
+  const description = localizedPortfolioDescription(item, locale);
 
   const categorySlug = item.category;
   const categoryLabel =
