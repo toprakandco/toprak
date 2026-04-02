@@ -3,564 +3,564 @@
     "title": "Toprak & Co."
   },
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "services": "Services",
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
     "portfolio": "Portfolio",
     "blog": "Blog",
-    "contact": "Contact",
+    "contact": "Kontakt",
     "sss": "FAQ",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "language": "Language",
-    "logoHome": "Toprak & Co. — Home",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "language": "Sprache",
+    "logoHome": "Toprak & Co. – Startseite",
     "localeCodeTr": "TR",
     "localeCodeEn": "EN",
     "localeCodeDe": "DE",
     "localeCodeFr": "FR",
-    "switchToTurkish": "View site in Turkish",
-    "switchToEnglish": "View site in English",
-    "switchToGerman": "View site in German",
-    "switchToFrench": "View site in French"
+    "switchToTurkish": "Website auf Türkisch ansehen",
+    "switchToEnglish": "Website auf Englisch ansehen",
+    "switchToGerman": "Seite auf Deutsch ansehen",
+    "switchToFrench": "Website auf Französisch ansehen"
   },
   "footer": {
-    "rights": "All rights reserved.",
-    "tagline": "Creativity begins at the roots.",
-    "quicklinks": "Quick links",
-    "contact": "Contact",
-    "privacyPolicy": "Privacy Policy"
+    "rights": "Alle Rechte vorbehalten.",
+    "tagline": "Kreativität beginnt an den Wurzeln.",
+    "quicklinks": "Schnelle Links",
+    "contact": "Kontakt",
+    "privacyPolicy": "Datenschutzrichtlinie"
   },
   "meta": {
     "title": "Toprak & Co. | Kreativagentur",
-    "description": "Design, Übersetzung, Sprachaufnahme und Web — unter einem Dach."
+    "description": "Design, Übersetzung, Voice-Over und Web – unter einem Dach."
   },
   "notFound": {
-    "title": "Nothing has grown here yet.",
-    "subtitle": "The page you are looking for could not be found.",
-    "primaryCta": "Back to home",
-    "secondaryCta": "Contact us"
+    "title": "Hier ist noch nichts gewachsen.",
+    "subtitle": "Die gesuchte Seite konnte nicht gefunden werden.",
+    "primaryCta": "Zur Startseite",
+    "secondaryCta": "Kontaktieren Sie uns"
   },
   "home": {
     "hero": {
-      "label": "Creative Agency · Kreatif Ajans",
+      "label": "Kreativagentur · Kreativ Ajans",
       "lines": [
         {
           "words": [
-            "Where",
-            "creativity"
+            "Wo",
+            "Kreativität"
           ],
           "italic": false,
           "emphasis": false
         },
         {
           "words": [
-            "takes",
-            "root"
+            "Wurzeln",
+            "schlägt"
           ],
           "italic": true,
           "emphasis": true
         },
         {
           "words": [
-            "Right",
-            "here."
+            "Genau",
+            "hier."
           ],
           "italic": false,
           "emphasis": false
         }
       ],
-      "subtext": "Design, voice, content and digital solutions — under one roof.",
-      "ctaServices": "Our services",
-      "ctaPortfolio": "Our portfolio",
-      "scrollHint": "SCROLL"
+      "subtext": "Design, Sprache, Inhalte und digitale Lösungen – unter einem Dach.",
+      "ctaServices": "Unsere Leistungen",
+      "ctaPortfolio": "Unser Portfolio",
+      "scrollHint": "SCROLLEN"
     },
     "marquee": {
       "row1": [
-        "GRAPHIC DESIGN",
-        "TRANSLATION",
-        "VOICE OVER",
-        "CONTENT CREATION",
-        "PHOTO & VIDEO",
+        "GRAFIKDESIGN",
+        "ÜBERSETZUNG",
+        "SPRECHER",
+        "Content-Erstellung",
+        "FOTO & VIDEO",
         "WEB & SOFTWARE"
       ],
       "row2": [
-        "GRAPHIC DESIGN",
-        "TRANSLATION",
-        "VOICE OVER",
-        "CONTENT CREATION",
-        "PHOTO & VIDEO",
+        "GRAFIKDESIGN",
+        "ÜBERSETZUNG",
+        "SPRECHER",
+        "Content-Erstellung",
+        "FOTO & VIDEO",
         "WEB & SOFTWARE"
       ],
       "separator": "✦"
     },
     "servicesPreview": {
-      "overline": "WHAT WE DO",
-      "heading": "Six disciplines. One team.",
-      "detailCta": "See details →"
+      "overline": "WAS WIR TUN",
+      "heading": "Sechs Disziplinen. Ein Team.",
+      "detailCta": "Siehe Details →"
     },
     "servicesCards": {
       "grafik-tasarim": {
-        "title": "Graphic Design",
-        "description": "Social, posters, book covers and beyond"
+        "title": "Grafikdesign",
+        "description": "Social, Poster, Buchcover und mehr"
       },
       "ceviri": {
-        "title": "Translation",
-        "description": "Professional TR↔EN↔FR↔DE translation"
+        "title": "Übersetzung",
+        "description": "Professionelle TR↔EN↔FR↔DE-Übersetzung"
       },
       "seslendirme": {
-        "title": "Voice Over",
-        "description": "Documentary, ads, audiobooks and corporate"
+        "title": "Voice-Over",
+        "description": "Dokumentationen, Anzeigen, Hörbücher und Unternehmen"
       },
       "icerik-uretimi": {
-        "title": "Content Creation",
-        "description": "Social management and original storytelling"
+        "title": "Inhaltserstellung",
+        "description": "Soziales Management und originelles Geschichtenerzählen"
       },
       "fotograf-video": {
-        "title": "Photo & Video",
-        "description": "Professional shoot and edit"
+        "title": "Foto & Video",
+        "description": "Professionelle Aufnahme und Bearbeitung"
       },
       "web-yazilim": {
         "title": "Web & Software",
-        "description": "Modern, fast websites with Next.js"
+        "description": "Moderne, schnelle Websites mit Next.js"
       }
     },
     "serviceMorph": {
-      "overline": "WHAT DO WE DO?",
-      "prefix": "We",
-      "suffix": "create.",
+      "overline": "WAS MACHEN WIR?",
+      "prefix": "Wir",
+      "suffix": "erstellen.",
       "items": [
         {
           "label": "Design",
-          "description": "Social media, posters, book covers, and brand identity",
+          "description": "Soziale Medien, Poster, Buchcover und Markenidentität",
           "slug": "grafik-tasarim"
         },
         {
-          "label": "Translation",
-          "description": "Professional TR ↔ EN ↔ FR ↔ DE translation",
+          "label": "Übersetzung",
+          "description": "Professionelle TR ↔ EN ↔ FR ↔ DE-Übersetzung",
           "slug": "ceviri"
         },
         {
-          "label": "Voice",
-          "description": "Documentary, ad, publishing, and corporate narration",
+          "label": "Stimme",
+          "description": "Dokumentation, Werbung, Veröffentlichung und Unternehmenserzählung",
           "slug": "seslendirme"
         },
         {
-          "label": "Content",
-          "description": "Social media management and original content production",
+          "label": "Inhalt",
+          "description": "Social-Media-Management und Produktion von Originalinhalten",
           "slug": "icerik-uretimi"
         },
         {
           "label": "Video",
-          "description": "Professional shooting, editing, and color grading",
+          "description": "Professionelle Aufnahme, Bearbeitung und Farbkorrektur",
           "slug": "fotograf-video"
         },
         {
           "label": "Web",
-          "description": "Modern, fast, elegant websites with Next.js",
+          "description": "Moderne, schnelle und elegante Websites mit Next.js",
           "slug": "web-yazilim"
         }
       ]
     },
     "manifesto": {
       "lines": [
-        "Two people.",
-        "One passion.",
-        "Limitless creativity."
+        "Zwei Personen.",
+        "Eine Leidenschaft.",
+        "Grenzenlose Kreativität."
       ],
-      "body": "Toprak & Co. walks with you from idea to launch. We respect nature and human stories in every project, crafting outcomes that feel as good as they perform.\n\nAs a small, focused studio, we bring design, voice, translation and digital product craft to the same table.",
-      "cta": "Meet Us →"
+      "body": "Toprak & Co. begleitet Sie von der Idee bis zur Markteinführung. Wir respektieren bei jedem Projekt die Natur und die menschlichen Geschichten und schaffen Ergebnisse, die sich genauso gut anfühlen wie sie funktionieren.\n\nAls kleines, fokussiertes Studio bringen wir Design, Stimme, Übersetzung und digitale Produktherstellung an einen Tisch.",
+      "cta": "Treffen Sie uns →"
     },
     "stats": {
-      "title": "By The Numbers",
+      "title": "Durch die Zahlen",
       "labels": {
-        "web": "Published websites",
-        "books": "Published translation books",
-        "social": "Social media accounts managed",
-        "projects": "Completed projects"
+        "web": "Veröffentlichte Websites",
+        "books": "Veröffentlichte Übersetzungsbücher",
+        "social": "Verwaltete Social-Media-Konten",
+        "projects": "Abgeschlossene Projekte"
       }
     },
     "process": {
-      "overline": "PROCESS",
-      "heading": "How We Work",
+      "overline": "VERFAHREN",
+      "heading": "Wie wir arbeiten",
       "steps": [
         {
-          "title": "Contact",
-          "desc": "We align on your goals, audience, and constraints."
+          "title": "Kontakt",
+          "desc": "Wir richten uns nach Ihren Zielen, Ihrer Zielgruppe und Ihren Einschränkungen."
         },
         {
-          "title": "Proposal",
-          "desc": "We share a clear scope, timeline, and budget."
+          "title": "Vorschlag",
+          "desc": "Wir haben einen klaren Umfang, einen klaren Zeitplan und ein klares Budget."
         },
         {
-          "title": "Production",
-          "desc": "We execute design, content, and development with care."
+          "title": "Produktion",
+          "desc": "Wir führen Design, Inhalte und Entwicklung mit Sorgfalt aus."
         },
         {
-          "title": "Delivery",
-          "desc": "We launch with revisions and handover support."
+          "title": "Lieferung",
+          "desc": "Wir starten mit Revisionen und Übergabebegleitung."
         }
       ]
     },
     "portfolioPreview": {
       "overline": "PORTFOLIO",
-      "title": "Selected work",
-      "seeAll": "All projects →",
-      "viewProject": "View",
-      "categoryFallback": "Project"
+      "title": "Ausgewählte Arbeit",
+      "seeAll": "Alle Projekte →",
+      "viewProject": "Sicht",
+      "categoryFallback": "Projekt"
     },
     "clients": {
-      "title": "Who We've Worked With",
+      "title": "Mit wem wir zusammengearbeitet haben",
       "items": [
-        "Orman Agency",
+        "Orman-Agentur",
         "Kök Media",
-        "Terra Brand",
-        "Nebbia Film",
-        "Atlas Publishing",
+        "Terra-Marke",
+        "Nebbia-Film",
+        "Atlas-Verlag",
         "Çınar Digital"
       ]
     },
     "ctaBanner": {
-      "title": "Let's bring your project to life.",
-      "subtitle": "Tell us what you need in a short call — we'll propose a tailored roadmap.",
-      "button": "Get in Touch"
+      "title": "Lassen Sie uns Ihr Projekt zum Leben erwecken.",
+      "subtitle": "Sagen Sie uns in einem kurzen Anruf, was Sie brauchen – wir unterbreiten Ihnen einen maßgeschneiderten Fahrplan.",
+      "button": "Nehmen Sie Kontakt auf"
     },
     "ctaFinal": {
-      "titleLine1": "Let's bring your",
-      "titleLine2": "project to life.",
-      "button": "Get in Touch",
-      "buttonStart": "I Have a Project — Let's Start →"
+      "titleLine1": "Bringen wir Ihr mit",
+      "titleLine2": "Projekt zum Leben erwecken.",
+      "button": "Nehmen Sie Kontakt auf",
+      "buttonStart": "Ich habe ein Projekt – fangen wir an →"
     },
     "blogSection": {
       "overline": "BLOG",
-      "title": "Latest posts",
-      "readMore": "Read more →",
-      "tagFallback": "Studio notes",
+      "title": "Neueste Beiträge",
+      "readMore": "Weiterlesen →",
+      "tagFallback": "Studionotizen",
       "placeholder1": {
-        "title": "Why calm creative process wins",
-        "excerpt": "Teams that don’t rush often ship more coherent, memorable work.",
-        "date": "Jan 12, 2025"
+        "title": "Warum ein ruhiger kreativer Prozess gewinnt",
+        "excerpt": "Teams, die sich nicht beeilen, liefern oft kohärentere und einprägsamere Arbeiten ab.",
+        "date": "12. Januar 2025"
       },
       "placeholder2": {
-        "title": "Voice tone: your brand’s quiet signature",
-        "excerpt": "From copy to VO, you can keep one personality across every touchpoint.",
-        "date": "Jan 3, 2025"
+        "title": "Stimmton: die ruhige Signatur Ihrer Marke",
+        "excerpt": "Vom Text bis zur VO können Sie an jedem Berührungspunkt eine Persönlichkeit beibehalten.",
+        "date": "3. Januar 2025"
       },
       "placeholder3": {
-        "title": "Multilingual sites with Next.js",
-        "excerpt": "Practical notes on performance, SEO and maintainability.",
-        "date": "Dec 18, 2024"
+        "title": "Mehrsprachige Websites mit Next.js",
+        "excerpt": "Praktische Hinweise zu Leistung, SEO und Wartbarkeit.",
+        "date": "18. Dezember 2024"
       }
     }
   },
   "about": {
     "meta": {
-      "title": "About Us | Toprak & Co.",
-      "description": "Meet the team behind Toprak & Co. — two founders bringing care and craft to design, translation, voice, and web."
+      "title": "Über uns | Toprak & Co.",
+      "description": "Lernen Sie das Team hinter Toprak & Co. kennen – zwei Gründer, die Sorgfalt und Handwerk in die Bereiche Design, Übersetzung, Stimme und Web einbringen."
     },
-    "pageTitle": "About Us",
-    "pageSubtitle": "One passion, limitless creativity.",
+    "pageTitle": "Über uns",
+    "pageSubtitle": "Eine Leidenschaft, grenzenlose Kreativität.",
     "hero": {
-      "overline": "TOPRAK & CO. — CREATIVE AGENCY",
+      "overline": "TOPRAK & CO. – KREATIVAGENTUR",
       "year": "2025",
       "line1": "",
-      "line2": "One passion.",
-      "line3": "Limitless.",
-      "intro": "Toprak & Co. is the shared story of two creatives who unite their expertise across disciplines under one roof — from design to sound, content to code.",
-      "scrollHint": "SCROLL"
+      "line2": "Eine Leidenschaft.",
+      "line3": "Grenzenlos.",
+      "intro": "Toprak & Co. ist die gemeinsame Geschichte zweier Kreativer, die ihr Fachwissen über Disziplinen hinweg unter einem Dach vereinen – vom Design bis zum Sound, vom Inhalt bis zum Code.",
+      "scrollHint": "SCROLLEN"
     },
     "manifesto": {
-      "heading": "Manifesto",
-      "line1": "Creativity is not decoration,",
-      "line2": "it is communication itself.",
+      "heading": "Manifest",
+      "line1": "Kreativität ist keine Dekoration,",
+      "line2": "es ist die Kommunikation selbst.",
       "attribution": "— Toprak & Co."
     },
     "story": {
-      "pullQuote": "Creativity begins at the roots.",
-      "body": "Toprak & Co. is the shared dream of two creative people who united their expertise across different fields. From design to translation, voice over to web development, we approach every project with care and a personal touch."
+      "pullQuote": "Kreativität beginnt an den Wurzeln.",
+      "body": "Toprak & Co. ist der gemeinsame Traum zweier kreativer Menschen, die ihr Fachwissen über verschiedene Bereiche hinweg vereint haben. Vom Design bis zur Übersetzung, vom Voice-Over bis zur Webentwicklung gehen wir jedes Projekt mit Sorgfalt und einer persönlichen Note an."
     },
     "team": {
-      "title": "Our Team",
-      "overline": "OUR TEAM",
-      "heading": "The people behind it.",
-      "contactEmailAria": "Email {name}",
-      "contactInstagramAria": "{name} on Instagram",
+      "title": "Unser Team",
+      "overline": "UNSER TEAM",
+      "heading": "Die Menschen dahinter.",
+      "contactEmailAria": "E-Mail {name}",
+      "contactInstagramAria": "{name} auf Instagram",
       "member1": {
-        "name": "[Name — to be filled]",
-        "role": "Co-founder — Design, Translation, Voice Over, Content",
-        "bio": "Short bio text goes here. Two or three sentences as a placeholder.",
+        "name": "[Name – auszufüllen]",
+        "role": "Mitbegründer – Design, Übersetzung, Voice-Over, Inhalt",
+        "bio": "Hier geht es zum kurzen Biotext. Zwei oder drei Sätze als Platzhalter.",
         "email": "info@toprakco.tr",
         "instagramUrl": "https://www.instagram.com/toprakandco/",
         "skills": [
-          "Graphic Design",
-          "Translation",
-          "Voice Over",
-          "Social Media",
-          "Photo & Video",
+          "Grafikdesign",
+          "Übersetzung",
+          "Voice-Over",
+          "Soziale Medien",
+          "Foto & Video",
           "Web & Software"
         ]
       },
       "member2": {
-        "name": "[Name — to be filled]",
-        "role": "Co-founder — [Shared roles here]",
-        "bio": "Short bio text goes here.",
+        "name": "[Name – auszufüllen]",
+        "role": "Mitbegründer – [Gemeinsame Rollen hier]",
+        "bio": "Hier geht es zum kurzen Biotext.",
         "email": "info@toprakco.tr",
         "instagramUrl": "https://www.instagram.com/toprakandco/",
         "skills": [
-          "Placeholder",
-          "Skill",
-          "Tags"
+          "Platzhalter",
+          "Fähigkeit",
+          "Schlagworte"
         ]
       }
     },
     "values": {
-      "title": "Our Values",
+      "title": "Unsere Werte",
       "items": {
         "a": {
-          "title": "Rooted Quality",
-          "desc": "We approach every project with care, every client with respect."
+          "title": "Verwurzelte Qualität",
+          "desc": "Wir gehen jedes Projekt mit Sorgfalt an, jeden Kunden mit Respekt."
         },
         "b": {
-          "title": "Creative Partnership",
-          "desc": "We see our clients as partners and grow together."
+          "title": "Kreative Partnerschaft",
+          "desc": "Wir sehen unsere Kunden als Partner und wachsen gemeinsam."
         },
         "c": {
-          "title": "Continuous Growth",
-          "desc": "Every project takes us one step further forward."
+          "title": "Kontinuierliches Wachstum",
+          "desc": "Jedes Projekt bringt uns einen Schritt weiter."
         }
       }
     },
     "stats": {
-      "title": "By The Numbers",
+      "title": "Durch die Zahlen",
       "labels": {
-        "projects": "Completed Projects",
-        "services": "Service Areas",
-        "creativity": "Creativity"
+        "projects": "Abgeschlossene Projekte",
+        "services": "Servicebereiche",
+        "creativity": "Kreativität"
       }
     },
     "industries": {
-      "title": "Industries We Serve",
-      "sectionHeading": "Fields where we've built experience.",
+      "title": "Branchen, die wir bedienen",
+      "sectionHeading": "Bereiche, in denen wir Erfahrung gesammelt haben.",
       "list": [
-        "Tourism",
-        "Publishing & Bookstore",
-        "Cosmetics",
-        "E-commerce",
-        "Education",
-        "NGO & Civil Society",
-        "Technology",
-        "Health",
-        "Gastronomy",
-        "Fashion & Textile"
+        "Tourismus",
+        "Verlag und Buchhandlung",
+        "Kosmetika",
+        "E-Commerce",
+        "Ausbildung",
+        "NGO & Zivilgesellschaft",
+        "Technologie",
+        "Gesundheit",
+        "Gastronomie",
+        "Mode & Textil"
       ]
     },
     "ctaBanner": {
-      "title": "Let's do something together.",
-      "subtitle": "A short brief is enough — we'll map the path forward with you.",
-      "button": "Get in touch"
+      "title": "Lasst uns gemeinsam etwas unternehmen.",
+      "subtitle": "Ein kurzes Briefing genügt – wir planen gemeinsam mit Ihnen den weiteren Weg.",
+      "button": "Nehmen Sie Kontakt auf"
     }
   },
   "services": {
     "meta": {
-      "title": "Our Services | Toprak & Co.",
-      "description": "From design to voice, content to code — Toprak & Co. offers graphic design, translation, voice over, content, photo & video, and web development."
+      "title": "Unsere Leistungen | Toprak & Co.",
+      "description": "Vom Design bis zur Stimme, vom Inhalt bis zum Code – Toprak & Co. bietet Grafikdesign, Übersetzung, Voice-Over, Inhalte, Fotos und Videos sowie Webentwicklung."
     },
-    "pageTitle": "Our Services",
-    "pageSubtitle": "From design to voice, content to code — we're here for every need.",
-    "ctaDetails": "See details →",
-    "emptyHint": "The live list syncs with Supabase; if no data is available, the summaries below are shown.",
+    "pageTitle": "Unsere Leistungen",
+    "pageSubtitle": "Vom Design bis zur Stimme, vom Inhalt bis zum Code – wir sind für jeden Bedarf da.",
+    "ctaDetails": "Siehe Details →",
+    "emptyHint": "Die Live-Liste wird mit Supabase synchronisiert. Wenn keine Daten verfügbar sind, werden die folgenden Zusammenfassungen angezeigt.",
     "detail": {
-      "breadcrumbHome": "Home",
-      "ctaQuote": "Request a quote →",
-      "processTitle": "How We Work?",
+      "breadcrumbHome": "Heim",
+      "ctaQuote": "Fordern Sie ein Angebot an →",
+      "processTitle": "Wie arbeiten wir?",
       "processSteps": {
         "1": {
-          "title": "Contact",
-          "desc": "Tell us about your project"
+          "title": "Kontakt",
+          "desc": "Erzählen Sie uns von Ihrem Projekt"
         },
         "2": {
-          "title": "Proposal",
-          "desc": "Tailored timeline and pricing"
+          "title": "Vorschlag",
+          "desc": "Maßgeschneiderter Zeitplan und Preis"
         },
         "3": {
-          "title": "Production",
-          "desc": "A meticulous creative process"
+          "title": "Produktion",
+          "desc": "Ein akribischer kreativer Prozess"
         },
         "4": {
-          "title": "Delivery",
-          "desc": "Including revision rounds"
+          "title": "Lieferung",
+          "desc": "Inklusive Revisionsrunden"
         }
       },
-      "portfolioTitle": "Our Work in This Area",
-      "portfolioSeeAll": "See all →",
-      "portfolioEmpty": "No published work in this area yet; coming soon.",
-      "breadcrumbServices": "Services"
+      "portfolioTitle": "Unsere Arbeit in diesem Bereich",
+      "portfolioSeeAll": "Alle anzeigen →",
+      "portfolioEmpty": "Noch keine veröffentlichte Arbeit in diesem Bereich; kommt bald.",
+      "breadcrumbServices": "Dienstleistungen"
     },
     "voiceSelector": {
-      "title": "What type of voice over?",
+      "title": "Welche Art von Voice-Over?",
       "step2": {
-        "question": "Great! When would you like to get started with {category}?"
+        "question": "Großartig! Wann möchten Sie mit {category} beginnen?"
       },
       "timelines": {
-        "urgent": "Urgent (1–3 days)",
-        "normal": "Standard (1–2 weeks)",
-        "planning": "I'm planning ahead"
+        "urgent": "Dringend (1–3 Tage)",
+        "normal": "Standard (1–2 Wochen)",
+        "planning": "Ich plane im Voraus"
       },
       "cta": {
-        "text": "Let’s prepare a tailored quote for your project.",
-        "button": "Get in touch →"
+        "text": "Lassen Sie uns ein maßgeschneidertes Angebot für Ihr Projekt erstellen.",
+        "button": "Nehmen Sie Kontakt auf →"
       },
-      "prefillMessage": "Requested voice-over type: {category}",
+      "prefillMessage": "Gewünschter Voice-Over-Typ: {category}",
       "categories": {
         "reklam": {
-          "title": "Advertising voice over",
-          "desc": "TV, radio, digital ads"
+          "title": "Werbe-Voice-Over",
+          "desc": "TV, Radio, digitale Werbung"
         },
         "belgesel-haber": {
-          "title": "Documentary & news",
-          "desc": "Corporate film, documentary, news"
+          "title": "Dokumentation & Nachrichten",
+          "desc": "Unternehmensfilm, Dokumentation, Nachrichten"
         },
         "elearning": {
-          "title": "E-learning & training",
-          "desc": "Online courses, training videos"
+          "title": "E-Learning & Schulung",
+          "desc": "Online-Kurse, Schulungsvideos"
         },
         "kitap": {
-          "title": "Books & audiobooks",
-          "desc": "Novels, children’s books, academic"
+          "title": "Bücher und Hörbücher",
+          "desc": "Romane, Kinderbücher, akademische Bücher"
         },
         "animasyon-oyun": {
-          "title": "Animation & games",
-          "desc": "Character voice, animated film"
+          "title": "Animation und Spiele",
+          "desc": "Charakterstimme, Animationsfilm"
         },
         "kurumsal-ivr": {
-          "title": "Corporate & IVR",
-          "desc": "Company profiles, phone greetings"
+          "title": "Unternehmen und IVR",
+          "desc": "Firmenprofile, telefonische Begrüßung"
         }
       }
     },
     "slugs": {
       "grafik-tasarim": {
-        "title": "Graphic Design",
-        "description": "Social posts, banners, book covers, magazine layouts and corporate identity work. We produce tailored, eye-catching visual content for every platform.",
+        "title": "Grafikdesign",
+        "description": "Social-Media-Beiträge, Banner, Buchcover, Zeitschriftenlayouts und Corporate-Identity-Arbeit. Wir produzieren maßgeschneiderte, auffällige visuelle Inhalte für jede Plattform.",
         "tags": [
-          "Social media",
+          "Soziale Medien",
           "Poster",
-          "Book cover",
-          "Brand identity",
-          "Magazine"
+          "Buchcover",
+          "Markenidentität",
+          "Magazin"
         ]
       },
       "ceviri": {
-        "title": "Translation",
-        "description": "Professional translation between Turkish, English, French and German. With three published book translations and dozens of academic articles, we deliver precise, fluent copy.",
+        "title": "Übersetzung",
+        "description": "Professionelle Übersetzung zwischen Türkisch, Englisch, Französisch und Deutsch. Mit drei veröffentlichten Buchübersetzungen und Dutzenden wissenschaftlichen Artikeln liefern wir präzise, ​​flüssige Texte.",
         "tags": [
-          "TR↔EN",
+          "TR↔DE",
           "TR↔FR",
           "TR↔DE",
-          "Books",
-          "Articles",
-          "Academic"
+          "Bücher",
+          "Artikel",
+          "Akademisch"
         ]
       },
       "seslendirme": {
-        "title": "Voice Over",
-        "description": "Professional voice over for documentary, advertising, e-learning, audiobooks and corporate projects. Studio-grade recording and direction for polished audio production.",
+        "title": "Voice-Over",
+        "description": "Professioneller Voice-Over für Dokumentationen, Werbung, E-Learning, Hörbücher und Unternehmensprojekte. Aufnahme und Regie in Studioqualität für eine ausgefeilte Audioproduktion.",
         "tags": [
-          "Documentary",
-          "Advertising",
-          "Audiobook",
-          "E-learning",
-          "Corporate"
+          "Dokumentarfilm",
+          "Werbung",
+          "Hörbuch",
+          "E-Learning",
+          "Unternehmen"
         ]
       },
       "icerik-uretimi": {
-        "title": "Content & Social Media",
-        "description": "We find your brand voice. Strategy, planning, creative production and publishing — proven social media management across tourism, book retail and beauty.",
+        "title": "Inhalte und soziale Medien",
+        "description": "Wir finden Ihre Markenstimme. Strategie, Planung, kreative Produktion und Veröffentlichung – bewährtes Social-Media-Management in den Bereichen Tourismus, Buchhandel und Schönheit.",
         "tags": [
           "Instagram",
-          "Content strategy",
-          "Social management",
-          "Reels"
+          "Content-Strategie",
+          "Sozialmanagement",
+          "Rollen"
         ]
       },
       "fotograf-video": {
-        "title": "Photo & Video",
-        "description": "From product photography to corporate video, short film to social content. Professional shooting, editing and colour grading.",
+        "title": "Foto & Video",
+        "description": "Von Produktfotografie über Unternehmensvideos, Kurzfilme bis hin zu sozialen Inhalten. Professionelle Aufnahme, Bearbeitung und Farbkorrektur.",
         "tags": [
-          "Product photo",
-          "Corporate video",
-          "Reels",
-          "Editing",
-          "Colour grading"
+          "Produktfoto",
+          "Unternehmensvideo",
+          "Rollen",
+          "Bearbeitung",
+          "Farbkorrektur"
         ]
       },
       "web-yazilim": {
         "title": "Web & Software",
-        "description": "Fast, elegant, scalable sites with Next.js, Supabase and modern stacks. End-to-end build and maintenance with five live references.",
+        "description": "Schnelle, elegante, skalierbare Websites mit Next.js, Supabase und modernen Stacks. End-to-End-Build und -Wartung mit fünf Live-Referenzen.",
         "tags": [
           "Next.js",
-          "Website",
-          "E-commerce",
-          "Maintenance & updates"
+          "Webseite",
+          "E-Commerce",
+          "Wartung und Updates"
         ]
       }
     },
-    "overline": "OUR SERVICES",
-    "headingLine1": "From design to voice,",
-    "headingLine2": "content to code.",
-    "subtitle": "We deliver end-to-end creative services that balance aesthetics, strategy, and function for modern brands.",
+    "overline": "UNSERE LEISTUNGEN",
+    "headingLine1": "Vom Design bis zur Stimme,",
+    "headingLine2": "Inhalt zum Codieren.",
+    "subtitle": "Wir liefern umfassende kreative Dienstleistungen, die Ästhetik, Strategie und Funktion für moderne Marken in Einklang bringen.",
     "bottomCta": {
-      "title": "Get a quote for your project.",
+      "title": "Holen Sie sich ein Angebot für Ihr Projekt ein.",
       "subtitle": "info@toprakco.tr · Free intro call",
-      "button": "Contact Us",
-      "buttonStart": "I Have a Project — Let's Start →"
+      "button": "Kontaktieren Sie uns",
+      "buttonStart": "Ich habe ein Projekt – fangen wir an →"
     }
   },
   "kvkk": {
     "meta": {
-      "title": "Privacy Policy & KVKK | Toprak & Co.",
-      "description": "Toprak & Co. privacy policy and KVKK disclosure: how we process personal data, retention, and your rights."
+      "title": "Datenschutzrichtlinie & KVKK | Toprak & Co.",
+      "description": "Datenschutzrichtlinie von Toprak & Co. und KVKK-Offenlegung: Wie wir personenbezogene Daten verarbeiten, Aufbewahrung und Ihre Rechte."
     },
-    "title": "Privacy Policy & KVKK Disclosure",
-    "breadcrumbHome": "Home",
+    "title": "Datenschutzrichtlinie und KVKK-Offenlegung",
+    "breadcrumbHome": "Heim",
     "sections": {
       "controller": {
-        "heading": "1. Data controller",
+        "heading": "1. Datenverantwortlicher",
         "body": "Toprak & Co. — Ece [Surname] & Eymen [Surname]\ninfo@toprakco.tr / toprakco.tr"
       },
       "collected": {
-        "heading": "2. What data we collect",
+        "heading": "2. Welche Daten wir sammeln",
         "items": [
-          "Contact form: name, email, phone, message",
-          "Cookies (technical, essential)",
-          "Server logs (automatic)"
+          "Kontaktformular: Name, E-Mail, Telefon, Nachricht",
+          "Cookies (technisch, notwendig)",
+          "Serverprotokolle (automatisch)"
         ]
       },
       "purpose": {
-        "heading": "3. Why we collect data",
+        "heading": "3. Warum wir Daten sammeln",
         "items": [
-          "To respond to requests and questions",
-          "To prepare service proposals",
-          "To meet legal obligations"
+          "Um auf Anfragen und Fragen zu antworten",
+          "Servicevorschläge vorbereiten",
+          "Zur Erfüllung gesetzlicher Verpflichtungen"
         ]
       },
       "sharing": {
-        "heading": "4. Who we share data with",
-        "body": "We do not share your data with third parties for marketing.\nAside from Supabase (database) and Vercel (hosting), we do not use other services that receive your personal data."
+        "heading": "4. Mit wem wir Daten teilen",
+        "body": "Wir geben Ihre Daten nicht zu Marketingzwecken an Dritte weiter.\nAußer Supabase (Datenbank) und Vercel (Hosting) nutzen wir keine weiteren Dienste, die Ihre personenbezogenen Daten erhalten."
       },
       "retention": {
-        "heading": "5. Retention period",
-        "body": "Contact data is kept for 2 years, then deleted."
+        "heading": "5. Aufbewahrungsfrist",
+        "body": "Kontaktdaten werden 2 Jahre lang aufbewahrt und anschließend gelöscht."
       },
       "rights": {
-        "heading": "6. Your rights (KVKK Art. 11)",
+        "heading": "6. Ihre Rechte (KVKK Art. 11)",
         "body": "You have the right to access, rectify, and request deletion of your data.\nRequests: info@toprakco.tr"
       },
       "cookies": {
-        "heading": "7. Cookie policy",
-        "body": "Only essential technical cookies are used.\nAnalytics is not active at this time."
+        "heading": "7. Cookie-Richtlinie",
+        "body": "Es werden nur technisch notwendige Cookies verwendet.\nAnalytics ist derzeit nicht aktiv."
       },
       "contact": {
-        "heading": "8. Contact",
+        "heading": "8. Kontakt",
         "body": "info@toprakco.tr\nLast updated: March 2025"
       }
     }
@@ -568,57 +568,57 @@
   "portfolio": {
     "meta": {
       "title": "Portfolio | Toprak & Co.",
-      "description": "Toprak & Co. portfolio: selected work across graphic design, translation, voice over, content, photo, video and web."
+      "description": "Toprak & Co.-Portfolio: ausgewählte Arbeiten in den Bereichen Grafikdesign, Übersetzung, Voice-Over, Inhalt, Foto, Video und Web."
     },
     "pageTitle": "Portfolio",
-    "pageSubtitle": "The work we do, the stories we tell.",
+    "pageSubtitle": "Die Arbeit, die wir leisten, die Geschichten, die wir erzählen.",
     "filters": {
-      "all": "All",
-      "aria": "Portfolio categories",
-      "uncategorized": "General",
+      "all": "Alle",
+      "aria": "Portfoliokategorien",
+      "uncategorized": "Allgemein",
       "categories": {
-        "grafik-tasarim": "Graphic Design",
-        "ceviri": "Translation",
-        "seslendirme": "Voice Over",
-        "icerik-uretimi": "Content",
-        "fotograf-video": "Photo & Video",
+        "grafik-tasarim": "Grafikdesign",
+        "ceviri": "Übersetzung",
+        "seslendirme": "Voice-Over",
+        "icerik-uretimi": "Inhalt",
+        "fotograf-video": "Foto & Video",
         "web-yazilim": "Web & Software"
       }
     },
     "card": {
-      "cta": "View →"
+      "cta": "Ansicht →"
     },
-    "filterEmpty": "No projects in this category yet.",
+    "filterEmpty": "Noch keine Projekte in dieser Kategorie.",
     "emptyState": {
-      "title": "Amazing work coming here soon.",
-      "subtitle": "New projects for this area are being added.",
-      "cta": "Work With Us →"
+      "title": "Erstaunliche Arbeit kommt bald hierher.",
+      "subtitle": "Neue Projekte für diesen Bereich kommen hinzu.",
+      "cta": "Arbeiten Sie mit uns →"
     },
     "detail": {
-      "breadcrumbHome": "Home",
+      "breadcrumbHome": "Heim",
       "breadcrumbPortfolio": "Portfolio",
-      "categoryLabel": "Category",
+      "categoryLabel": "Kategorie",
       "serviceLabel": "Service",
-      "tagsLabel": "Tags",
-      "relatedTitle": "Related Work",
-      "descriptionHeading": "Project",
-      "similarCta": "For a Similar Project →"
+      "tagsLabel": "Schlagworte",
+      "relatedTitle": "Verwandte Arbeit",
+      "descriptionHeading": "Projekt",
+      "similarCta": "Für ein ähnliches Projekt →"
     },
     "header": {
       "overline": "PORTFOLIO",
-      "heading": "The stories we tell.",
-      "subtitle": "We blend strategy, aesthetics, and storytelling in every project to create meaningful brand impact.",
+      "heading": "Die Geschichten, die wir erzählen.",
+      "subtitle": "Wir vereinen Strategie, Ästhetik und Storytelling in jedem Projekt, um eine sinnvolle Markenwirkung zu erzielen.",
       "stats": [
         {
           "value": "100+",
-          "label": "Projects"
+          "label": "Projekte"
         },
         {
           "value": "6",
-          "label": "Fields"
+          "label": "Felder"
         },
         {
-          "value": "Turkey & Beyond",
+          "value": "Türkei und darüber hinaus",
           "label": ""
         }
       ]
@@ -627,212 +627,212 @@
   "blog": {
     "meta": {
       "title": "Blog | Toprak & Co.",
-      "description": "Notes on creativity, design and the digital world from Toprak & Co."
+      "description": "Hinweise zu Kreativität, Design und der digitalen Welt von Toprak & Co."
     },
     "pageTitle": "Blog",
-    "pageSubtitle": "Notes on creativity, design and the digital world.",
-    "readMinutesApprox": "~{count} min read",
+    "pageSubtitle": "Hinweise zu Kreativität, Design und der digitalen Welt.",
+    "readMinutesApprox": "~{count} Min. gelesen",
     "hero": {
-      "readMore": "Continue reading →"
+      "readMore": "Weiterlesen →"
     },
     "card": {
-      "readShort": "Read →"
+      "readShort": "Lesen Sie →"
     },
-    "emptyState": "No posts yet, coming soon.",
+    "emptyState": "Noch keine Beiträge, bald verfügbar.",
     "listing": {
       "overline": "BLOG",
-      "marquee": "Design · Translation · Voice · Content · Technology · Creativity · Culture · Language · Sound · Visual · ",
-      "filterAll": "All",
-      "featuredBadge": "Featured story",
-      "noResults": "No posts with this tag.",
-      "head1a": "Notes,",
-      "head1b": "ideas,",
-      "head2a": "inspirations."
+      "marquee": "Design · Übersetzung · Stimme · Inhalt · Technologie · Kreativität · Kultur · Sprache · Ton · Visuell ·",
+      "filterAll": "Alle",
+      "featuredBadge": "Besondere Geschichte",
+      "noResults": "Keine Beiträge mit diesem Tag.",
+      "head1a": "Notizen,",
+      "head1b": "Ideen,",
+      "head2a": "Inspirationen."
     },
     "newsletter": {
-      "title": "Stay updated with our notes.",
-      "subtitle": "Leave your email for new articles and studio news — no spam.",
-      "emailLabel": "Email",
+      "title": "Bleiben Sie mit unseren Notizen auf dem Laufenden.",
+      "subtitle": "Hinterlassen Sie Ihre E-Mail-Adresse für neue Artikel und Studio-Neuigkeiten – kein Spam.",
+      "emailLabel": "E-Mail",
       "placeholder": "you@example.com",
-      "submit": "Subscribe",
-      "sending": "Sending…",
-      "success": "Thank you — you're on the list.",
-      "error": "Something went wrong. Please try again."
+      "submit": "Abonnieren",
+      "sending": "Senden…",
+      "success": "Vielen Dank – Sie sind auf der Liste.",
+      "error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
     },
     "pagination": {
-      "previous": "Previous",
-      "next": "Next",
+      "previous": "Vorherige",
+      "next": "Nächste",
       "aria": "Pagination",
       "page": "{current} / {total}"
     },
     "detail": {
-      "breadcrumbHome": "Home",
+      "breadcrumbHome": "Heim",
       "breadcrumbBlog": "Blog",
-      "readMinutes": "{count} min read",
-      "relatedTitle": "You might also like",
-      "shareLabel": "Share",
-      "copyLink": "Copy link",
-      "copied": "Copied",
-      "linkCopiedToast": "Link copied!",
-      "tocTitle": "On this page",
-      "authorBlurb": "Written by the Toprak & Co. team.",
-      "authorCta": "Work with us →",
-      "authorName": "The Toprak & Co. team",
-      "authorBio": "We partner with brands across design, translation, voice, and digital production. Every project is built on clear communication and careful craft.",
-      "authorCtaCollaborate": "Let's work together →"
+      "readMinutes": "{count} Min. gelesen",
+      "relatedTitle": "Das könnte Ihnen auch gefallen",
+      "shareLabel": "Aktie",
+      "copyLink": "Link kopieren",
+      "copied": "Kopiert",
+      "linkCopiedToast": "Link kopiert!",
+      "tocTitle": "Auf dieser Seite",
+      "authorBlurb": "Geschrieben vom Toprak & Co.-Team.",
+      "authorCta": "Arbeiten Sie mit uns →",
+      "authorName": "Das Team von Toprak & Co",
+      "authorBio": "Wir arbeiten mit Marken in den Bereichen Design, Übersetzung, Sprachausgabe und digitale Produktion zusammen. Jedes Projekt basiert auf klarer Kommunikation und sorgfältiger Handarbeit.",
+      "authorCtaCollaborate": "Lasst uns zusammenarbeiten →"
     }
   },
   "sss": {
     "meta": {
       "title": "FAQ | Toprak & Co.",
-      "description": "Frequently asked questions about Toprak & Co. services, timelines, and delivery."
+      "description": "Häufig gestellte Fragen zu Dienstleistungen, Zeitplänen und Lieferung von Toprak & Co."
     },
-    "redirecting": "Taking you to the contact page…",
-    "pageTitle": "Frequently Asked Questions",
-    "intro": "Quick answers to common questions. If you need something specific, reach out via the contact form.",
+    "redirecting": "Sie gelangen zur Kontaktseite…",
+    "pageTitle": "Häufig gestellte Fragen",
+    "intro": "Schnelle Antworten auf häufige Fragen. Wenn Sie etwas Bestimmtes benötigen, kontaktieren Sie uns über das Kontaktformular.",
     "items": [
       {
-        "q": "What services do you offer?",
-        "a": "We cover graphic design, translation, voice over, content, photo & video, and web development — often combined when a project needs more than one craft."
+        "q": "Welche Dienstleistungen bieten Sie an?",
+        "a": "Wir decken Grafikdesign, Übersetzung, Voice-Over, Inhalte, Foto und Video sowie Webentwicklung ab – oft kombiniert, wenn ein Projekt mehr als ein Handwerk erfordert."
       },
       {
-        "q": "How long does a project take?",
-        "a": "It depends on scope. A small social pack may take days; a multilingual site or a book-related project can take weeks. We share a clear timeline in the proposal."
+        "q": "Wie lange dauert ein Projekt?",
+        "a": "Es kommt auf den Umfang an. Ein kleines soziales Rudel kann Tage dauern; Eine mehrsprachige Website oder ein buchbezogenes Projekt kann Wochen dauern. Wir teilen in dem Vorschlag einen klaren Zeitplan mit."
       },
       {
-        "q": "How does pricing work?",
-        "a": "We quote per project based on scope, languages, revision rounds, and deliverables — transparent and agreed before production starts."
+        "q": "Wie funktioniert die Preisgestaltung?",
+        "a": "Wir bieten pro Projekt ein Angebot basierend auf Umfang, Sprachen, Revisionsrunden und Leistungen an – transparent und vor Produktionsbeginn vereinbart."
       },
       {
-        "q": "Do you include revision rounds?",
-        "a": "Yes. Revision allowances are defined per service in the agreement. Extra rounds can be added if needed."
+        "q": "Beziehen Sie Revisionsrunden ein?",
+        "a": "Ja. Revisionsvergütungen werden pro Leistung im Vertrag festgelegt. Bei Bedarf können zusätzliche Runden hinzugefügt werden."
       },
       {
-        "q": "Do you work remotely?",
-        "a": "Yes. We collaborate with clients locally and internationally with async workflows and scheduled calls when useful."
+        "q": "Arbeiten Sie remote?",
+        "a": "Ja. Wir arbeiten mit Kunden vor Ort und international mit asynchronen Arbeitsabläufen und geplanten Anrufen zusammen, wenn dies sinnvoll ist."
       },
       {
-        "q": "Which file formats do you accept for translation or VO?",
-        "a": "Common formats include Word/PDF, InDesign packages, subtitles (SRT/VTT), and broadcast-ready audio (WAV/AIFF). We confirm deliverables at kickoff."
+        "q": "Welche Dateiformate akzeptieren Sie für Übersetzungen oder VO?",
+        "a": "Zu den gängigen Formaten gehören Word/PDF, InDesign-Pakete, Untertitel (SRT/VTT) und sendefähiges Audio (WAV/AIFF). Wir bestätigen die Ergebnisse beim Kickoff."
       },
       {
-        "q": "Do you offer website maintenance?",
-        "a": "Yes — updates, small improvements, content entry, and performance checks are available as monthly retainers or task bundles."
+        "q": "Bieten Sie Website-Wartung an?",
+        "a": "Ja – Updates, kleine Verbesserungen, Inhaltseinträge und Leistungsprüfungen sind als monatliche Gebühren oder Aufgabenpakete verfügbar."
       },
       {
-        "q": "Who owns the rights to the deliverables?",
-        "a": "After payment, usage rights transfer as defined in the contract. Stock assets and third-party licenses are listed separately."
+        "q": "Wem gehören die Rechte an den Liefergegenständen?",
+        "a": "Nach Zahlungseingang gehen die Nutzungsrechte gemäß Vertrag über. Stock-Assets und Drittlizenzen werden separat aufgeführt."
       },
       {
-        "q": "Do you take rush jobs?",
-        "a": "Sometimes, if the schedule allows. Rush work may include an express fee — share your deadline and deliverables clearly."
+        "q": "Nehmen Sie Eilaufträge an?",
+        "a": "Manchmal, wenn der Zeitplan es zulässt. Für Eilarbeiten kann eine Expressgebühr anfallen – teilen Sie Ihre Frist und die zu liefernden Leistungen deutlich mit."
       },
       {
-        "q": "What should I send to get started?",
-        "a": "A short brief or email describing goals, audience, languages, and deadlines is enough. We follow up with a few clarifying questions and next steps."
+        "q": "Was soll ich senden, um loszulegen?",
+        "a": "Ein kurzes Briefing oder eine E-Mail mit einer Beschreibung der Ziele, Zielgruppe, Sprachen und Fristen reicht aus. Anschließend stellen wir Ihnen ein paar klärende Fragen und geben Ihnen die nächsten Schritte bekannt."
       }
     ]
   },
   "contact": {
-    "title": "Get in Touch",
-    "subtitle": "Let's have a coffee about your project.",
+    "title": "Nehmen Sie Kontakt auf",
+    "subtitle": "Lassen Sie uns einen Kaffee über Ihr Projekt trinken.",
     "hero": {
-      "overline": "CONTACT",
-      "titleBefore": "Let's have a ",
-      "titleHighlight": "coffee",
-      "titleAfter": " about your project.",
-      "intro": "Big or small, every project matters to us.\nReach out — we'd love to talk.",
+      "overline": "KONTAKT",
+      "titleBefore": "Lassen Sie uns einen ",
+      "titleHighlight": "Kaffee",
+      "titleAfter": "über Ihr Projekt.",
+      "intro": "Ob groß oder klein, jedes Projekt ist uns wichtig.\nNehmen Sie Kontakt mit uns auf – wir würden gerne reden.",
       "cards": {
         "email": {
-          "title": "Email",
+          "title": "E-Mail",
           "value": "info@toprakco.tr"
         },
         "location": {
-          "title": "Location",
-          "value": "Turkey — we work remotely"
+          "title": "Standort",
+          "value": "Türkei – wir arbeiten remote"
         },
         "response": {
-          "title": "Response time",
-          "value": "Usually within 24 hours"
+          "title": "Ansprechzeit",
+          "value": "Normalerweise innerhalb von 24 Stunden"
         }
       },
-      "projectCta": "I Have a Project — Let's Start →",
-      "projectCtaAria": "Open the multi-step project application form",
+      "projectCta": "Ich habe ein Projekt – fangen wir an →",
+      "projectCtaAria": "Öffnen Sie das Antragsformular für mehrstufige Projekte",
       "social": {
         "instagram": "https://www.instagram.com/toprakandco/",
         "linkedin": "https://www.linkedin.com/company/toprak-co",
         "youtube": "https://www.youtube.com/@toprakandco",
-        "instagramAria": "Toprak & Co. on Instagram",
-        "linkedinAria": "Toprak & Co. on LinkedIn",
-        "youtubeAria": "Toprak & Co. on YouTube"
+        "instagramAria": "Toprak & Co. auf Instagram",
+        "linkedinAria": "Toprak & Co. auf LinkedIn",
+        "youtubeAria": "Toprak & Co. auf YouTube"
       }
     },
     "meta": {
-      "title": "Contact | Toprak & Co.",
-      "description": "Contact Toprak & Co. for your next project. Let's quickly discuss process, pricing and the best collaboration model."
+      "title": "Kontakt | Toprak & Co.",
+      "description": "Kontaktieren Sie Toprak & Co. für Ihr nächstes Projekt. Lassen Sie uns kurz den Ablauf, die Preise und das beste Kooperationsmodell besprechen."
     },
     "callbackWidget": {
-      "title": "Request a call",
-      "subtitle": "Prefer a phone call? Leave your number and we’ll call you.",
-      "timeLabel": "Gewünschte Rückrufzeit",
+      "title": "Fordern Sie einen Anruf an",
+      "subtitle": "Bevorzugen Sie einen Anruf? Hinterlassen Sie Ihre Nummer und wir rufen Sie an.",
+      "timeLabel": "Wenn Sie möchten, dass wir anrufen",
       "phonePlaceholder": "05XX XXX XX XX",
-      "submit": "Call me",
-      "saved": "✓ Saved",
-      "error": "Enter a valid Turkish mobile number (05XX XXX XX XX).",
+      "submit": "Rufen Sie mich an",
+      "saved": "✓ Gespeichert",
+      "error": "Bitte geben Sie eine gültige türkische Mobilnummer ein (05XX XXX XX XX).",
       "time": {
-        "morning": "Morning (9–12)",
-        "noon": "Noon (12–3)",
-        "evening": "Afternoon (3–6)",
-        "any": "No preference"
+        "morning": "Morgen (9–12)",
+        "noon": "Mittag (12–15)",
+        "evening": "Nachmittag (15–18)",
+        "any": "Keine Präferenz"
       }
     },
     "form": {
-      "sectionTitle": "Write to Us",
-      "sectionSubtitle": "Tell us about your project — we’ll get back to you shortly.",
-      "name": "Full Name",
-      "email": "Email",
-      "phone": "Phone",
-      "subject": "Subject",
-      "subjectPlaceholder": "Select a subject",
-      "message": "Message",
-      "budgetLabel": "Budget range",
+      "sectionTitle": "Schreiben Sie uns",
+      "sectionSubtitle": "Erzählen Sie uns von Ihrem Projekt – wir werden uns in Kürze bei Ihnen melden.",
+      "name": "Vollständiger Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "subject": "Thema",
+      "subjectPlaceholder": "Wählen Sie ein Thema aus",
+      "message": "Nachricht",
+      "budgetLabel": "Budgetbereich",
       "budgetOptional": "Optional",
-      "submit": "Send Message →",
-      "sending": "Sending...",
-      "success": "Your message has been sent! We'll get back to you shortly.",
-      "successTitle": "Your message was sent!",
-      "successSubtitle": "We’ll get back to you as soon as we can.",
-      "error": "Something went wrong, please try again.",
+      "submit": "Nachricht senden →",
+      "sending": "Senden...",
+      "success": "Ihre Nachricht wurde gesendet! Wir werden uns in Kürze bei Ihnen melden.",
+      "successTitle": "Ihre Nachricht wurde gesendet!",
+      "successSubtitle": "Wir werden uns so schnell wie möglich bei Ihnen melden.",
+      "error": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
       "charCount": "{current}/500",
       "validation": {
-        "name": "Please enter your name.",
-        "email": "Please enter a valid email address.",
-        "message": "Please enter a message (max 500 characters).",
-        "phone": "Please enter a valid phone number.",
-        "privacy": "You must accept the privacy policy to continue."
+        "name": "Bitte geben Sie Ihren Namen ein.",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "message": "Bitte geben Sie eine Nachricht ein (maximal 500 Zeichen).",
+        "phone": "Bitte geben Sie eine gültige Telefonnummer ein.",
+        "privacy": "Sie müssen die Datenschutzrichtlinie akzeptieren, um fortfahren zu können."
       },
-      "privacyConsentBefore": "I have read and accept the ",
-      "privacyConsentLink": "Privacy Policy & KVKK",
-      "privacyConsentAfter": " disclosure.",
+      "privacyConsentBefore": "Ich habe die ",
+      "privacyConsentLink": "Datenschutzrichtlinie & KVKK",
+      "privacyConsentAfter": " zur Kenntnis genommen und akzeptiere.",
       "budget": {
         "lt5k": "< ₺5,000",
         "5to15k": "₺5K–15K",
         "15to30k": "₺15K–30K",
         "30kPlus": "₺30K+",
-        "preferNot": "Prefer not to say"
+        "preferNot": "Sag es lieber nicht"
       },
       "subjects": {
-        "grafik-tasarim": "Graphic Design",
-        "ceviri": "Translation",
-        "seslendirme": "Voice Over",
-        "icerik-uretimi": "Content Production",
-        "fotograf-video": "Photo & Video",
+        "grafik-tasarim": "Grafikdesign",
+        "ceviri": "Übersetzung",
+        "seslendirme": "Voice-Over",
+        "icerik-uretimi": "Content-Produktion",
+        "fotograf-video": "Foto & Video",
         "web-yazilim": "Web & Software",
-        "other": "Other"
+        "other": "Andere"
       }
     },
     "info": {
-      "emailLabel": "Email",
+      "emailLabel": "E-Mail",
       "instagramLabel": "Instagram",
       "youtubeLabel": "YouTube"
     },
@@ -840,52 +840,52 @@
       "title": "FAQ",
       "items": [
         {
-          "q": "How does your project process work?",
-          "a": "We start with a free discovery call, then a proposal, then production, then delivery — including revision rounds."
+          "q": "Wie funktioniert Ihr Projektprozess?",
+          "a": "Wir beginnen mit einem kostenlosen Erstgespräch, dann einem Angebot, dann der Produktion, dann der Lieferung – einschließlich Überarbeitungsrunden."
         },
         {
-          "q": "How is pricing determined?",
-          "a": "Every project is unique. We quote based on scope and timeline."
+          "q": "Wie wird der Preis ermittelt?",
+          "a": "Jedes Projekt ist einzigartig. Wir kalkulieren Angebote nach Umfang und Zeitrahmen."
         },
         {
-          "q": "Do you work remotely?",
-          "a": "Yes — we work with clients across Turkey and internationally."
+          "q": "Arbeiten Sie remote?",
+          "a": "Ja – wir arbeiten mit Kunden in der ganzen Türkei und international zusammen."
         },
         {
-          "q": "Do you include revisions?",
-          "a": "Yes — at least two revision rounds are included on every project."
+          "q": "Sind Überarbeitungen enthalten?",
+          "a": "Ja – jedes Projekt umfasst mindestens zwei Revisionsrunden."
         },
         {
-          "q": "How fast can you deliver translations?",
-          "a": "Roughly 1,000 words per day on average. Rush options are available for urgent work."
+          "q": "Wie schnell können Sie Übersetzungen liefern?",
+          "a": "Durchschnittlich etwa 1.000 Wörter pro Tag. Für dringende Arbeiten stehen Eiloptionen zur Verfügung."
         },
         {
-          "q": "Do I need a studio for voice recording?",
-          "a": "No — we record broadcast-quality audio from a treated home studio."
+          "q": "Benötige ich ein Studio für Sprachaufnahmen?",
+          "a": "Nein – wir nehmen Audio in Sendequalität aus einem aufbereiteten Heimstudio auf."
         },
         {
-          "q": "For social media management, do you create the content?",
-          "a": "Yes — we produce photo, video, graphics, and copy in-house."
+          "q": "Erstellen Sie die Inhalte für das Social-Media-Management?",
+          "a": "Ja – wir produzieren Fotos, Videos, Grafiken und Texte im eigenen Haus."
         }
       ]
     },
     "where": {
-      "title": "Where are we?",
-      "line1": "Istanbul, Turkey",
-      "line2": "But in every sense, we’re remote —",
-      "line3": "we can work with you from anywhere in the world.",
+      "title": "Wo sind wir?",
+      "line1": "Istanbul, Türkei",
+      "line2": "Aber in jeder Hinsicht sind wir weit weg –",
+      "line3": "Wir können von überall auf der Welt mit Ihnen zusammenarbeiten.",
       "features": {
         "remote": {
-          "icon": "🌍",
-          "text": "Remote-first collaboration"
+          "icon": null,
+          "text": "Remote-First-Zusammenarbeit"
         },
         "video": {
-          "icon": "📞",
-          "text": "Video calls"
+          "icon": null,
+          "text": "Videoanrufe"
         },
         "inPerson": {
-          "icon": "✈️",
-          "text": "In-person when it matters"
+          "icon": null,
+          "text": "Persönlich, wenn es darauf ankommt"
         }
       }
     }
@@ -893,65 +893,65 @@
   "project": {
     "start": {
       "brandLine": "Toprak & Co.",
-      "heroTitle": "Project application",
-      "heroSubtitle": "Reach us in a few steps — from services to contact details. We’ll reply within 24 hours.",
+      "heroTitle": "Projektantrag",
+      "heroSubtitle": "Erreichen Sie uns in wenigen Schritten – vom Service bis zu den Kontaktdaten. Wir antworten innerhalb von 24 Stunden.",
       "meta": {
-        "title": "Project Application | Toprak & Co.",
-        "description": "Share your services, budget and details — we’ll reply within 24 hours."
+        "title": "Projektantrag | Toprak & Co.",
+        "description": "Teilen Sie uns Ihre Leistungen, Ihr Budget und Ihre Details mit – wir antworten innerhalb von 24 Stunden."
       },
       "steps": {
-        "service": "Services",
+        "service": "Dienstleistungen",
         "budget": "Budget",
-        "details": "Details",
-        "contact": "Contact"
+        "details": "Einzelheiten",
+        "contact": "Kontakt"
       },
       "step1": {
-        "heading": "What would you like us to do?",
-        "continue": "Continue →"
+        "heading": "Was möchten Sie, dass wir tun?",
+        "continue": "Weiter →"
       },
       "step2": {
-        "heading": "Your budget and timeline?",
+        "heading": "Ihr Budget und Zeitplan?",
         "budgetLabel": "Budget",
-        "timelineLabel": "Timeline",
-        "back": "← Back",
-        "continue": "Continue →"
+        "timelineLabel": "Zeitleiste",
+        "back": "← Zurück",
+        "continue": "Weiter →"
       },
       "step3": {
-        "heading": "Tell us about your project",
-        "hint": "The more you share, the more accurate our quote can be.",
-        "referenceLabel": "Any reference you like? (link)",
+        "heading": "Erzählen Sie uns von Ihrem Projekt",
+        "hint": "Je mehr Sie mitteilen, desto genauer kann unser Angebot sein.",
+        "referenceLabel": "Gibt es eine Referenz, die Ihnen gefällt? (Link)",
         "referencePlaceholder": "https://...",
-        "back": "← Back",
-        "continue": "Continue →"
+        "back": "← Zurück",
+        "continue": "Weiter →"
       },
       "step4": {
-        "heading": "How can we reach you?",
-        "name": "Full name",
-        "email": "Email",
-        "phone": "Phone",
-        "company": "Company / brand",
+        "heading": "Wie können wir Sie erreichen?",
+        "name": "Vollständiger Name",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "company": "Unternehmen / Marke",
         "companyOptional": "optional",
-        "preferenceLabel": "How would you prefer we contact you?",
-        "submit": "Submit application 🌿",
-        "sending": "Sending...",
-        "kvkkBefore": "I have read and accept the ",
-        "kvkkLink": "Privacy Policy & KVKK",
-        "kvkkAfter": " disclosure.",
-        "back": "← Back"
+        "preferenceLabel": "Wie würden wir Sie am liebsten kontaktieren?",
+        "submit": "Bewerbung abschicken 🌿",
+        "sending": "Senden...",
+        "kvkkBefore": "Ich habe die gelesen und akzeptiere sie",
+        "kvkkLink": "Datenschutzrichtlinie & KVKK",
+        "kvkkAfter": "Offenlegung.",
+        "back": "← Zurück"
       },
       "success": {
-        "title": "Application received! 🌿",
-        "subtitle": "We’ll get back to you within 24 hours at the latest.",
-        "help": "If you have questions in the meantime:",
+        "title": "Bewerbung erhalten! 🌿",
+        "subtitle": "Wir werden uns spätestens innerhalb von 24 Stunden bei Ihnen melden.",
+        "help": "Wenn Sie in der Zwischenzeit Fragen haben:",
         "whatsapp": "WhatsApp",
-        "emailUs": "Email"
+        "emailUs": "E-Mail"
       },
       "services": {
-        "grafik-tasarim": "Graphic Design",
-        "ceviri": "Translation",
-        "seslendirme": "Voice Over",
-        "icerik-uretimi": "Content & Social",
-        "fotograf-video": "Photo & Video",
+        "grafik-tasarim": "Grafikdesign",
+        "ceviri": "Übersetzung",
+        "seslendirme": "Voice-Over",
+        "icerik-uretimi": "Inhalt und Soziales",
+        "fotograf-video": "Foto & Video",
         "web-yazilim": "Web & Software"
       },
       "budget": {
@@ -959,26 +959,26 @@
         "5-15k": "₺5K–15K",
         "15-30k": "₺15K–30K",
         "30k-plus": "₺30K+",
-        "prefer-not": "Prefer not to say"
+        "prefer-not": "Sag es lieber nicht"
       },
       "timeline": {
-        "urgent-1-3": "Urgent (1–3 days)",
-        "1-2-weeks": "1–2 weeks",
-        "1-month": "1 month",
-        "flexible": "Flexible"
+        "urgent-1-3": "Dringend (1–3 Tage)",
+        "1-2-weeks": "1–2 Wochen",
+        "1-month": "1 Monat",
+        "flexible": "Flexibel"
       },
       "contactPref": {
-        "email": "Email",
+        "email": "E-Mail",
         "whatsapp": "WhatsApp",
-        "video": "Video call",
-        "any": "No preference"
+        "video": "Videoanruf",
+        "any": "Keine Präferenz"
       },
       "errors": {
-        "submit": "Could not submit — please try again."
+        "submit": "Konnte nicht übermittelt werden – bitte versuchen Sie es erneut."
       }
     }
   },
   "common": {
-    "backToList": "Back to list"
+    "backToList": "Zurück zur Liste"
   }
 }

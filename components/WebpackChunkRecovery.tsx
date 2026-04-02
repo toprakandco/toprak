@@ -5,7 +5,15 @@ import { useEffect } from 'react';
 const CHUNK_MISMATCH =
   /Cannot read properties of undefined \(reading ['"]call['"]\)/;
 
+/** Stale chunk / slow dev compile / tab sleep — layout.js load timeout, etc. */
+const CHUNK_LOAD_FAILED =
+  /ChunkLoadError|Loading chunk .+ failed|timeout:\s*http[^\s]*_next\/static/i;
+
 const STORAGE_KEY = 'pk_webpack_chunk_reload';
+
+function shouldRecover(message: string) {
+  return CHUNK_MISMATCH.test(message) || CHUNK_LOAD_FAILED.test(message);
+}
 
 /**
  * Mitigates Next.js webpack runtime errors when the browser holds stale chunks
@@ -13,7 +21,6 @@ const STORAGE_KEY = 'pk_webpack_chunk_reload';
  */
 export function WebpackChunkRecovery() {
   useEffect(() => {
-    const shouldRecover = (message: string) => CHUNK_MISMATCH.test(message);
 
     const onWindowError = (event: ErrorEvent) => {
       const msg = event.error?.message ?? event.message ?? '';
